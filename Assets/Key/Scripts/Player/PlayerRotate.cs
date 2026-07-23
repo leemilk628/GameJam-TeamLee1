@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Key.Scripts.Player {
@@ -17,6 +16,10 @@ namespace Key.Scripts.Player {
             {
                 mainCamera = Camera.main;
             }
+        }
+
+        private void Update() {
+            RotateTowardMouse();
         }
 
         private void RotateTowardMouse()

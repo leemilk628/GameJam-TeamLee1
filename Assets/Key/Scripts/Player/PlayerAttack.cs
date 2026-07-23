@@ -1,4 +1,5 @@
 ﻿using Key.Scripts.Pooling;
+using Key.Scripts.Projectile;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ namespace Key.Scripts.Player
         public int AttackPower { get; private set; }
         [field:SerializeField]public float AttackSpeed { get; private set; }
 
-        [Header("Bullet Pool")]
+        [Header("Pool")]
         [SerializeField] private BulletPoolManager bulletPoolManager;
         
         [Header("Stats")]
@@ -100,8 +101,7 @@ namespace Key.Scripts.Player
             bulletPoolManager.SpawnBullet(
                 firePoint.position,
                 mouseWorldPosition,
-                _playerStat.AttackPower,
-                _playerStat.KnockbackPower
+                bulletPrefab.GetComponent<Bullet>().data
             );
             
             _nextAttackTime = Time.time + (1f / AttackSpeed);

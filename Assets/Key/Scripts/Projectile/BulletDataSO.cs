@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Key.Scripts.BulletSc {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "BulletData", menuName = "Key/SO/BulletData", order = 0)]
     public class BulletDataSO : ScriptableObject {
         [field: Header("Visual")]
         [field: SerializeField]

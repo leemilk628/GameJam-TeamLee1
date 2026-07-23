@@ -1,12 +1,15 @@
 ﻿using Key.Scripts.Pooling;
+using Key.Scripts.Projectile;
 using UnityEngine;
 
 namespace Key.Scripts.ASatellite.Modules {
     public class AttackModule : MonoBehaviour, IModule {
-        [Header("Attack")] [SerializeField] private int attackPower = 10;
+        [Header("Attack")] 
+        [SerializeField] private int attackPower = 10;
         [SerializeField] private float attackSpeed = 1f;
         [SerializeField] private float attackRange = 5f;
         [SerializeField] private float knockbackPower = 3f;
+        [SerializeField] private GameObject bulletPrefab;
 
         [Header("Target")] [SerializeField] private LayerMask targetLayer;
 
@@ -16,6 +19,7 @@ namespace Key.Scripts.ASatellite.Modules {
 
         private AbstractASatellite _owner;
         private Collider2D _ownerCollider;
+        private Transform _nearest;
 
         private float _attackTimer;
         private bool _isActive;
@@ -23,15 +27,8 @@ namespace Key.Scripts.ASatellite.Modules {
         public void Initialize(ModuleOwner owner) {
             _owner = owner as AbstractASatellite;
 
-            if (_owner == null) {
-                Debug.LogError(
-                    $"{name}: 소유자가 AbstractASatellite이 아닙니다.",
-                    this
-                );
-
-                return;
-            }
-
+            if (_owner == null) return;
+            
             _ownerCollider =
                 _owner.GetComponentInChildren<Collider2D>();
 
@@ -44,7 +41,6 @@ namespace Key.Scripts.ASatellite.Modules {
                     FindFirstObjectByType<BulletPoolManager>();
             }
 
-            // 위성의 Tick 이벤트 구독
             _owner.OnTick += Tick;
         }
 
@@ -78,9 +74,8 @@ namespace Key.Scripts.ASatellite.Modules {
 
             bulletPoolManager.SpawnBullet(
                 firePoint.position,
-                targetPosition,
-                attackPower,
-                knockbackPower
+                _nearest.position,
+                bulletPrefab.GetComponent<Bullet>().data
             );
         }
 
@@ -124,7 +119,6 @@ namespace Key.Scripts.ASatellite.Modules {
         }
 
         private void OnDestroy() {
-            // 이벤트 구독 해제
             if (_owner != null) {
                 _owner.OnTick -= Tick;
             }
