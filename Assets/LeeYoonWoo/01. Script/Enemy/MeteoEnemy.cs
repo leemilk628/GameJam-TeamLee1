@@ -11,6 +11,7 @@ namespace LeeYoonWoo._01._Script.Enemy
         
         void Start()
         {
+            mvdir = GameObject.FindGameObjectWithTag("Player");
             _mvm.Move(mvdir.transform.position);
         }
 
