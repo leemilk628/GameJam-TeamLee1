@@ -106,15 +106,12 @@ namespace Key.Scripts.Projectile {
             IKnockbackable knockbackable =
                 other.GetComponentInParent<IKnockbackable>();
 
-            if (knockbackable != null) {
-                knockbackable.Knockback(
-                    _moveDirection,
-                    _knockbackPower
-                );
-            }
+            knockbackable?.Knockback(_moveDirection, _knockbackPower);
 
             ReturnToPool();
         }
+
+        #region Pooling
 
         private void ReturnToPool() {
             if (!_isActive)
@@ -164,5 +161,7 @@ namespace Key.Scripts.Projectile {
             // 상태를 확실하게 초기화
             _spriteRenderer.sprite = null;
         }
+
+        #endregion
     }
 }
