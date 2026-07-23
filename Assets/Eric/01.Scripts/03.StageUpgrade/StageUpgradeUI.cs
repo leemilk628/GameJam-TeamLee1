@@ -3,6 +3,7 @@ using Eric.ModuleSystem;
 using Eric.ScriptableScripts;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Eric.StageUpgrade
@@ -11,21 +12,19 @@ namespace Eric.StageUpgrade
         {
                 private ModuleOwner Owner{get;set;}
                 private StageUpgradeModule _stageUpgradeModule;
-                private MeteoriteFragmentModule _meteoriteFragmentModule;
+                private GoldModule _goldModule;
 
-                [field:Header("Upgrade Data")]
                 [field:SerializeField] public StageUpgradeSO StageUpgrade{get;private set;}
-
-                [field:Header("Text")]
                 [field:SerializeField] public TextMeshProUGUI Name{get;private set;}
                 [field:SerializeField] public TextMeshProUGUI CurStat{get;private set;}
                 [field:SerializeField] public TextMeshProUGUI AfterUpgradeStat{get;private set;}
                 [field:SerializeField] public TextMeshProUGUI Level{get;private set;}
-                [field:SerializeField] public TextMeshProUGUI NeedMF{get;private set;}
 
-                [field:Header("UI")]
+                [field:FormerlySerializedAs("<NeedMF>k__BackingField")]
+                [field:SerializeField] public TextMeshProUGUI NeedGold{get;private set;}
+
                 [field:SerializeField] public Button BuyButton{get;private set;}
-                [field:SerializeField] public RawImage Icon{get;private set;}
+                [field:SerializeField] public Image Icon{get;private set;}
 
                 public void Init(ModuleOwner owner)
                 {
@@ -35,13 +34,16 @@ namespace Eric.StageUpgrade
                 public void AfterInit()
                 {
                         _stageUpgradeModule = Owner.GetModule<StageUpgradeModule>();
-                        _meteoriteFragmentModule = Owner.GetModule<MeteoriteFragmentModule>();
+                        _goldModule = Owner.GetModule<GoldModule>();
+
+                        if (_stageUpgradeModule == null || _goldModule == null)
+                                return;
 
                         if (BuyButton != null)
                                 BuyButton.onClick.AddListener(Buy);
 
                         _stageUpgradeModule.OnStageUpgradeDataChanged += UIUpdate;
-                        _meteoriteFragmentModule.OnMeteoriteFragmentChanged += MeteoriteFragmentChanged;
+                        _goldModule.OnGoldChanged += GoldChanged;
 
                         UIUpdate();
                 }
@@ -54,8 +56,8 @@ namespace Eric.StageUpgrade
                         if (_stageUpgradeModule != null)
                                 _stageUpgradeModule.OnStageUpgradeDataChanged -= UIUpdate;
 
-                        if (_meteoriteFragmentModule != null)
-                                _meteoriteFragmentModule.OnMeteoriteFragmentChanged -= MeteoriteFragmentChanged;
+                        if (_goldModule != null)
+                                _goldModule.OnGoldChanged -= GoldChanged;
                 }
 
                 public void Buy()
@@ -72,43 +74,52 @@ namespace Eric.StageUpgrade
                                 return;
 
                         int currentLevel = _stageUpgradeModule.GetLevel(StageUpgrade.StageUpgradeType);
-                        float currentStat = _stageUpgradeModule.GetCurrentStat(StageUpgrade);
-                        float afterStat = _stageUpgradeModule.GetAfterUpgradeStat(StageUpgrade);
                         bool isMaxLevel = currentLevel >= StageUpgrade.MaxLevel;
 
                         if (Name != null)
                                 Name.text = StageUpgrade.UpgradeName;
 
                         if (CurStat != null)
-                                CurStat.text = FormatStat(currentStat);
+                                CurStat.text = FormatStat(_stageUpgradeModule.GetCurrentStat(StageUpgrade));
 
                         if (AfterUpgradeStat != null)
-                                AfterUpgradeStat.text = isMaxLevel ? "MAX" : $"=> {FormatStat(afterStat)}";
+                        {
+                                AfterUpgradeStat.text = isMaxLevel
+                                        ? "MAX"
+                                        : $"=> {FormatStat(_stageUpgradeModule.GetAfterUpgradeStat(StageUpgrade))}";
+                        }
 
                         if (Level != null)
                                 Level.text = $"{currentLevel} / {StageUpgrade.MaxLevel}";
 
-                        if (NeedMF != null)
-                                NeedMF.text = isMaxLevel ? "MAX" : _stageUpgradeModule.GetNeedMF(StageUpgrade).ToString();
+                        if (NeedGold != null)
+                        {
+                                NeedGold.text = isMaxLevel
+                                        ? "MAX"
+                                        : _stageUpgradeModule.GetNeedGold(StageUpgrade).ToString("N0");
+                        }
 
                         if (Icon != null)
-                                Icon.texture = StageUpgrade.Icon;
+                        {
+                                Icon.sprite = StageUpgrade.Icon;
+                                Icon.enabled = StageUpgrade.Icon != null;
+                        }
 
                         if (BuyButton != null)
                                 BuyButton.interactable = _stageUpgradeModule.CanUpgrade(StageUpgrade);
                 }
 
-                private void MeteoriteFragmentChanged(int amount)
+                private void GoldChanged(int amount)
                 {
                         UIUpdate();
                 }
 
-                private string FormatStat(float value)
+                private string FormatStat(int value)
                 {
-                        if (StageUpgrade.IsIntStat)
-                                return Mathf.RoundToInt(value).ToString();
+                        if (StageUpgrade.StageUpgradeType == StageUpgradeType.MeteoriteFragment)
+                                return $"{value:N0}%";
 
-                        return value.ToString("0.##");
+                        return value.ToString("N0");
                 }
         }
 }

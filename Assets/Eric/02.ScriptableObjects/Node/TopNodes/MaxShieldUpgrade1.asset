@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f97e336cbb4663b7bd8a1f836fe140, type: 3}
+  m_Name: MaxShieldUpgrade1
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.SkillTreeSO
+  nodeId: 4be64876-6234-4a70-b4da-ef6744add195
+  <SkillTreeType>k__BackingField: 1
+  <IncreaseValue>k__BackingField: 1
+  <SatelliteType>k__BackingField: 0
+  <BeforeNode>k__BackingField: {fileID: 11400000, guid: 5c2970e4366775a419ec61e6ef3ddf50, type: 2}
+  <IsUpgrade>k__BackingField: 0
+  <Description>k__BackingField: MaxShield +1
+  <NeedMeteoriteFragment>k__BackingField: 50

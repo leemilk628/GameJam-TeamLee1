@@ -14,54 +14,40 @@ namespace Eric.Upgrade
                 private ModuleOwner Owner{get;set;}
                 private SaveSkillTree _saveSkillTree;
                 private SatelliteUnlockModule _satelliteUnlockModule;
-                private GoldModule _goldModule;
-
-                private readonly Dictionary<SkillTreeType, float> _currentMultiply = new();
+                private MeteoriteFragmentModule _meteoriteFragmentModule;
+                private readonly Dictionary<SkillTreeType, int> _currentIncreaseValues = new();
 
                 public event Action OnMultiplyChanged;
 
                 public void Init(ModuleOwner owner)
                 {
                         Owner = owner;
-                        ResetMultiply();
+                        ResetUpgradeValues();
                 }
 
                 public void AfterInit()
                 {
                         _saveSkillTree = Owner.GetModule<SaveSkillTree>();
                         _satelliteUnlockModule = Owner.GetModule<SatelliteUnlockModule>();
-                        _goldModule = Owner.GetModule<GoldModule>();
+                        _meteoriteFragmentModule = Owner.GetModule<MeteoriteFragmentModule>();
                 }
 
                 public bool TryUpgrade(SkillTreeSO skillTree)
                 {
-                        if (skillTree == null) return false;
+                        if (!CanUpgrade(skillTree))
+                                return false;
 
-                        if (_saveSkillTree == null) return false;
-
-                        if (_goldModule == null)return false;
-
-                        if (skillTree.IsUpgrade)return false;
-
-                        if (skillTree.BeforeNode != null && !skillTree.BeforeNode.IsUpgrade) return false;
-
-                        if (skillTree.SkillTreeType == SkillTreeType.Satellite)
-                        {
-                                if (_satelliteUnlockModule == null) return false;
-                                if (skillTree.SatelliteType == SatelliteType.None) return false;
-                        }
-
-                        if (!_goldModule.TrySpendGold(skillTree.NeedGold)) return false;
+                        if (!_meteoriteFragmentModule.TrySpendMeteoriteFragment(skillTree.NeedMeteoriteFragment))
+                                return false;
 
                         skillTree.Upgrade();
 
-                        if (skillTree.SkillTreeType == SkillTreeType.Satellite) _satelliteUnlockModule.Unlock(skillTree.SatelliteType);
+                        if (skillTree.SkillTreeType == SkillTreeType.Satellite)
+                                _satelliteUnlockModule.Unlock(skillTree.SatelliteType);
                         else
-                        {
-                                ApplyMultiply(skillTree);
-                                OnMultiplyChanged?.Invoke();
-                        }
+                                ApplyUpgradeValue(skillTree);
 
+                        OnMultiplyChanged?.Invoke();
                         _saveSkillTree.OnSave();
 
                         return true;
@@ -69,16 +55,25 @@ namespace Eric.Upgrade
 
                 public bool CanUpgrade(SkillTreeSO skillTree)
                 {
-                        if (skillTree == null || _goldModule == null||skillTree.IsUpgrade||skillTree.BeforeNode != null && !skillTree.BeforeNode.IsUpgrade)
+                        if (skillTree == null || _saveSkillTree == null || _meteoriteFragmentModule == null)
+                                return false;
+
+                        if (skillTree.IsUpgrade)
+                                return false;
+
+                        if (skillTree.BeforeNode != null && !skillTree.BeforeNode.IsUpgrade)
                                 return false;
 
                         if (skillTree.SkillTreeType == SkillTreeType.Satellite)
                         {
-                                if (_satelliteUnlockModule == null||skillTree.SatelliteType == SatelliteType.None)
+                                if (_satelliteUnlockModule == null)
+                                        return false;
+
+                                if (skillTree.SatelliteType == SatelliteType.None)
                                         return false;
                         }
 
-                        return _goldModule.HasGold(skillTree.NeedGold);
+                        return _meteoriteFragmentModule.HasMeteoriteFragment(skillTree.NeedMeteoriteFragment);
                 }
 
                 public void Raise()
@@ -88,50 +83,76 @@ namespace Eric.Upgrade
 
                 public void RebuildMultiply(IEnumerable<SkillTreeSO> skillTrees)
                 {
-                        ResetMultiply();
+                        ResetUpgradeValues();
 
                         if (skillTrees != null)
                         {
                                 foreach (SkillTreeSO skillTree in skillTrees)
                                 {
-                                        OnMultiplyChanged?.Invoke();
-                                        
-                                        if (skillTree == null||!skillTree.IsUpgrade||skillTree.SkillTreeType == SkillTreeType.Satellite)
+                                        if (skillTree == null || !skillTree.IsUpgrade)
                                                 continue;
 
-                                        ApplyMultiply(skillTree);
+                                        if (skillTree.SkillTreeType == SkillTreeType.Satellite)
+                                                continue;
+
+                                        ApplyUpgradeValue(skillTree);
                                 }
                         }
 
                         OnMultiplyChanged?.Invoke();
                 }
 
-                public float GetMultiply(SkillTreeType skillTreeType)
+                public int GetAddValue(SkillTreeType skillTreeType)
                 {
-                        if (_currentMultiply.TryGetValue(skillTreeType, out float multiply))
-                                return multiply;
+                        if (IsPercentType(skillTreeType))
+                                return 0;
 
-                        return 1f;
+                        return GetIncreaseValue(skillTreeType);
                 }
 
-                private void ApplyMultiply(SkillTreeSO skillTree)
+                public int GetPercentIncrease(SkillTreeType skillTreeType)
+                {
+                        if (!IsPercentType(skillTreeType))
+                                return 0;
+
+                        return GetIncreaseValue(skillTreeType);
+                }
+
+                public float GetMultiply(SkillTreeType skillTreeType)
+                {
+                        return 1f + GetPercentIncrease(skillTreeType) / 100f;
+                }
+
+                private int GetIncreaseValue(SkillTreeType skillTreeType)
+                {
+                        if (_currentIncreaseValues.TryGetValue(skillTreeType, out int increaseValue))
+                                return increaseValue;
+
+                        return 0;
+                }
+
+                private void ApplyUpgradeValue(SkillTreeSO skillTree)
                 {
                         SkillTreeType skillTreeType = skillTree.SkillTreeType;
 
-                        if (!_currentMultiply.TryGetValue(skillTreeType, out float currentMultiply))
-                                currentMultiply = 1f;
+                        if (!_currentIncreaseValues.ContainsKey(skillTreeType))
+                                _currentIncreaseValues[skillTreeType] = 0;
 
-                        _currentMultiply[skillTreeType] = currentMultiply * skillTree.Multiply;
+                        _currentIncreaseValues[skillTreeType] += skillTree.IncreaseValue;
                 }
 
-                private void ResetMultiply()
+                private bool IsPercentType(SkillTreeType skillTreeType)
                 {
-                        _currentMultiply.Clear();
+                        return skillTreeType == SkillTreeType.GetGold ||
+                               skillTreeType == SkillTreeType.GetMeteoriteFragment;
+                }
+
+                private void ResetUpgradeValues()
+                {
+                        _currentIncreaseValues.Clear();
 
                         foreach (SkillTreeType skillTreeType in Enum.GetValues(typeof(SkillTreeType)))
-                        {
-                                _currentMultiply[skillTreeType] = 1f;
-                        }
+                                _currentIncreaseValues[skillTreeType] = 0;
                 }
         }
 }
