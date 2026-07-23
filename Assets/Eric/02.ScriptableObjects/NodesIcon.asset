@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47094874715f444e9d42c01399798c42, type: 3}
+  m_Name: NodesIcon
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.SkillTreeImageSO
+  <Nodes>k__BackingField:
+  - {fileID: 5768757950873148395, guid: 526df68ddee483b43b9e7f6415c61038, type: 3}
+  - {fileID: -3682116446546204375, guid: 5a3cd2a26569ff243866e77ba2096f80, type: 3}
+  - {fileID: -7093798442096675457, guid: 974e52578006a6a4aaf5f2ec91eda3a4, type: 3}
+  - {fileID: -7362375178460963420, guid: 4b86e76bb7d4c7f44983603bb090f1c2, type: 3}
+  - {fileID: -8945879103972220755, guid: 9a785f1c36b0b84489e80b66998fc572, type: 3}
+  - {fileID: 7696563342657855374, guid: f8a61918a4f514d448abe9503990660d, type: 3}
+  - {fileID: -6859338039979211873, guid: adc9865d94142ee44b0f58cc538de25b, type: 3}
+  - {fileID: -3035357820230182056, guid: 7ec2f259197cc6a4b80525361b2b0c7d, type: 3}
