@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Key.Scripts.ASatellite.Modules {
     public class AttackModule : MonoBehaviour, IModule {
-        [Header("Attack")] [SerializeField] private int attackPower = 10;
+        [Header("Attack")] 
+        [SerializeField] private int attackPower = 10;
         [SerializeField] private float attackSpeed = 1f;
         [SerializeField] private float attackRange = 5f;
         [SerializeField] private float knockbackPower = 3f;
@@ -26,15 +27,8 @@ namespace Key.Scripts.ASatellite.Modules {
         public void Initialize(ModuleOwner owner) {
             _owner = owner as AbstractASatellite;
 
-            if (_owner == null) {
-                Debug.LogError(
-                    $"{name}: 소유자가 AbstractASatellite이 아닙니다.",
-                    this
-                );
-
-                return;
-            }
-
+            if (_owner == null) return;
+            
             _ownerCollider =
                 _owner.GetComponentInChildren<Collider2D>();
 
@@ -47,7 +41,6 @@ namespace Key.Scripts.ASatellite.Modules {
                     FindFirstObjectByType<BulletPoolManager>();
             }
 
-            // 위성의 Tick 이벤트 구독
             _owner.OnTick += Tick;
         }
 

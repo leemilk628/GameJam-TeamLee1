@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e27fd449a06450d814c53330df138d0, type: 3}
   m_Name: ASatelliteData
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatelliteSO
+  prefab: {fileID: 6377302033814708138, guid: 7d7d7b34171e62d42a395442f6aa6b21, type: 3}
   attackPower: 5
   attackSpeed: 2
   bullet: {fileID: 2080838655854635164, guid: 6378cb2145766a146b36afee9aecca9d, type: 3}
@@ -26,6 +27,6 @@ MonoBehaviour:
   - 1
   - 1.5
   price: 1000
-  upgradePrice: 000000000000000000000000
-  name: Starlink
-  desc: "\uC2A4\uD398\uC774\uC2A4X\uC5D0\uC11C \uBC1C\uC0AC\uD55C \uC778\uACF5\uC704\uC131"
+  upgradePrice: dc0500008813000010270000
+  satelliteName: "\"\uC778\uACF5\uC704\uC131 \uC774\uB984\""
+  desc: "\"\uC778\uACF5\uC704\uC131 \uC124\uBA85\""

@@ -2,29 +2,29 @@
 
 namespace Key.Scripts.ASatellite.Modules {
     public class MovementModule : MonoBehaviour, IModule {
-        [Header("Orbit")] [SerializeField] private float radius = 3f;
+        [SerializeField] private float radius = 3f;
         [SerializeField] private float angularSpeed = 90f;
         [SerializeField] private float startAngle;
+        [SerializeField] private Transform _center;
 
         private AbstractASatellite _owner;
-        private Transform _center;
 
         private float _angle;
         private bool _isActive;
 
+        public float CurrentAngle => _angle;
+
         public void Initialize(ModuleOwner owner) {
             _owner = owner as AbstractASatellite;
 
-            if (_owner == null) {
-                Debug.LogError(
-                    $"{name}: ModuleOwner가 AbstractASatellite이 아닙니다.",
-                    this
-                );
-
+            if (_owner == null)
                 return;
-            }
+
             _angle = startAngle;
-            
+
+            if (_center != null)
+                SetCenter(_center);
+
             _owner.OnTick += Tick;
         }
 
@@ -32,10 +32,15 @@ namespace Key.Scripts.ASatellite.Modules {
             _center = center;
             _isActive = _center != null;
 
-            if (!_isActive || _owner == null)
-                return;
+            if (_isActive)
+                SetPosition();
+        }
 
-            SetPosition();
+        public void SetAngle(float angle) {
+            _angle = angle % 360f;
+
+            if (_isActive)
+                SetPosition();
         }
 
         private void Tick(float deltaTime) {
@@ -57,26 +62,12 @@ namespace Key.Scripts.ASatellite.Modules {
                 0f
             );
 
-            _owner.transform.position =
-                _center.position + offset;
-        }
-
-        public void SetRadius(float value) {
-            radius = Mathf.Max(0f, value);
-
-            if (_isActive) {
-                SetPosition();
-            }
-        }
-
-        public void SetAngularSpeed(float value) {
-            angularSpeed = value;
+            _owner.transform.position = _center.position + offset;
         }
 
         private void OnDestroy() {
-            if (_owner != null) {
+            if (_owner != null)
                 _owner.OnTick -= Tick;
-            }
         }
     }
 }
