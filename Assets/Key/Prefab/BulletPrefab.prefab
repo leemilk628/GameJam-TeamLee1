@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5090963105875507782}
   - component: {fileID: 1998071707817879244}
   - component: {fileID: -9112431107350110152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletPrefab
-  m_TagString: Untagged
+  m_TagString: Damaging
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,9 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8791d23f7943434babb1a25508f7404b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Player.Bullet
-  moveSpeed: 10
-  lifeTime: 3
-  rotationOffset: -90
+  <data>k__BackingField: {fileID: 11400000, guid: 1ca6732698b7b2a468382299753584cd, type: 2}
 --- !u!50 &1998071707817879244
 Rigidbody2D:
   serializedVersion: 5

@@ -6,6 +6,7 @@ namespace Key.Scripts.Projectile {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteRenderer))]
     public class Bullet : MonoBehaviour, IPoolable {
+        [field:SerializeField] public BulletDataSO data { get; private set; }
         private Rigidbody2D _rigidbody;
         private SpriteRenderer _spriteRenderer;
 
@@ -14,7 +15,7 @@ namespace Key.Scripts.Projectile {
 
         private Vector2 _moveDirection;
 
-        private int _damage;
+        public int _damage { get; private set; }
         private float _knockbackPower;
 
         private float _returnTime;

@@ -19,6 +19,10 @@ namespace Key.Scripts.Player {
             }
         }
 
+        private void Update() {
+            RotateTowardMouse();
+        }
+
         private void RotateTowardMouse()
         {
             if (Mouse.current == null || mainCamera == null)

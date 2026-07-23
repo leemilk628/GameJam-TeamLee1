@@ -1,4 +1,5 @@
 ﻿using Key.Scripts.Pooling;
+using Key.Scripts.Projectile;
 using UnityEngine;
 
 namespace Key.Scripts.ASatellite.Modules {
@@ -7,6 +8,7 @@ namespace Key.Scripts.ASatellite.Modules {
         [SerializeField] private float attackSpeed = 1f;
         [SerializeField] private float attackRange = 5f;
         [SerializeField] private float knockbackPower = 3f;
+        [SerializeField] private GameObject bulletPrefab;
 
         [Header("Target")] [SerializeField] private LayerMask targetLayer;
 
@@ -16,6 +18,7 @@ namespace Key.Scripts.ASatellite.Modules {
 
         private AbstractASatellite _owner;
         private Collider2D _ownerCollider;
+        private Transform _nearest;
 
         private float _attackTimer;
         private bool _isActive;
@@ -78,9 +81,8 @@ namespace Key.Scripts.ASatellite.Modules {
 
             bulletPoolManager.SpawnBullet(
                 firePoint.position,
-                targetPosition,
-                attackPower,
-                knockbackPower
+                _nearest.position,
+                bulletPrefab.GetComponent<Bullet>().data
             );
         }
 
@@ -124,7 +126,6 @@ namespace Key.Scripts.ASatellite.Modules {
         }
 
         private void OnDestroy() {
-            // 이벤트 구독 해제
             if (_owner != null) {
                 _owner.OnTick -= Tick;
             }

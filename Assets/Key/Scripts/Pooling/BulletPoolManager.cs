@@ -1,31 +1,26 @@
 ﻿using System.Collections.Generic;
+using Key.Scripts.BulletSc;
 using Key.Scripts.Projectile;
 using UnityEngine;
 
 namespace Key.Scripts.Pooling
 
 {
-    public class BulletPoolManager : MonoBehaviour
-    {
-        [Header("Pool")]
-        [SerializeField] private Bullet bulletPrefab;
+    public class BulletPoolManager : MonoBehaviour {
+        [Header("Pool")] [SerializeField] private Bullet bulletPrefab;
 
-        [Min(1)]
-        [SerializeField] private int initialPoolSize = 30;
+        [Min(1)] [SerializeField] private int initialPoolSize = 30;
 
         [SerializeField] private bool canExpand = true;
 
         private readonly Queue<Bullet> _bulletPool = new();
 
-        private void Awake()
-        {
+        private void Awake() {
             CreateInitialPool();
         }
 
-        private void CreateInitialPool()
-        {
-            if (bulletPrefab == null)
-            {
+        private void CreateInitialPool() {
+            if (bulletPrefab == null) {
                 Debug.LogError(
                     "BulletPoolManager에 Bullet Prefab이 설정되지 않았습니다."
                 );
@@ -33,15 +28,13 @@ namespace Key.Scripts.Pooling
                 return;
             }
 
-            for (int i = 0; i < initialPoolSize; i++)
-            {
+            for (int i = 0; i < initialPoolSize; i++) {
                 Bullet bullet = CreateBullet();
                 _bulletPool.Enqueue(bullet);
             }
         }
 
-        private Bullet CreateBullet()
-        {
+        private Bullet CreateBullet() {
             Bullet bullet = Instantiate(
                 bulletPrefab,
                 transform
@@ -53,13 +46,8 @@ namespace Key.Scripts.Pooling
             return bullet;
         }
 
-        public Bullet SpawnBullet(
-            Vector3 spawnPosition,
-            Vector2 targetPosition,
-            int damage,
-            float knockbackPower
-        )
-        {
+        public Bullet SpawnBullet(Vector3 spawnPosition, Vector2 targetPosition,
+            BulletDataSO bulletData, int bonusDamage = 0, float bonusKnockback = 0f) {
             Bullet bullet = GetAvailableBullet();
 
             if (bullet == null)
@@ -75,28 +63,29 @@ namespace Key.Scripts.Pooling
             bullet.gameObject.SetActive(true);
             bullet.OnGetFromPool();
 
-           // bullet.Shoot(targetPosition, damage, knockbackPower);
+            bullet.Shoot(
+                targetPosition,
+                bulletData,
+                bonusDamage,
+                bonusKnockback
+            );
 
             return bullet;
         }
 
-        private Bullet GetAvailableBullet()
-        {
-            if (_bulletPool.Count > 0)
-            {
+        private Bullet GetAvailableBullet() {
+            if (_bulletPool.Count > 0) {
                 return _bulletPool.Dequeue();
             }
 
-            if (canExpand)
-            {
+            if (canExpand) {
                 return CreateBullet();
             }
 
             return null;
         }
 
-        public void ReturnBullet(Bullet bullet)
-        {
+        public void ReturnBullet(Bullet bullet) {
             if (bullet == null)
                 return;
 
