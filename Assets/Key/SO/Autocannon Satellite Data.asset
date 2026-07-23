@@ -28,5 +28,6 @@ MonoBehaviour:
   - 1.5
   price: 1000
   upgradePrice: dc0500008813000010270000
-  satelliteName: "\"\uC778\uACF5\uC704\uC131 \uC774\uB984\""
-  desc: "\"\uC778\uACF5\uC704\uC131 \uC124\uBA85\""
+  satelliteName: "\uAE30\uAD00\uD3EC \uC704\uC131"
+  desc: "\uBE60\uB974\uAC8C \uC57D\uD55C \uD0C4\uD658\uC744 \uBC1C\uC0AC\uD55C\uB2E4.\r\n\uD50C\uB808\uC774\uC5B4\uAC00
+    \uB193\uCE5C \uC18C\uD615 \uC801\uC744 \uCC98\uB9AC\uD55C\uB2E4."
