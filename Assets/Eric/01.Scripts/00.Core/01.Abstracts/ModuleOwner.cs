@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,13 +6,13 @@ namespace Eric.ModuleSystem
 {
         public abstract class ModuleOwner : MonoBehaviour
         {
-                private Dictionary<Type, IModule> _modules = new();
+                private List<IModule> _modules = new();
 
                 protected virtual void Awake()
                 {
                         _modules = GetComponentsInChildren<MonoBehaviour>(true)
                                 .OfType<IModule>()
-                                .ToDictionary(module => module.GetType(), module => module);
+                                .ToList();
 
                         ModuleInit();
                         AfterModulesInit();
@@ -21,7 +20,7 @@ namespace Eric.ModuleSystem
 
                 protected virtual void ModuleInit()
                 {
-                        foreach (IModule module in _modules.Values)
+                        foreach (IModule module in _modules)
                         {
                                 module.Init(this);
                         }
@@ -29,7 +28,7 @@ namespace Eric.ModuleSystem
 
                 protected virtual void AfterModulesInit()
                 {
-                        foreach (IModule module in _modules.Values)
+                        foreach (IModule module in _modules)
                         {
                                 module.AfterInit();
                         }
@@ -37,12 +36,15 @@ namespace Eric.ModuleSystem
 
                 public T GetModule<T>() where T : class
                 {
-                        if (_modules.TryGetValue(typeof(T), out IModule module))
-                        {
-                                return module as T;
-                        }
+                        return _modules
+                                .OfType<T>()
+                                .FirstOrDefault();
+                }
 
-                        return _modules.Values.FirstOrDefault(x => x is T) as T;
+                public IEnumerable<T> GetModules<T>() where T : class
+                {
+                        return _modules
+                                .OfType<T>();
                 }
         }
 }

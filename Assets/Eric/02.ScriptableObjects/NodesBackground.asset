@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47094874715f444e9d42c01399798c42, type: 3}
+  m_Name: NodesBackground
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.SkillTreeImageSO
+  <Nodes>k__BackingField:
+  - {fileID: -62563034660499842, guid: 6b3f2c812450c8b4cbea9f1ad3c9220f, type: 3}
+  - {fileID: 4793546280358208945, guid: a62106f4f98e4ef479cb75c3a556804c, type: 3}
+  - {fileID: -4319712137631990407, guid: 078926e954b10484b9bd41da9018c93f, type: 3}
