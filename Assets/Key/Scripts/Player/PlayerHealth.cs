@@ -8,6 +8,11 @@ namespace Key.Scripts.Player {
 
         private int _baseBarrier;
         private int _barrier;
+        private PlayerStat _stat;
+
+        private void Awake() {
+            _stat = GetComponent<PlayerStat>();
+        }
 
         private void OnEnable() {
             GetBarrier(_baseBarrier);

@@ -1,6 +1,6 @@
-﻿namespace Key.Scripts {
+﻿namespace Key.Scripts.Pooling {
     public interface IPoolable {
-        public void Spawn();
-        public void Despawn();
+        public void OnGetFromPool();
+        public void OnReturnToPool();
     }
 }

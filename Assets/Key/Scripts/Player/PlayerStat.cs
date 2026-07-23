@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Key.Scripts.SO {
+namespace Key.Scripts.Player {
     public class PlayerStat : MonoBehaviour {
         [field: SerializeField] public int AttackPower { get; private set; } = 10;
 

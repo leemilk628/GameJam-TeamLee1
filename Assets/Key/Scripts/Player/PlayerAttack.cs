@@ -1,48 +1,131 @@
-﻿using System;
+﻿using Key.Scripts.Pooling;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-namespace Key.Scripts.Player {
-    public class PlayerAttack : MonoBehaviour {
-        public float AttackPower { get; private set; }
-        public float AttackSpeed { get; private set; }
+namespace Key.Scripts.Player
+{
+    public class PlayerAttack : MonoBehaviour
+    {
+        public int AttackPower { get; private set; }
+        [field:SerializeField]public float AttackSpeed { get; private set; }
 
+        [Header("Bullet Pool")]
+        [SerializeField] private BulletPoolManager bulletPoolManager;
+        
+        [Header("Stats")]
+        [SerializeField] private int baseAttackPower = 10;
+
+        // 초당 발사 횟수
+        [SerializeField] private float baseAttackSpeed = 2f;
+
+        [Header("Camera")]
         [SerializeField] private Camera mainCamera;
-        [SerializeField] private LayerMask targetLayer;
-        [SerializeField] private float rayDistance = 100f;
 
-        private void Awake() {
-            if (mainCamera == null) {
+        [Header("Bullet")]
+        [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private Transform firePoint;
+
+        private float _nextAttackTime;
+        private PlayerStat _stat;
+        private float _knockbackPower;
+        private PlayerStat _playerStat;
+        
+        private void Awake()
+        {
+            if (mainCamera == null)
+            {
                 mainCamera = Camera.main;
+            }
+
+            if (firePoint == null)
+            {
+                firePoint = transform;
+            }
+
+            if (_playerStat == null)
+            {
+                _playerStat = GetComponent<PlayerStat>();
+            }
+
+            if (bulletPoolManager == null)
+            {
+                bulletPoolManager =
+                    FindFirstObjectByType<BulletPoolManager>();
             }
         }
 
-        private void OnAttack() {
-            Vector2 mouseWorldPosition =
-                mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        private void Update()
+        {
+            if (Mouse.current == null)
+                return;
 
-            Vector2 origin = transform.position;
-            Vector2 direction = (mouseWorldPosition - origin).normalized;
-
-            RaycastHit2D hit = Physics2D.Raycast(
-                origin,
-                direction,
-                rayDistance,
-                targetLayer
-            );
-
-            Debug.DrawRay(
-                origin,
-                direction * rayDistance,
-                Color.red
-            );
-
-            if (hit.collider != null) {
-                Debug.Log("충돌한 오브젝트: " + hit.collider.name);
-
-                if (Input.GetMouseButtonDown(0)) {
-                    Debug.Log(hit.collider.name + " 클릭됨");
-                }
+            if (Mouse.current.leftButton.isPressed)
+            {
+                TryAttack();
             }
+        }
+
+        private void TryAttack()
+        {
+            if (Time.time < _nextAttackTime)
+                return;
+
+            if (AttackSpeed <= 0f)
+                return;
+
+            if (mainCamera == null || bulletPrefab == null) return;
+
+            Vector2 mouseScreenPosition =
+                Mouse.current.position.ReadValue();
+
+            float distanceFromCamera = Mathf.Abs(
+                firePoint.position.z - mainCamera.transform.position.z
+            );
+
+            Vector3 mouseWorldPosition3D =
+                mainCamera.ScreenToWorldPoint(
+                    new Vector3(
+                        mouseScreenPosition.x,
+                        mouseScreenPosition.y,
+                        distanceFromCamera
+                    )
+                );
+
+            Vector2 mouseWorldPosition =
+                new Vector2(
+                    mouseWorldPosition3D.x,
+                    mouseWorldPosition3D.y
+                );
+
+            bulletPoolManager.SpawnBullet(
+                firePoint.position,
+                mouseWorldPosition,
+                _playerStat.AttackPower,
+                _playerStat.KnockbackPower
+            );
+            
+            _nextAttackTime = Time.time + (1f / AttackSpeed);
+        }
+
+        public void AddAttackPower(int amount)
+        {
+            AttackPower += amount;
+        }
+
+        public void AddAttackSpeed(float amount)
+        {
+            AttackSpeed = Mathf.Max(
+                0.01f,
+                AttackSpeed + amount
+            );
+        }
+
+        public void MultiplyAttackSpeed(float multiplier)
+        {
+            AttackSpeed = Mathf.Max(
+                0.01f,
+                AttackSpeed * multiplier
+            );
         }
     }
 }
