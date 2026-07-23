@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f97e336cbb4663b7bd8a1f836fe140, type: 3}
+  m_Name: BasicFreeUpgrade1
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.SkillTreeSO
+  nodeId: a1eb26f9-562e-497c-b85e-c758080f021f
+  <SkillTreeType>k__BackingField: 10
+  <IncreaseValue>k__BackingField: 0
+  <SatelliteType>k__BackingField: 0
+  <BeforeNode>k__BackingField: {fileID: 0}
+  <IsUpgrade>k__BackingField: 0
+  <Description>k__BackingField: It's Free!
+  <NeedMeteoriteFragment>k__BackingField: 0

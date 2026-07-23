@@ -23,18 +23,10 @@ namespace Eric.Upgrade
 
                 public void Upgrade()
                 {
-                        if (!NullDetect())
+                        if (Owner == null || SkillTree == null || _skillTreeUpgradeModule == null)
                                 return;
 
                         _skillTreeUpgradeModule.TryUpgrade(SkillTree);
-                        _skillTreeUpgradeModule.Raise();
-                }
-
-                private bool NullDetect()
-                {
-                        if (Owner == null || SkillTree == null || _skillTreeUpgradeModule == null) return false;
-                        
-                        return true;
                 }
         }
 }

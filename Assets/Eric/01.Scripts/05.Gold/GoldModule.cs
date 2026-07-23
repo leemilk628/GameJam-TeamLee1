@@ -1,13 +1,15 @@
 ﻿using System;
 using Eric.ModuleSystem;
-using Eric.Save;
+using Eric.ScriptableScripts;
+using Eric.Upgrade;
 using UnityEngine;
 
 namespace Eric.Currency
 {
-        public class GoldModule : MonoBehaviour, IModule, ISaveable
+        public class GoldModule : MonoBehaviour, IModule
         {
                 private ModuleOwner Owner{get;set;}
+                private SkillTreeUpgradeModule _skillTreeUpgradeModule;
 
                 public int CurrentGold{get;private set;}
 
@@ -16,34 +18,45 @@ namespace Eric.Currency
                 public void Init(ModuleOwner owner)
                 {
                         Owner = owner;
+                        CurrentGold = 0;
                 }
 
                 public void AfterInit()
                 {
-                        OnLoad();
+                        if (GameModuleOwner.Instance != null)
+                        {
+                                _skillTreeUpgradeModule =
+                                        GameModuleOwner.Instance
+                                                .GetModule<SkillTreeUpgradeModule>();
+                        }
+
+                        ResetForStage();
                 }
 
-                public void AddGold(int amount)
+                public void AddGold(int baseAmount)
                 {
-                        if (amount <= 0)
+                        if (baseAmount <= 0)
                                 return;
 
-                        CurrentGold += amount;
+                        int finalAmount = CalculateGoldAmount(baseAmount);
+
+                        CurrentGold += finalAmount;
                         NotifyChanged();
-                        OnSave();
                 }
 
                 public bool TrySpendGold(int amount)
                 {
-                        if (amount <= 0)
+                        if (amount < 0)
                                 return false;
 
                         if (CurrentGold < amount)
                                 return false;
 
+                        if (amount == 0)
+                                return true;
+
                         CurrentGold -= amount;
                         NotifyChanged();
-                        OnSave();
 
                         return true;
                 }
@@ -60,46 +73,58 @@ namespace Eric.Currency
                 {
                         CurrentGold = Mathf.Max(0, amount);
                         NotifyChanged();
-                        OnSave();
                 }
 
                 public void ResetGold()
                 {
                         CurrentGold = 0;
                         NotifyChanged();
-                        OnSave();
+                }
+
+                public void ResetForStage()
+                {
+                        CurrentGold = 0;
+
+                        if (_skillTreeUpgradeModule != null)
+                        {
+                                CurrentGold = Mathf.Max(
+                                        0,
+                                        _skillTreeUpgradeModule.GetAddValue(
+                                                SkillTreeType.StartingGold
+                                        )
+                                );
+                        }
+
+                        NotifyChanged();
                 }
 
                 public void DeleteGoldSave()
                 {
-                        if (!GoldJsonSaveSystem.DeleteSave())
-                                return;
-
-                        CurrentGold = 0;
-                        NotifyChanged();
+                        ResetGold();
                 }
 
-                public void OnSave()
+                private int CalculateGoldAmount(int baseAmount)
                 {
-                        GoldSaveData saveData = new()
-                        {
-                                gold = CurrentGold
-                        };
+                        int percentIncrease = 0;
 
-                        GoldJsonSaveSystem.Save(saveData);
-                }
-
-                public void OnLoad()
-                {
-                        if (!GoldJsonSaveSystem.TryLoad(out GoldSaveData saveData))
+                        if (_skillTreeUpgradeModule != null)
                         {
-                                CurrentGold = 0;
-                                NotifyChanged();
-                                return;
+                                percentIncrease =
+                                        _skillTreeUpgradeModule.GetPercentIncrease(
+                                                SkillTreeType.GetGold
+                                        );
                         }
 
-                        CurrentGold = Mathf.Max(0, saveData.gold);
-                        NotifyChanged();
+                        float multiply =
+                                Mathf.Max(
+                                        0f,
+                                        1f + percentIncrease / 100f
+                                );
+
+                        return Mathf.Max(
+                                1,
+                                Mathf.RoundToInt(baseAmount * multiply)
+                        );
                 }
 
                 private void NotifyChanged()

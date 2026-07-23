@@ -17,47 +17,52 @@ namespace Eric.Upgrade
                 public void Init(ModuleOwner owner)
                 {
                         Owner = owner;
-                        _changeSkillTreeImages = GetComponentsInChildren<ChangeSkillTreeImage>();
+                        _changeSkillTreeImages = GetComponentsInChildren<ChangeSkillTreeImage>(true);
                 }
 
                 public void AfterInit()
                 {
                         _skillTreeUpgradeModule = Owner.GetModule<SkillTreeUpgradeModule>();
-                        if (_skillTreeUpgradeModule == null) return;
+
+                        if (_skillTreeUpgradeModule == null)
+                                return;
+
                         _skillTreeUpgradeModule.OnMultiplyChanged += UIUpdate;
                         UIUpdate();
                 }
 
                 private void OnDestroy()
                 {
-                        if (_skillTreeUpgradeModule != null) _skillTreeUpgradeModule.OnMultiplyChanged -= UIUpdate;
+                        if (_skillTreeUpgradeModule != null)
+                                _skillTreeUpgradeModule.OnMultiplyChanged -= UIUpdate;
                 }
 
                 private void UIUpdate()
                 {
-                        if (Stats == null || _skillTreeUpgradeModule == null) return;
+                        if (_skillTreeUpgradeModule == null)
+                                return;
+
                         foreach (ChangeSkillTreeImage image in _changeSkillTreeImages)
                         {
-                                image.UpdateImages();
+                                if (image != null)
+                                        image.UpdateImages();
                         }
 
-                        float playerHealth = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.PlayerHealth);
-                        float playerBarrier = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.PlayerBarrier);
-                        float playerAttack = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.PlayerAttack);
-                        float playerAttackSpeed = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.PlayerAttackSpeed);
-                        float satelliteAttack = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.SatelliteAttack);
-                        float satelliteAttackSpeed = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.SatelliteAttackSpeed);
-                        float getMeteoriteFragment = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.GetMeteoriteFragment);
-                        float getGold = _skillTreeUpgradeModule.GetMultiply(SkillTreeType.GetGold);
+                        if (Stats == null)
+                                return;
 
-                        Stats.text = $"PlayerHealth = {playerHealth:0.##}\n" +
-                                     $"PlayerBarrier = {playerBarrier:0.##}\n" +
-                                     $"PlayerAttack = {playerAttack:0.##}\n" +
-                                     $"PlayerAttackSpeed = {playerAttackSpeed:0.##}\n" +
-                                     $"SatelliteAttack = {satelliteAttack:0.##}\n" +
-                                     $"SatelliteAttackSpeed = {satelliteAttackSpeed:0.##}\n" +
-                                     $"GetMeteoriteFragment = {getMeteoriteFragment:0.##}\n" +
-                                     $"GetGold = {getGold:0.##}";
+                        Stats.text =
+                                $"PlayerHealth = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.PlayerHealth):N0}\n" +
+                                $"PlayerBarrier = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.PlayerBarrier):N0}\n" +
+                                $"PlayerAttack = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.PlayerAttack):N0}\n" +
+                                $"PlayerAttackSpeed = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.PlayerAttackSpeed):N0}\n" +
+                                $"SatelliteAttack = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.SatelliteAttack):N0}\n" +
+                                $"SatelliteAttackSpeed = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.SatelliteAttackSpeed):N0}\n" +
+                                $"GetGold = +{_skillTreeUpgradeModule.GetPercentIncrease(SkillTreeType.GetGold):N0}%\n" +
+                                $"GetMeteoriteFragment = +{_skillTreeUpgradeModule.GetPercentIncrease(SkillTreeType.GetMeteoriteFragment):N0}%\n" +
+                                $"MaxSatelliteCount = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.MaxSatelliteCount):N0}\n" +
+                                $"StartingGold = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.StartingGold):N0}\n" +
+                                $"BarrierRecoverySpeed = +{_skillTreeUpgradeModule.GetAddValue(SkillTreeType.BarrierRecoverySpeed):N0}";
                 }
         }
 }

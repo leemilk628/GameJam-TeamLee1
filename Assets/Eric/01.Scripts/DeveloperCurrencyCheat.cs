@@ -42,23 +42,20 @@ namespace Eric.Developer
                 {
                         FindModules();
 
-                        _goldModule.AddGold(AddAmount);
-                        _meteoriteFragmentModule.AddMeteoriteFragment(AddAmount);
+                        if (_goldModule != null)
+                                _goldModule.AddGold(AddAmount);
+
+                        if (_meteoriteFragmentModule != null)
+                                _meteoriteFragmentModule.AddMeteoriteFragment(AddAmount);
                 }
 
                 private void FindModules()
                 {
-                        if (_goldModule == null && GameModuleOwner.Instance != null)
-                        {
-                                _goldModule =
-                                        GameModuleOwner.Instance.GetModule<GoldModule>();
-                        }
+                        if (_goldModule == null && StageModuleOwner.Instance != null)
+                                _goldModule = StageModuleOwner.Instance.GetModule<GoldModule>();
 
-                        if (_meteoriteFragmentModule == null && StageModuleOwner.Instance != null)
-                        {
-                                _meteoriteFragmentModule =
-                                        StageModuleOwner.Instance.GetModule<MeteoriteFragmentModule>();
-                        }
+                        if (_meteoriteFragmentModule == null && GameModuleOwner.Instance != null)
+                                _meteoriteFragmentModule = GameModuleOwner.Instance.GetModule<MeteoriteFragmentModule>();
                 }
         }
 }

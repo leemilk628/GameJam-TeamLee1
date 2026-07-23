@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f97e336cbb4663b7bd8a1f836fe140, type: 3}
+  m_Name: MFUpgrade1
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.SkillTreeSO
+  nodeId: b6124b06-2f58-42e7-bdf4-5b8193373476
+  <SkillTreeType>k__BackingField: 7
+  <IncreaseValue>k__BackingField: 10
+  <SatelliteType>k__BackingField: 0
+  <BeforeNode>k__BackingField: {fileID: 11400000, guid: 44afb50ed0a3485448d9ce8f8c9c354d, type: 2}
+  <IsUpgrade>k__BackingField: 1
+  <Description>k__BackingField: MF +10%
+  <NeedMeteoriteFragment>k__BackingField: 50

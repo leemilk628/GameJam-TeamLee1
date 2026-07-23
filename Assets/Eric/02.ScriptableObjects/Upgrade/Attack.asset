@@ -15,7 +15,10 @@ MonoBehaviour:
   <UpgradeName>k__BackingField: Attack
   <Icon>k__BackingField: {fileID: 0}
   <StageUpgradeType>k__BackingField: 1
+  <BaseStat>k__BackingField: 5
+  <IsIntStat>k__BackingField: 1
   <MaxLevel>k__BackingField: 100
   <MultiplyPerLevel>k__BackingField: 1.2
+  <AddValuePerLevel>k__BackingField: 1
   <BaseNeedMF>k__BackingField: 100
   <NeedMFMultiply>k__BackingField: 1.5
