@@ -1,11 +1,8 @@
-﻿using Key.Scripts.Projectile;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Key.Scripts {
     public class Earth : MonoBehaviour, IDamageable {
         [SerializeField] private int health;
-
-       
 
         public void GetDamage(int damage) {
             health -= damage;
@@ -16,7 +13,6 @@ namespace Key.Scripts {
         }
 
         public void Death() {
-            
         }
     }
 }
