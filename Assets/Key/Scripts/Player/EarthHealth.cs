@@ -7,9 +7,6 @@ namespace Key.Scripts.Player {
         [field: SerializeField] public int Health { get; private set; }
         [field: SerializeField] public int Barrier { get; private set; }
 
-        [Header("UI")]
-        [SerializeField] private GameObject deathUI;
-
         private PlayerStat _stat;
         private bool _isDead;
 
@@ -17,10 +14,7 @@ namespace Key.Scripts.Player {
             _stat = GetComponent<PlayerStat>();
 
             if (_stat == null)
-                return;
-
-            if (deathUI != null)
-                deathUI.SetActive(false);
+                Debug.LogError($"{name}: PlayerStat을 찾지 못했습니다.", this);
         }
 
         private void OnEnable() {
@@ -33,11 +27,7 @@ namespace Key.Scripts.Player {
 
             Health = _stat.MaxHealth;
             Barrier = _stat.Barrier;
-
             _isDead = false;
-
-            if (deathUI != null)
-                deathUI.SetActive(false);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
@@ -62,21 +52,28 @@ namespace Key.Scripts.Player {
             int remainingDamage = damage;
 
             if (Barrier > 0) {
-                int absorbedDamage = Mathf.Min(Barrier, remainingDamage);
+                int absorbedDamage = Mathf.Min(
+                    Barrier,
+                    remainingDamage
+                );
 
                 Barrier -= absorbedDamage;
                 remainingDamage -= absorbedDamage;
             }
 
-            if (remainingDamage > 0)
-                Health = Mathf.Max(0, Health - remainingDamage);
+            if (remainingDamage > 0) {
+                Health = Mathf.Max(
+                    0,
+                    Health - remainingDamage
+                );
+            }
 
             if (Health <= 0)
                 Death();
         }
 
         public void AddBarrier(int amount) {
-            if (amount <= 0)
+            if (_isDead || amount <= 0)
                 return;
 
             Barrier += amount;
@@ -98,9 +95,10 @@ namespace Key.Scripts.Player {
 
             _isDead = true;
 
-            if (deathUI != null)
-                deathUI.SetActive(true);
-            else return;
+            if (GameManager.Instance == null) {
+                Debug.LogError($"{name}: GameManager 인스턴스가 없습니다.", this);
+                return;
+            }
 
             GameManager.Instance.GameOver();
         }

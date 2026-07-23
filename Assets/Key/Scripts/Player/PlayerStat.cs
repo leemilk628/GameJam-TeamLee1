@@ -3,6 +3,8 @@
 namespace Key.Scripts.Player {
     public class PlayerStat : MonoBehaviour {
         [field: SerializeField] public int AttackPower { get; private set; } = 10;
+        [field: SerializeField] public int MaxHealth { get; private set; } = 10;
+        [field: SerializeField] public int Barrier { get; private set; } = 10;
 
         [field: SerializeField] public float AttackSpeed { get; private set; } = 2f;
 
@@ -10,6 +12,14 @@ namespace Key.Scripts.Player {
 
         public void AddAttackPower(int amount) {
             AttackPower = Mathf.Max(0, AttackPower + amount);
+        }
+        
+        public void AddMaxHealth(int amount) {
+            MaxHealth = Mathf.Max(0, MaxHealth + amount);
+        }
+        
+        public void AddBarrier(int amount) {
+            Barrier = Mathf.Max(0, Barrier + amount);
         }
 
         public void AddAttackSpeed(float amount) {

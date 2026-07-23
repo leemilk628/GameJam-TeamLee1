@@ -29,16 +29,8 @@ namespace Key.Scripts.Singletone {
 
             Instance = this;
 
-            CacheGameOverGraphics();
-
             if (gameOverUI != null)
                 gameOverUI.SetActive(false);
-
-            if (sceneFadeImage != null) {
-                SetGraphicAlpha(sceneFadeImage, 0f);
-                sceneFadeImage.raycastTarget = false;
-                sceneFadeImage.gameObject.SetActive(false);
-            }
         }
 
         private void CacheGameOverGraphics() {
@@ -53,15 +45,10 @@ namespace Key.Scripts.Singletone {
         }
 
         public void GameOver() {
-            if (gameOverUI != null) {
-                if (_gameOverFadeCoroutine != null) {
-                    StopCoroutine(_gameOverFadeCoroutine);
-                    _gameOverFadeCoroutine = null;
-                }
-
+            if (gameOverUI != null)
                 gameOverUI.SetActive(true);
-                RestoreGameOverAlpha();
-            }
+            
+            else return;
 
             Time.timeScale = 0f;
         }

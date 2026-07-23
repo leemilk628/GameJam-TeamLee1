@@ -287,7 +287,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6423806749927177598, guid: 8e7655222ed83a34d858a21e2a073a2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -312,7 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Player.PlayerHealth
   <Health>k__BackingField: 0
-  maxHealth: 50
+  <Barrier>k__BackingField: 0
+  deathUI: {fileID: 0}
 --- !u!1 &3825557440465657291
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Player.PlayerStat
   <AttackPower>k__BackingField: 10
+  <MaxHealth>k__BackingField: 10
+  <Barrier>k__BackingField: 10
   <AttackSpeed>k__BackingField: 2
   <KnockbackPower>k__BackingField: 5
 --- !u!114 &6417494448758264354
