@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4823148669763915676}
   - component: {fileID: 8907721877093334222}
   - component: {fileID: 1939215977789572998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeteoFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4847,7 +4847,7 @@ GameObject:
   - component: {fileID: 2590504470997798571}
   - component: {fileID: 1043430021620284584}
   - component: {fileID: 3710161256777278227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeteoDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9688,9 +9688,9 @@ GameObject:
   - component: {fileID: 2901215556741425382}
   - component: {fileID: 3792623153735206006}
   - component: {fileID: 6474609073634193965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoonSeok
-  m_TagString: Untagged
+  m_TagString: Damageable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

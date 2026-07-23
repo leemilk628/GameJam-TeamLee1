@@ -1738,10 +1738,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1959648324}
     - target: {fileID: 8856558715566291227, guid: 7c7d3077862afcb47a71dc7047ae2c95, type: 3}
-      propertyPath: baseAttackSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8856558715566291227, guid: 7c7d3077862afcb47a71dc7047ae2c95, type: 3}
       propertyPath: bulletPoolManager
       value: 
       objectReference: {fileID: 1516866528}

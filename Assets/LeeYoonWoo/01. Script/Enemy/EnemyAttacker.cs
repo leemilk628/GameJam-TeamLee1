@@ -1,4 +1,5 @@
-﻿using LeeYoonWoo._01._Script.Interface;
+﻿
+using Key.Scripts;
 using UnityEngine;
 
 namespace LeeYoonWoo._01._Script.Enemy
@@ -7,7 +8,7 @@ namespace LeeYoonWoo._01._Script.Enemy
     {
         public void Attack(IDamageable target, int amount)
         {
-            target.TakeDamage(amount);
+            target.GetDamage(amount);
         }
     }
 }
