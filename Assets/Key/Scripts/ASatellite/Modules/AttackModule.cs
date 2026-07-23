@@ -123,7 +123,7 @@ namespace Key.Scripts.ASatellite.Modules {
                 _owner.OnTick -= Tick;
             }
         }
-
+        
         private void OnDrawGizmosSelected() {
             Gizmos.DrawWireSphere(
                 transform.position,
