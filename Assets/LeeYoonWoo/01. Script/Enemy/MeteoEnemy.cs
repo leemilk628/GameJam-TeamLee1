@@ -2,7 +2,6 @@
 using DG.Tweening;
 using Key.Scripts;
 using LeeYoonWoo._01._Script.Abstract;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace LeeYoonWoo._01._Script.Enemy
@@ -52,7 +51,7 @@ namespace LeeYoonWoo._01._Script.Enemy
                 p.Stop();
             }
             yield  return new WaitForSeconds(1.2f);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

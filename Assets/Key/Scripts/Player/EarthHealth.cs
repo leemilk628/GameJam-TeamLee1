@@ -11,10 +11,10 @@ namespace Key.Scripts.Player {
         private bool _isDead;
 
         private void Awake() {
-            _stat = GetComponent<PlayerStat>();
+            _stat = GetComponentInChildren<PlayerStat>();
 
             if (_stat == null)
-                Debug.LogError($"{name}: PlayerStat을 찾지 못했습니다.", this);
+                return;
         }
 
         private void OnEnable() {

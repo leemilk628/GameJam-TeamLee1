@@ -15,6 +15,12 @@ namespace Key.Scripts.Singletone {
         [SerializeField] private Image sceneFadeImage;
         [SerializeField] private float sceneFadeDuration = 0.5f;
 
+        [Header("Stage And Waves")] 
+        [SerializeField] private int currentStage;
+        [SerializeField] private int currentWave;
+        [SerializeField] private int maxStage;
+        [SerializeField] private int maxWaves;
+
         private Graphic[] _gameOverGraphics;
         private float[] _gameOverOriginalAlphas;
 
