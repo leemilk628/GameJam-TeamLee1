@@ -26,10 +26,6 @@ namespace Key.Scripts.ASatellite.Modules {
             _owner = owner as AbstractASatellite;
 
             if (_owner == null) {
-                Debug.LogError(
-                    $"{name}: ModuleOwner가 AbstractASatellite이 아닙니다.",
-                    this
-                );
 
                 return;
             }
@@ -47,10 +43,7 @@ namespace Key.Scripts.ASatellite.Modules {
             }
 
             if (bulletPoolManager == null) {
-                Debug.LogError(
-                    $"{name}: BulletPoolManager를 찾을 수 없습니다.",
-                    this
-                );
+                return;
             }
 
             _owner.OnTick += Tick;

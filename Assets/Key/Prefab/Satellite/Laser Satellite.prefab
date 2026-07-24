@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7744369063162367297}
   - component: {fileID: 6377302033814708138}
   m_Layer: 0
-  m_Name: Missile Satellite 1
+  m_Name: Laser Satellite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee3a11cddd94bd98c711cc2a0961b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatellite1
-  satelliteData: {fileID: 11400000, guid: bd16f95f43cd1284d98ef85efdbc11ca, type: 2}
+  satelliteData: {fileID: 11400000, guid: 3636f92f28b2887448a377b15d086834, type: 2}
   orbitCenter: {fileID: 0}
 --- !u!1 &5448044948169807631
 GameObject:

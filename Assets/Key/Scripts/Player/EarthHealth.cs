@@ -96,7 +96,6 @@ namespace Key.Scripts.Player {
             _isDead = true;
 
             if (GameManager.Instance == null) {
-                Debug.LogError($"{name}: GameManager 인스턴스가 없습니다.", this);
                 return;
             }
 
