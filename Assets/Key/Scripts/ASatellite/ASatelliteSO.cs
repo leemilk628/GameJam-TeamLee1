@@ -14,7 +14,6 @@ namespace Key.Scripts.ASatellite {
         public int attackPower;
         public float attackSpeed;
         public GameObject bullet;
-        public float speed;
 
         [Header("Enforce")] 
         public int maxEnforce = 3;

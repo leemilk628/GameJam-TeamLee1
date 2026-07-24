@@ -19,6 +19,8 @@ namespace Eric.Save
 
                 [field: SerializeField]
                 public SkillTreeSO[] SkillTree { get; private set; }
+                
+                private SaveManager SaveManager { get; set; }
 
                 public Dictionary<string, bool> SkillTreeIsUpgraded
                 {
@@ -33,15 +35,12 @@ namespace Eric.Save
 
                 public void AfterInit()
                 {
-                        _skillTreeUpgradeModule =
-                                Owner.GetModule<SkillTreeUpgradeModule>();
-
-                        _satelliteUnlockModule =
-                                Owner.GetModule<SatelliteUnlockModule>();
-
-                        _goldModule =
-                                Owner.GetModule<GoldModule>();
-
+                        _skillTreeUpgradeModule = Owner.GetModule<SkillTreeUpgradeModule>();
+                        _satelliteUnlockModule = Owner.GetModule<SatelliteUnlockModule>();
+                        _goldModule = Owner.GetModule<GoldModule>();
+                        SaveManager =  Owner.GetModule<SaveManager>();
+                        SaveManager.RaiseSave(OnSave);
+                        SaveManager.RaiseLoad(OnLoad);
                         OnLoad();
                 }
 

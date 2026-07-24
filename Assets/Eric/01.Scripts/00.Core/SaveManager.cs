@@ -1,0 +1,47 @@
+﻿using System;
+using Eric.ModuleSystem;
+using UnityEngine;
+
+namespace Eric.Save
+{
+        public class SaveManager : MonoBehaviour, IModule
+        {
+                private ModuleOwner Owner { get; set; }
+                
+                private event Action HandleOnSave;
+                private event Action HandleOnLoad;
+                public void Init(ModuleOwner owner)
+                {
+                        Owner = owner;
+                }
+
+                public void AfterInit()
+                {
+                        DontDestroyOnLoad(gameObject);
+                }
+                public void RaiseSave(Action T)
+                {
+                        HandleOnSave += T;
+                }
+                public void RaiseLoad(Action T)
+                {
+                        HandleOnLoad += T;
+                }
+
+                public void InvokeSave(Action T)
+                {
+                        HandleOnSave?.Invoke();
+                }
+
+                public void InvokeLoad(Action T)
+                {
+                        HandleOnLoad?.Invoke();
+                }
+
+                private void OnDestroy()
+                {
+                        HandleOnSave = null;
+                        HandleOnLoad = null;
+                }
+        }
+}

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Key.Scripts.ASatellite.Modules;
+using UnityEngine.UI;
 
 namespace Key.Scripts.ASatellite {
     public class SatelliteShop : MonoBehaviour {
@@ -20,11 +21,7 @@ namespace Key.Scripts.ASatellite {
         public int Money => _money;
 
         public void BuySatellite(int productIndex) {
-            if (productIndex < 0 || productIndex >= _products.Count) return;
-
             ASatelliteSO product = _products[productIndex];
-
-            if ( product == null ||product.prefab == null || _orbitCenter == null) return;
             
             int price = product.price;
 
@@ -77,6 +74,10 @@ namespace Key.Scripts.ASatellite {
                 return;
 
             _money += amount;
+        }
+
+        public void ButtonLock(Button btn) {
+            btn.interactable = false;
         }
     }
 }

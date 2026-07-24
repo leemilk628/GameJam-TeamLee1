@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatelliteSO
   prefab: {fileID: 6377302033814708138, guid: 7d7d7b34171e62d42a395442f6aa6b21, type: 3}
   attackPower: 5
-  attackSpeed: 2
-  bullet: {fileID: 2080838655854635164, guid: 6378cb2145766a146b36afee9aecca9d, type: 3}
-  speed: 3
+  attackSpeed: 7
+  bullet: {fileID: 2080838655854635164, guid: ebc25902b6f51ee42828361c36788506, type: 3}
   maxEnforce: 3
   damageIncreaseAmount:
   - 0.5

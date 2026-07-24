@@ -22,6 +22,8 @@ namespace Eric.Currency
                 public int CurrentMeteoriteFragment => _sharedMeteoriteFragment;
 
                 public event Action<int> OnMeteoriteFragmentChanged;
+                
+                private SaveManager SaveManager{get;set;}
 
                 [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
                 private static void ResetStaticData()
@@ -39,9 +41,11 @@ namespace Eric.Currency
 
                 public void AfterInit()
                 {
-                        _skillTreeUpgradeModule =
-                                FindSkillTreeUpgradeModule();
-
+                        _skillTreeUpgradeModule = FindSkillTreeUpgradeModule();
+                        SaveManager =  Owner.GetModule<SaveManager>();
+                        SaveManager.RaiseSave(OnSave);
+                        SaveManager.RaiseLoad(OnLoad);
+                        
                         EnsureLoaded();
                         NotifyCurrentInstance();
                 }
