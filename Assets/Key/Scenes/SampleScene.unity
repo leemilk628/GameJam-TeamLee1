@@ -119,67 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &65696275
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4055423906226795968, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_Name
-      value: WoonSeok (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539574238897022092, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: mvdir
-      value: 
-      objectReference: {fileID: 1057576178}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
 --- !u!1 &87161800
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,67 +325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151200717}
   m_CullTransparentMesh: 1
---- !u!1001 &156008225
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -26.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1108558
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4055423906226795968, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_Name
-      value: WoonSeok
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539574238897022092, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: mvdir
-      value: 
-      objectReference: {fileID: 1057576178}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
 --- !u!1 &172890668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,11 +1717,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1057576178 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164407357121935177, guid: 7c7d3077862afcb47a71dc7047ae2c95, type: 3}
-  m_PrefabInstance: {fileID: 8355724296155279345}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1079640762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,67 +2311,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526883961}
   m_CullTransparentMesh: 1
---- !u!1001 &1571067411
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757889653326609543, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4055423906226795968, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: m_Name
-      value: WoonSeok (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539574238897022092, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
-      propertyPath: mvdir
-      value: 
-      objectReference: {fileID: 1057576178}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
 --- !u!1 &1766986649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,8 +3040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b1db01f022493bbfd43aad73e3ac46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Feedback.CameraShake2D
-  maxPositionOffset: 0.08
-  maxRotationOffset: 0.7
+  maxPositionOffset: 2
+  maxRotationOffset: 2
   frequency: 25
   recoverySpeed: 3
 --- !u!1 &2103244125
@@ -3587,6 +3399,3 @@ SceneRoots:
   - {fileID: 1028800890}
   - {fileID: 637494341}
   - {fileID: 788014505}
-  - {fileID: 156008225}
-  - {fileID: 65696275}
-  - {fileID: 1571067411}

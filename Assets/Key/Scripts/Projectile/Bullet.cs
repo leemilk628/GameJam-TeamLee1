@@ -12,6 +12,7 @@ namespace Key.Scripts.Projectile {
 
         private BulletPoolManager _poolManager;
         private BulletDataSO _data;
+        private AreaDamageOnHit _areaDamageOnHit;
 
         private Vector2 _moveDirection;
 
@@ -24,6 +25,7 @@ namespace Key.Scripts.Projectile {
         private void Awake() {
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _areaDamageOnHit = GetComponent<AreaDamageOnHit>();
         }
 
         private void Update() {
@@ -96,17 +98,32 @@ namespace Key.Scripts.Projectile {
             if (!other.CompareTag("Damageable"))
                 return;
 
+            if (_areaDamageOnHit != null) {
+                Vector2 hitPosition =
+                    other.ClosestPoint(transform.position);
+
+                _areaDamageOnHit.Explode(
+                    hitPosition,
+                    _damage,
+                    _knockbackPower
+                );
+
+                ReturnToPool();
+                return;
+            }
+
             IDamageable damageable =
                 other.GetComponentInParent<IDamageable>();
 
-            if (damageable != null) {
-                damageable.GetDamage(_damage);
-            }
+            damageable?.GetDamage(_damage);
 
             IKnockbackable knockbackable =
                 other.GetComponentInParent<IKnockbackable>();
 
-            knockbackable?.Knockback(_moveDirection, _knockbackPower);
+            knockbackable?.Knockback(
+                _moveDirection,
+                _knockbackPower
+            );
 
             ReturnToPool();
         }

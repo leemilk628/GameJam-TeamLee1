@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5090963105875507782}
   - component: {fileID: 1998071707817879244}
   - component: {fileID: 1014275886425445410}
+  - component: {fileID: 4967974145409466898}
   m_Layer: 8
   m_Name: Missile Bullet
   m_TagString: Damaging
@@ -194,3 +195,20 @@ PolygonCollider2D:
       - {x: 0.0738951, y: 0.41474998}
       - {x: -0.20291355, y: 0.41948742}
   m_UseDelaunayMesh: 1
+--- !u!114 &4967974145409466898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080838655854635164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cb9e0c1bf94f2ba4690e7aa6fe9de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Projectile.AreaDamageOnHit
+  damageRadius: 2
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  hitParticlePrefab: {fileID: 5510001206795541792, guid: 03da80842fa7c67408395ee075fbf5b2, type: 3}
