@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Damaging
   - Damageable
+  - Bag
   layers:
   - Default
   - TransparentFX
