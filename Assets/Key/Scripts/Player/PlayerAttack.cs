@@ -112,9 +112,12 @@ namespace Key.Scripts.Player {
                 spreadDirection * 100f;
 
             bulletPoolManager.SpawnBullet(
+                bullet,
                 firePoint.position,
                 targetPosition,
-                bullet.data
+                bullet.data,
+                AttackPower,
+                _knockbackPower
             );
 
             if (_shootLightCoroutine != null)

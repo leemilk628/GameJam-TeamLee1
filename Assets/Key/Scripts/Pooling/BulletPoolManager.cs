@@ -6,64 +6,34 @@ using UnityEngine;
 namespace Key.Scripts.Pooling {
     public class BulletPoolManager : MonoBehaviour {
         [Header("Pool")]
-        [SerializeField] private Bullet bulletPrefab;
-
         [Min(1)]
-        [SerializeField] private int initialPoolSize = 30;
+        [SerializeField] private int initialPoolSize = 10;
 
         [SerializeField] private bool canExpand = true;
 
-        private readonly Queue<Bullet> _bulletPool = new();
-
-        private void Awake() {
-            CreateInitialPool();
-        }
-
-        private void CreateInitialPool() {
-            if (bulletPrefab == null) {
-                Debug.LogError(
-                    "BulletPoolManager에 Bullet Prefab이 설정되지 않았습니다.",
-                    this
-                );
-
-                return;
-            }
-
-            for (int i = 0; i < initialPoolSize; i++) {
-                Bullet bullet = CreateBullet();
-                _bulletPool.Enqueue(bullet);
-            }
-        }
-
-        private Bullet CreateBullet() {
-            Bullet bullet = Instantiate(
-                bulletPrefab,
-                transform
-            );
-
-            bullet.SetPoolManager(this);
-            bullet.gameObject.SetActive(false);
-
-            return bullet;
-        }
+        private readonly Dictionary<Bullet, Queue<Bullet>> _bulletPools = new();
+        private readonly Dictionary<Bullet, Bullet> _bulletPrefabByInstance = new();
 
         public void SpawnBullet(
+            Bullet bulletPrefab,
             Vector2 spawnPosition,
             Vector2 targetPosition,
             BulletDataSO data,
             int bonusDamage = 0,
             float bonusKnockback = 0f
         ) {
-            Bullet bullet = GetAvailableBullet();
-
-            if (bullet == null) {
-                Debug.LogWarning(
-                    "사용 가능한 총알이 없고 풀 확장이 비활성화되어 있습니다.",
-                    this
-                );
-
+            if (bulletPrefab == null) {
                 return;
             }
+
+            if (data == null) {
+                return;
+            }
+
+            Bullet bullet = GetAvailableBullet(bulletPrefab);
+
+            if (bullet == null)
+                return;
 
             bullet.transform.SetParent(transform);
             bullet.transform.position = spawnPosition;
@@ -79,28 +49,73 @@ namespace Key.Scripts.Pooling {
             );
         }
 
-        private Bullet GetAvailableBullet() {
-            if (_bulletPool.Count > 0) {
-                return _bulletPool.Dequeue();
-            }
+        private Bullet GetAvailableBullet(Bullet bulletPrefab) {
+            Queue<Bullet> bulletPool =
+                GetOrCreatePool(bulletPrefab);
 
-            if (canExpand) {
-                return CreateBullet();
-            }
+            if (bulletPool.Count > 0)
+                return bulletPool.Dequeue();
+
+            if (canExpand)
+                return CreateBullet(bulletPrefab);
 
             return null;
+        }
+
+        private Queue<Bullet> GetOrCreatePool(Bullet bulletPrefab) {
+            if (_bulletPools.TryGetValue(
+                    bulletPrefab,
+                    out Queue<Bullet> bulletPool
+                )) {
+                return bulletPool;
+            }
+
+            bulletPool = new Queue<Bullet>();
+            _bulletPools.Add(bulletPrefab, bulletPool);
+
+            for (int i = 0; i < initialPoolSize; i++) {
+                Bullet bullet = CreateBullet(bulletPrefab);
+                bulletPool.Enqueue(bullet);
+            }
+
+            return bulletPool;
+        }
+
+        private Bullet CreateBullet(Bullet bulletPrefab) {
+            Bullet bullet = Instantiate(
+                bulletPrefab,
+                transform
+            );
+
+            bullet.SetPoolManager(this);
+            bullet.gameObject.SetActive(false);
+
+            _bulletPrefabByInstance.Add(
+                bullet,
+                bulletPrefab
+            );
+
+            return bullet;
         }
 
         public void ReturnBullet(Bullet bullet) {
             if (bullet == null)
                 return;
 
+            if (!_bulletPrefabByInstance.TryGetValue(bullet, out Bullet bulletPrefab)) {
+                Destroy(bullet.gameObject);
+                return;
+            }
+
+            Queue<Bullet> bulletPool =
+                GetOrCreatePool(bulletPrefab);
+
             bullet.OnReturnToPool();
 
             bullet.gameObject.SetActive(false);
             bullet.transform.SetParent(transform);
 
-            _bulletPool.Enqueue(bullet);
+            bulletPool.Enqueue(bullet);
         }
     }
 }

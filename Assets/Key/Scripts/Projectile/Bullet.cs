@@ -123,11 +123,6 @@ namespace Key.Scripts.Projectile {
                 _poolManager.ReturnBullet(this);
             }
             else {
-                Debug.LogError(
-                    $"{name}: BulletPoolManager가 설정되지 않았습니다.",
-                    this
-                );
-
                 gameObject.SetActive(false);
             }
         }

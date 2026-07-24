@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2296368098321433841}
   - component: {fileID: 5090963105875507782}
   - component: {fileID: 1998071707817879244}
-  - component: {fileID: 772970682239574654}
+  - component: {fileID: 1014275886425445410}
   m_Layer: 8
-  m_Name: Autocanon Bullet
+  m_Name: Missile Bullet
   m_TagString: Damaging
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1020965927172101592, guid: 3cd8cd772179ca8439b6f7dbf9ebaaec, type: 3}
+  m_Sprite: {fileID: -4478703775913692564, guid: be7dd5840d738d9429627e9eb41102e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.07}
+  m_Size: {x: 1.625, y: 0.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8791d23f7943434babb1a25508f7404b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Player.Bullet
-  <data>k__BackingField: {fileID: 11400000, guid: a92c5277582910647a9cf5a4f5e7f803, type: 2}
+  <data>k__BackingField: {fileID: 11400000, guid: bd6278bf8ee2c5e4c913a27e19f95ac9, type: 2}
 --- !u!50 &1998071707817879244
 Rigidbody2D:
   serializedVersion: 5
@@ -134,8 +134,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &772970682239574654
-CapsuleCollider2D:
+--- !u!60 &1014275886425445410
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -168,6 +168,29 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.026082324, y: 0.0010428983}
-  m_Size: {x: 0.8853378, y: 0.30585924}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.625, y: 0.9375}
+    newSize: {x: 1.625, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.09614752, y: 0.16332194}
+      - {x: -0.72382736, y: 0.17595504}
+      - {x: -0.71069074, y: -0.19914567}
+      - {x: -0.079625934, y: -0.20273209}
+      - {x: -0.20251074, y: -0.4063507}
+      - {x: 0.06550311, y: -0.41812044}
+      - {x: 0.24634506, y: -0.251136}
+      - {x: 0.6285863, y: -0.2548759}
+      - {x: 0.8125, y: 0.0019946247}
+      - {x: 0.5807346, y: 0.24729022}
+      - {x: 0.25161543, y: 0.2500838}
+      - {x: 0.0738951, y: 0.41474998}
+      - {x: -0.20291355, y: 0.41948742}
+  m_UseDelaunayMesh: 1

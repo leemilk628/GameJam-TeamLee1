@@ -86,43 +86,29 @@ namespace Key.Scripts.ASatellite.Modules {
                 return;
             }
 
-            GameObject bulletPrefab =
+            GameObject bulletObject =
                 _owner.BulletPrefab;
 
-            if (bulletPrefab == null) {
-                Debug.LogError(
-                    $"{_owner.name}: ASatelliteSO에 총알 프리팹이 설정되지 않았습니다.",
-                    _owner
-                );
-
+            if (bulletObject == null) {
                 return;
             }
 
-            Bullet bullet =
-                bulletPrefab.GetComponent<Bullet>();
+            Bullet bulletPrefab =
+                bulletObject.GetComponent<Bullet>();
 
-            if (bullet == null) {
-                Debug.LogError(
-                    $"{bulletPrefab.name}: Bullet 컴포넌트가 없습니다.",
-                    bulletPrefab
-                );
-
+            if (bulletPrefab == null) {
                 return;
             }
 
             BulletDataSO bulletData =
-                bullet.data;
+                bulletPrefab.data;
 
             if (bulletData == null) {
-                Debug.LogError(
-                    $"{bulletPrefab.name}: BulletDataSO가 설정되지 않았습니다.",
-                    bulletPrefab
-                );
-
                 return;
             }
 
             bulletPoolManager.SpawnBullet(
+                bulletPrefab,
                 firePoint.position,
                 target.bounds.center,
                 bulletData,

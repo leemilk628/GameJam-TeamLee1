@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1413bab89a845c1a923c818a10c63af, type: 3}
+  m_Name: Missile Bullet Data
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.BulletSc.BulletDataSO
+  <Sprite>k__BackingField: {fileID: -4478703775913692564, guid: be7dd5840d738d9429627e9eb41102e2, type: 3}
+  <RotationOffset>k__BackingField: 0
+  <Damage>k__BackingField: 10
+  <MoveSpeed>k__BackingField: 7
+  <LifeTime>k__BackingField: 3
+  <KnockbackPower>k__BackingField: 3
