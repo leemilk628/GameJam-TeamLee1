@@ -9760,7 +9760,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6410621613208638646, guid: 82b105fe0b007fd4c9046a91228a1a4f, type: 3}
+  m_Sprite: {fileID: -1118559873943791318, guid: 2cc36a55480a4e24da3a3c5c4c4a720b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9823,7 +9823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.Enemy.EnemyMovement
   moveDir: {x: 0, y: 0}
-  speed: 5
+  speed: 3
   <rotSpeed>k__BackingField: 100
 --- !u!114 &3792623153735206006
 MonoBehaviour:
