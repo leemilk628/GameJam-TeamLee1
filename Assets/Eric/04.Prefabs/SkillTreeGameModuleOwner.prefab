@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5645408183994809879}
   - component: {fileID: 49687548465596375}
   - component: {fileID: 7960404465625511217}
+  - component: {fileID: 8826748935447699012}
   m_Layer: 5
   m_Name: UnlockSatellite_A
   m_TagString: Untagged
@@ -169,6 +170,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 2479918205368593003}
   <Cost>k__BackingField: {fileID: 6133044044424598733}
+--- !u!114 &8826748935447699012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30082434081311689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &92072660532668049
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +198,7 @@ GameObject:
   - component: {fileID: 3397416381868666355}
   - component: {fileID: 7274900565036696035}
   - component: {fileID: 906868551274040368}
+  - component: {fileID: 8521766029817663226}
   m_Layer: 5
   m_Name: SatelliteAttackSpeedUpgrade1
   m_TagString: Untagged
@@ -338,6 +354,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7646049710080586842}
   <Cost>k__BackingField: {fileID: 7947835085858765961}
+--- !u!114 &8521766029817663226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92072660532668049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &103199721175244783
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +457,7 @@ GameObject:
   - component: {fileID: 6753190485796828547}
   - component: {fileID: 2241995695336869767}
   - component: {fileID: 5517266878221859650}
+  - component: {fileID: 3579118293453015700}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade1
   m_TagString: Untagged
@@ -582,6 +613,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 14854499142408452}
   <Cost>k__BackingField: {fileID: 7628842865035121078}
+--- !u!114 &3579118293453015700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120309825562143008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &127220175148639195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,6 +1344,7 @@ GameObject:
   - component: {fileID: 6038465459128752907}
   - component: {fileID: 1454960510319168404}
   - component: {fileID: 3436685160804058508}
+  - component: {fileID: 8423095627122215858}
   m_Layer: 5
   m_Name: AttackUpgrade1
   m_TagString: Untagged
@@ -1454,6 +1500,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8188847998104480902}
   <Cost>k__BackingField: {fileID: 6017328227812227931}
+--- !u!114 &8423095627122215858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206707959090429356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &246949941995939050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1739,7 @@ GameObject:
   - component: {fileID: 4236847925346816762}
   - component: {fileID: 8416449148993448217}
   - component: {fileID: 8864670104950705638}
+  - component: {fileID: 2049438100315890456}
   m_Layer: 5
   m_Name: MFUpgrade2
   m_TagString: Untagged
@@ -1834,6 +1895,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8720222512472690168}
   <Cost>k__BackingField: {fileID: 2516398018940742786}
+--- !u!114 &2049438100315890456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323136341779453287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &330194168704618533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2067,7 @@ GameObject:
   - component: {fileID: 1563996630749409375}
   - component: {fileID: 5942175406633598177}
   - component: {fileID: 1694117858528958096}
+  - component: {fileID: 2261050212558930332}
   m_Layer: 5
   m_Name: StartGoldUpgrade1
   m_TagString: Untagged
@@ -2147,6 +2223,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6016427639921181727}
   <Cost>k__BackingField: {fileID: 3149137485107653586}
+--- !u!114 &2261050212558930332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488393124697452878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &528450645996115750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2517,7 @@ GameObject:
   - component: {fileID: 4687199768355840486}
   - component: {fileID: 7973044651361229330}
   - component: {fileID: 3288597497381768643}
+  - component: {fileID: 3286805840539510424}
   m_Layer: 5
   m_Name: GoldUpgrade1
   m_TagString: Untagged
@@ -2582,6 +2673,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5356239644694426646}
   <Cost>k__BackingField: {fileID: 3025607263153199778}
+--- !u!114 &3286805840539510424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574827478582000271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &575437619176616328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2701,7 @@ GameObject:
   - component: {fileID: 5597171642241772759}
   - component: {fileID: 8066869714766047477}
   - component: {fileID: 5862192733618973843}
+  - component: {fileID: 310664385187981286}
   m_Layer: 5
   m_Name: HealthUpgrade2
   m_TagString: Untagged
@@ -2751,6 +2857,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5260012964957069650}
   <Cost>k__BackingField: {fileID: 3792536202339033442}
+--- !u!114 &310664385187981286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575437619176616328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &595406912401517034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,6 +3578,7 @@ GameObject:
   - component: {fileID: 4128985008594927053}
   - component: {fileID: 7996572958179845510}
   - component: {fileID: 3575447521176289720}
+  - component: {fileID: 1670463380317199471}
   m_Layer: 5
   m_Name: AttackUpgrade3
   m_TagString: Untagged
@@ -3613,6 +3734,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 547769420819384323}
   <Cost>k__BackingField: {fileID: 8581232108519785808}
+--- !u!114 &1670463380317199471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724211395278186811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &732655435488910726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,6 +3762,7 @@ GameObject:
   - component: {fileID: 8835907428674006831}
   - component: {fileID: 729950582480567648}
   - component: {fileID: 8457322004349409310}
+  - component: {fileID: 8348595568228510476}
   m_Layer: 5
   m_Name: UlockSatellite_B
   m_TagString: Untagged
@@ -3782,6 +3918,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 4652381107347275149}
   <Cost>k__BackingField: {fileID: 8337287528059199921}
+--- !u!114 &8348595568228510476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732655435488910726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &867692777169092948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,6 +4371,7 @@ GameObject:
   - component: {fileID: 6890774729340742145}
   - component: {fileID: 772548608836587460}
   - component: {fileID: 111824564152197643}
+  - component: {fileID: 6639587515266913006}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade2
   m_TagString: Untagged
@@ -4376,6 +4527,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1664802600527903417}
   <Cost>k__BackingField: {fileID: 7921318646699964966}
+--- !u!114 &6639587515266913006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933539168021389285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &934752269677738596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,6 +5763,7 @@ GameObject:
   - component: {fileID: 7830085025168242569}
   - component: {fileID: 2161710947436590806}
   - component: {fileID: 8500544168389406890}
+  - component: {fileID: 1855520309452254283}
   m_Layer: 5
   m_Name: GoldUpgrade3
   m_TagString: Untagged
@@ -5753,6 +5919,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 697401755664532332}
   <Cost>k__BackingField: {fileID: 7455630837957961113}
+--- !u!114 &1855520309452254283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332451972744004545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &1340901666386077240
 GameObject:
   m_ObjectHideFlags: 0
@@ -6388,6 +6568,7 @@ GameObject:
   - component: {fileID: 6816225468356595546}
   - component: {fileID: 2593840078872339003}
   - component: {fileID: 511930844328740485}
+  - component: {fileID: 7430799285748813848}
   m_Layer: 5
   m_Name: MFUpgrade3
   m_TagString: Untagged
@@ -6543,6 +6724,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7345108447410439534}
   <Cost>k__BackingField: {fileID: 13841399627617138}
+--- !u!114 &7430799285748813848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559996363291557027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &1560669585539188742
 GameObject:
   m_ObjectHideFlags: 0
@@ -6557,6 +6752,7 @@ GameObject:
   - component: {fileID: 7924169141559912301}
   - component: {fileID: 6631383831826483659}
   - component: {fileID: 5652095317352689938}
+  - component: {fileID: 7192182781661837953}
   m_Layer: 5
   m_Name: MFUpgrade4
   m_TagString: Untagged
@@ -6712,6 +6908,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5058729373812492824}
   <Cost>k__BackingField: {fileID: 2641512124815529194}
+--- !u!114 &7192182781661837953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560669585539188742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &1571479439859786546
 GameObject:
   m_ObjectHideFlags: 0
@@ -7301,6 +7511,7 @@ GameObject:
   - component: {fileID: 566234911268923738}
   - component: {fileID: 1062179542434442168}
   - component: {fileID: 5774151053494060461}
+  - component: {fileID: 5948300388725864473}
   m_Layer: 5
   m_Name: AttackSpeedUpgrade2
   m_TagString: Untagged
@@ -7456,6 +7667,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 2848218188207028357}
   <Cost>k__BackingField: {fileID: 8258700719027680024}
+--- !u!114 &5948300388725864473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645812450218026911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &1734317352684391336
 GameObject:
   m_ObjectHideFlags: 0
@@ -9141,6 +9366,7 @@ GameObject:
   - component: {fileID: 9015764677316970577}
   - component: {fileID: 8249567798516767872}
   - component: {fileID: 7743501782959210599}
+  - component: {fileID: 7949009467596982170}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade1
   m_TagString: Untagged
@@ -9296,6 +9522,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5007667256900299801}
   <Cost>k__BackingField: {fileID: 5078993191048082246}
+--- !u!114 &7949009467596982170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915131619518601756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &1919363159218069716
 GameObject:
   m_ObjectHideFlags: 0
@@ -9599,6 +9839,7 @@ GameObject:
   - component: {fileID: 9220089068496303134}
   - component: {fileID: 7264366931696804023}
   - component: {fileID: 3240829992096166896}
+  - component: {fileID: 5373375219978812769}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade4
   m_TagString: Untagged
@@ -9754,6 +9995,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3068544224896196982}
   <Cost>k__BackingField: {fileID: 4409274996488286226}
+--- !u!114 &5373375219978812769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963088231455484167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &1963927538007638272
 GameObject:
   m_ObjectHideFlags: 0
@@ -11246,6 +11501,7 @@ GameObject:
   - component: {fileID: 5461801415150450544}
   - component: {fileID: 6573301789635654341}
   - component: {fileID: 3959211102785810204}
+  - component: {fileID: 963518695768574626}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade2
   m_TagString: Untagged
@@ -11401,6 +11657,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 2136933117758379302}
   <Cost>k__BackingField: {fileID: 1077933243851051207}
+--- !u!114 &963518695768574626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456272584360391375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &2462825932717843268
 GameObject:
   m_ObjectHideFlags: 0
@@ -11647,6 +11917,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7899261216401108551}
+  - {fileID: 4559676208361886647}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4460700879420647218
@@ -12144,6 +12415,7 @@ GameObject:
   - component: {fileID: 5796904944530976703}
   - component: {fileID: 1762167012887223582}
   - component: {fileID: 1425479013449126093}
+  - component: {fileID: 2344684614647795566}
   m_Layer: 5
   m_Name: HealthUpgrade1
   m_TagString: Untagged
@@ -12299,6 +12571,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 2586345328712787649}
   <Cost>k__BackingField: {fileID: 6666467345024180516}
+--- !u!114 &2344684614647795566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579538204163249175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &2587419503429289902
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,6 +13246,7 @@ GameObject:
   - component: {fileID: 2467717478686565302}
   - component: {fileID: 7250553793626752469}
   - component: {fileID: 5125519985248089348}
+  - component: {fileID: 4293641878525512175}
   m_Layer: 5
   m_Name: MaxSatelliteUpgrade1
   m_TagString: Untagged
@@ -13115,6 +13402,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6947784015332048699}
   <Cost>k__BackingField: {fileID: 9170132240777405985}
+--- !u!114 &4293641878525512175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740555242277124829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &2817359496318933786
 GameObject:
   m_ObjectHideFlags: 0
@@ -13129,6 +13430,7 @@ GameObject:
   - component: {fileID: 411611260907890057}
   - component: {fileID: 1978336414344001586}
   - component: {fileID: 36852127052552740}
+  - component: {fileID: 6344558125508630388}
   m_Layer: 5
   m_Name: AttackSpeedUpgrade1
   m_TagString: Untagged
@@ -13284,6 +13586,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3347898869805224657}
   <Cost>k__BackingField: {fileID: 6874505722004976681}
+--- !u!114 &6344558125508630388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2817359496318933786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &2827182638277906375
 GameObject:
   m_ObjectHideFlags: 0
@@ -15674,6 +15990,7 @@ GameObject:
   - component: {fileID: 3214892668984779259}
   - component: {fileID: 3101133596217473600}
   - component: {fileID: 247995621359775896}
+  - component: {fileID: 96593921806053335}
   m_Layer: 5
   m_Name: AttackSpeedUpgrade1
   m_TagString: Untagged
@@ -15829,6 +16146,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 817952679707478566}
   <Cost>k__BackingField: {fileID: 1544052413552164609}
+--- !u!114 &96593921806053335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829298477666727115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &3860609075720426962
 GameObject:
   m_ObjectHideFlags: 0
@@ -15990,6 +16321,7 @@ GameObject:
   - component: {fileID: 1456519792505243975}
   - component: {fileID: 7574854570001691125}
   - component: {fileID: 4499049722504994969}
+  - component: {fileID: 3557489659375225831}
   m_Layer: 5
   m_Name: MaxSatelliteUpgrade1
   m_TagString: Untagged
@@ -16145,6 +16477,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5028148556748149860}
   <Cost>k__BackingField: {fileID: 4112448756890854594}
+--- !u!114 &3557489659375225831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882642474586637482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &3890046039167427828
 GameObject:
   m_ObjectHideFlags: 0
@@ -16370,6 +16716,7 @@ GameObject:
   - component: {fileID: 634799395830041602}
   - component: {fileID: 890282214839120227}
   - component: {fileID: 8033738237007423149}
+  - component: {fileID: 4658545288122431538}
   m_Layer: 5
   m_Name: MFUpgrade2
   m_TagString: Untagged
@@ -16525,6 +16872,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6941914415032677846}
   <Cost>k__BackingField: {fileID: 560436641883795434}
+--- !u!114 &4658545288122431538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902124252086512281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &3943074430237859325
 GameObject:
   m_ObjectHideFlags: 0
@@ -17530,6 +17891,7 @@ GameObject:
   - component: {fileID: 7319984140095007376}
   - component: {fileID: 8656805040822632968}
   - component: {fileID: 8044321591513453331}
+  - component: {fileID: 5738232032664525405}
   m_Layer: 5
   m_Name: HealthUpgrade1
   m_TagString: Untagged
@@ -17685,6 +18047,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5253516221593235969}
   <Cost>k__BackingField: {fileID: 4960814600501657687}
+--- !u!114 &5738232032664525405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174405485615471627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4175392579644180118
 GameObject:
   m_ObjectHideFlags: 0
@@ -17699,6 +18075,7 @@ GameObject:
   - component: {fileID: 3104080262453571929}
   - component: {fileID: 5844593114766002957}
   - component: {fileID: 8804965850371305900}
+  - component: {fileID: 7904175675234470413}
   m_Layer: 5
   m_Name: HealthUpgrade3
   m_TagString: Untagged
@@ -17854,6 +18231,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5164972515460572729}
   <Cost>k__BackingField: {fileID: 9048859806928072258}
+--- !u!114 &7904175675234470413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175392579644180118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4209426748876982659
 GameObject:
   m_ObjectHideFlags: 0
@@ -17868,6 +18259,7 @@ GameObject:
   - component: {fileID: 3218866595266844508}
   - component: {fileID: 2551919551165845901}
   - component: {fileID: 6302506329755436824}
+  - component: {fileID: 3615944266042162999}
   m_Layer: 5
   m_Name: MaxShieldUpgrade1
   m_TagString: Untagged
@@ -18023,6 +18415,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5494007676904015029}
   <Cost>k__BackingField: {fileID: 6087426608245450598}
+--- !u!114 &3615944266042162999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4209426748876982659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4232573289057612211
 GameObject:
   m_ObjectHideFlags: 0
@@ -18037,6 +18443,7 @@ GameObject:
   - component: {fileID: 8329784894329754571}
   - component: {fileID: 6075857465959401368}
   - component: {fileID: 3851687811277668870}
+  - component: {fileID: 8457380136514930521}
   m_Layer: 5
   m_Name: HealthUpgrade2
   m_TagString: Untagged
@@ -18192,6 +18599,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3948328002094842613}
   <Cost>k__BackingField: {fileID: 8112118069520853052}
+--- !u!114 &8457380136514930521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232573289057612211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4235280686393358261
 GameObject:
   m_ObjectHideFlags: 0
@@ -18639,6 +19060,7 @@ GameObject:
   - component: {fileID: 8386516487130374047}
   - component: {fileID: 1365201114852938579}
   - component: {fileID: 3054855313788605516}
+  - component: {fileID: 3768112114698106317}
   m_Layer: 5
   m_Name: GoldUpgrade1
   m_TagString: Untagged
@@ -18794,6 +19216,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 612106925859261649}
   <Cost>k__BackingField: {fileID: 4371512737251126827}
+--- !u!114 &3768112114698106317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296269642987188311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4315305659629749657
 GameObject:
   m_ObjectHideFlags: 0
@@ -18808,6 +19244,7 @@ GameObject:
   - component: {fileID: 1429255377676045008}
   - component: {fileID: 2272071819533435284}
   - component: {fileID: 1548469709002418314}
+  - component: {fileID: 6300209097699980897}
   m_Layer: 5
   m_Name: AttackUpgrade2
   m_TagString: Untagged
@@ -18963,6 +19400,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1872208992288357101}
   <Cost>k__BackingField: {fileID: 3899548492256321368}
+--- !u!114 &6300209097699980897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315305659629749657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4342306696963474473
 GameObject:
   m_ObjectHideFlags: 0
@@ -19544,6 +19995,7 @@ GameObject:
   - component: {fileID: 5328201711117111106}
   - component: {fileID: 7268635184440092236}
   - component: {fileID: 4564427225332923222}
+  - component: {fileID: 2492587018859282503}
   m_Layer: 5
   m_Name: MaxShieldUpgrade1
   m_TagString: Untagged
@@ -19699,6 +20151,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 4868645665110418628}
   <Cost>k__BackingField: {fileID: 4310681624425028841}
+--- !u!114 &2492587018859282503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559475842947686556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4566195149240381303
 GameObject:
   m_ObjectHideFlags: 0
@@ -20711,6 +21177,7 @@ GameObject:
   - component: {fileID: 6385450871580166289}
   - component: {fileID: 6780474076778237877}
   - component: {fileID: 2763275200956227197}
+  - component: {fileID: 3961599923937938619}
   m_Layer: 5
   m_Name: SatelliteAttackSpeedUpgrade2
   m_TagString: Untagged
@@ -20866,6 +21333,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3808899052377613101}
   <Cost>k__BackingField: {fileID: 5565657630696864248}
+--- !u!114 &3961599923937938619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804165804619217053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4805664799736878575
 GameObject:
   m_ObjectHideFlags: 0
@@ -21724,6 +22205,7 @@ GameObject:
   - component: {fileID: 1686207162269844808}
   - component: {fileID: 8234471816511085439}
   - component: {fileID: 1386286572615891296}
+  - component: {fileID: 8653292522864760142}
   m_Layer: 5
   m_Name: GoldUpgrade1
   m_TagString: Untagged
@@ -21879,6 +22361,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1416913578545308905}
   <Cost>k__BackingField: {fileID: 641762282558059078}
+--- !u!114 &8653292522864760142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927182822975553216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &4951384756125100385
 GameObject:
   m_ObjectHideFlags: 0
@@ -22668,6 +23164,7 @@ GameObject:
   - component: {fileID: 7583950664612599079}
   - component: {fileID: 7737194103070917352}
   - component: {fileID: 195874602364200181}
+  - component: {fileID: 2223656077932563615}
   m_Layer: 5
   m_Name: AttackSpeedUpgrade1
   m_TagString: Untagged
@@ -22823,6 +23320,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 2592245768651721392}
   <Cost>k__BackingField: {fileID: 8987048110303941119}
+--- !u!114 &2223656077932563615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159092887361639128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &5197900562805934006
 GameObject:
   m_ObjectHideFlags: 0
@@ -22943,6 +23454,7 @@ GameObject:
   - component: {fileID: 1654108507357475501}
   - component: {fileID: 6846617901742836699}
   - component: {fileID: 6370279564929641784}
+  - component: {fileID: 3243543960066865760}
   m_Layer: 5
   m_Name: MaxShieldUpgrade2
   m_TagString: Untagged
@@ -23098,6 +23610,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1652011732405942791}
   <Cost>k__BackingField: {fileID: 2427599746111328021}
+--- !u!114 &3243543960066865760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257689513930454983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &5263017103185722608
 GameObject:
   m_ObjectHideFlags: 0
@@ -23704,6 +24230,50 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5470475564110130451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4559676208361886647}
+  - component: {fileID: 7028195023965046452}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4559676208361886647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470475564110130451}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1408.9679, y: -659.8799, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3424961514385713700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7028195023965046452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470475564110130451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27bcdbfcf6f446db9ec9db9f2a7050b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.Save.SaveManager
 --- !u!1 &5518459513334235917
 GameObject:
   m_ObjectHideFlags: 0
@@ -24151,6 +24721,7 @@ GameObject:
   - component: {fileID: 5455644581974117468}
   - component: {fileID: 7735646374493471373}
   - component: {fileID: 777200524191661611}
+  - component: {fileID: 4854448247357771696}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade1
   m_TagString: Untagged
@@ -24306,6 +24877,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1688856688654160615}
   <Cost>k__BackingField: {fileID: 4546048372303107666}
+--- !u!114 &4854448247357771696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688860401552017698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &5699000638619687034
 GameObject:
   m_ObjectHideFlags: 0
@@ -24392,6 +24977,7 @@ GameObject:
   - component: {fileID: 2394434298521134658}
   - component: {fileID: 2728669234116968743}
   - component: {fileID: 7867893582128946004}
+  - component: {fileID: 7242563819671793554}
   m_Layer: 5
   m_Name: ShieldRecoveryUpgrade1
   m_TagString: Untagged
@@ -24547,6 +25133,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8403428769812124662}
   <Cost>k__BackingField: {fileID: 153504346946113448}
+--- !u!114 &7242563819671793554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5699554877744085013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &5771095672837092951
 GameObject:
   m_ObjectHideFlags: 0
@@ -25264,6 +25864,7 @@ GameObject:
   - component: {fileID: 8837302954645424384}
   - component: {fileID: 6894330017129897728}
   - component: {fileID: 3092605757240755801}
+  - component: {fileID: 6975109120030786438}
   m_Layer: 5
   m_Name: HealthUpgrade4
   m_TagString: Untagged
@@ -25419,6 +26020,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 9148074718323500769}
   <Cost>k__BackingField: {fileID: 7568317436516365454}
+--- !u!114 &6975109120030786438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917131713138647542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &5935216498354567906
 GameObject:
   m_ObjectHideFlags: 0
@@ -25508,6 +26123,7 @@ GameObject:
   - component: {fileID: 8908532258590946767}
   - component: {fileID: 511579739412364292}
   - component: {fileID: 8148002074124014295}
+  - component: {fileID: 9162905510211117277}
   m_Layer: 5
   m_Name: AttackUpgrade2
   m_TagString: Untagged
@@ -25663,6 +26279,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1590837558282935201}
   <Cost>k__BackingField: {fileID: 7200477710545402642}
+--- !u!114 &9162905510211117277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952881105443370720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &5989749330233930539
 GameObject:
   m_ObjectHideFlags: 0
@@ -25752,6 +26382,7 @@ GameObject:
   - component: {fileID: 4866323194837100846}
   - component: {fileID: 2897880065480522382}
   - component: {fileID: 7354862373282739881}
+  - component: {fileID: 9001094554509136506}
   m_Layer: 5
   m_Name: AttackUpgrade3
   m_TagString: Untagged
@@ -25907,6 +26538,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1398116356611258053}
   <Cost>k__BackingField: {fileID: 63901166045891181}
+--- !u!114 &9001094554509136506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008566089846399164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6009778176811304609
 GameObject:
   m_ObjectHideFlags: 0
@@ -25921,6 +26566,7 @@ GameObject:
   - component: {fileID: 7679053650221039545}
   - component: {fileID: 3193080416786684143}
   - component: {fileID: 5509963189836482259}
+  - component: {fileID: 8979022216025083898}
   m_Layer: 5
   m_Name: BasicFreeUpgrade1
   m_TagString: Untagged
@@ -26076,6 +26722,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6336632402282532156}
   <Cost>k__BackingField: {fileID: 7015672682588316054}
+--- !u!114 &8979022216025083898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009778176811304609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6096023862618992274
 GameObject:
   m_ObjectHideFlags: 0
@@ -26368,6 +27028,7 @@ GameObject:
   - component: {fileID: 5595153469668311964}
   - component: {fileID: 6459219004760780959}
   - component: {fileID: 262062363722741919}
+  - component: {fileID: 3126495850740794394}
   m_Layer: 5
   m_Name: MaxShieldUpgrade1
   m_TagString: Untagged
@@ -26523,6 +27184,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7912142617635127942}
   <Cost>k__BackingField: {fileID: 1922414684883717038}
+--- !u!114 &3126495850740794394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109732996832677007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6140495696254865161
 GameObject:
   m_ObjectHideFlags: 0
@@ -27268,6 +27943,7 @@ GameObject:
   - component: {fileID: 5477234361061226051}
   - component: {fileID: 9067305833603064735}
   - component: {fileID: 2681524189140199105}
+  - component: {fileID: 1394966270438480693}
   m_Layer: 5
   m_Name: GoldUpgrade2
   m_TagString: Untagged
@@ -27423,6 +28099,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3125325613361541503}
   <Cost>k__BackingField: {fileID: 8183385961624693315}
+--- !u!114 &1394966270438480693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230789054925913426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6248838025176035139
 GameObject:
   m_ObjectHideFlags: 0
@@ -28012,6 +28702,7 @@ GameObject:
   - component: {fileID: 2723034287377070597}
   - component: {fileID: 8127219260873308654}
   - component: {fileID: 6081069561232905623}
+  - component: {fileID: 2341168846261532535}
   m_Layer: 5
   m_Name: HealthUpgrade3
   m_TagString: Untagged
@@ -28167,6 +28858,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3720197912137895894}
   <Cost>k__BackingField: {fileID: 5040390136817393230}
+--- !u!114 &2341168846261532535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377859785426988262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6384686131725700230
 GameObject:
   m_ObjectHideFlags: 0
@@ -28181,6 +28886,7 @@ GameObject:
   - component: {fileID: 8735402523889513631}
   - component: {fileID: 8075094003281190139}
   - component: {fileID: 8355476275006773066}
+  - component: {fileID: 7430255898905310211}
   m_Layer: 5
   m_Name: MFUpgrade1
   m_TagString: Untagged
@@ -28336,6 +29042,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 2368143279755567496}
   <Cost>k__BackingField: {fileID: 8022873287071217206}
+--- !u!114 &7430255898905310211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384686131725700230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6421578476848197799
 GameObject:
   m_ObjectHideFlags: 0
@@ -28350,6 +29070,7 @@ GameObject:
   - component: {fileID: 2070552202993031576}
   - component: {fileID: 745522480026037330}
   - component: {fileID: 2190766287505334681}
+  - component: {fileID: 3169533284761410120}
   m_Layer: 5
   m_Name: AttackUpgrade1
   m_TagString: Untagged
@@ -28505,6 +29226,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6904329302989622637}
   <Cost>k__BackingField: {fileID: 1820275077836974547}
+--- !u!114 &3169533284761410120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421578476848197799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6427276532401174937
 GameObject:
   m_ObjectHideFlags: 0
@@ -28519,6 +29254,7 @@ GameObject:
   - component: {fileID: 8676673429588945933}
   - component: {fileID: 2462974004153093287}
   - component: {fileID: 371885147035975550}
+  - component: {fileID: 5588904127591436609}
   m_Layer: 5
   m_Name: SatelliteAttackSpeedUpgrade1
   m_TagString: Untagged
@@ -28674,6 +29410,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6484717274042393349}
   <Cost>k__BackingField: {fileID: 5919900257943376530}
+--- !u!114 &5588904127591436609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427276532401174937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6446708625755725325
 GameObject:
   m_ObjectHideFlags: 0
@@ -29538,6 +30288,7 @@ GameObject:
   - component: {fileID: 8324261436194697578}
   - component: {fileID: 6701931330593381112}
   - component: {fileID: 3707227898977421892}
+  - component: {fileID: 1938113721168708868}
   m_Layer: 5
   m_Name: AttackSpeedUpgrade2
   m_TagString: Untagged
@@ -29693,6 +30444,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8904225006894878404}
   <Cost>k__BackingField: {fileID: 4179859401356971619}
+--- !u!114 &1938113721168708868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651927107387058672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6689854022317981577
 GameObject:
   m_ObjectHideFlags: 0
@@ -30068,6 +30833,7 @@ GameObject:
   - component: {fileID: 7861897237587877893}
   - component: {fileID: 2986929626888198551}
   - component: {fileID: 2766158005696433677}
+  - component: {fileID: 2701151302889986630}
   m_Layer: 5
   m_Name: GoldUpgrade2
   m_TagString: Untagged
@@ -30223,6 +30989,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 5144811774262360446}
   <Cost>k__BackingField: {fileID: 3256442604014056948}
+--- !u!114 &2701151302889986630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961728279567424340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6976999385467088883
 GameObject:
   m_ObjectHideFlags: 0
@@ -30237,6 +31017,7 @@ GameObject:
   - component: {fileID: 2239944902878782537}
   - component: {fileID: 43668843256451559}
   - component: {fileID: 5960587127260761947}
+  - component: {fileID: 3635605315374643783}
   m_Layer: 5
   m_Name: UnlockSatellite_C
   m_TagString: Untagged
@@ -30392,6 +31173,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 3036238828562553937}
   <Cost>k__BackingField: {fileID: 8865284268028091990}
+--- !u!114 &3635605315374643783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6976999385467088883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &6990641497196909637
 GameObject:
   m_ObjectHideFlags: 0
@@ -31402,6 +32197,7 @@ GameObject:
   - component: {fileID: 2814681748165806079}
   - component: {fileID: 574808035371575377}
   - component: {fileID: 223834054827119936}
+  - component: {fileID: 2928312284945068028}
   m_Layer: 5
   m_Name: MFUpgrade1
   m_TagString: Untagged
@@ -31557,6 +32353,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1679962180584164682}
   <Cost>k__BackingField: {fileID: 3268136233813280288}
+--- !u!114 &2928312284945068028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349414976054729354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7370170442407058479
 GameObject:
   m_ObjectHideFlags: 0
@@ -32691,6 +33501,7 @@ GameObject:
   - component: {fileID: 590540693860075305}
   - component: {fileID: 1491078321372664790}
   - component: {fileID: 6139260391545099596}
+  - component: {fileID: 5030825266752475782}
   m_Layer: 5
   m_Name: SatelliteAttackSpeedUpgrade1
   m_TagString: Untagged
@@ -32846,6 +33657,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 9198115168373487175}
   <Cost>k__BackingField: {fileID: 451978068087955614}
+--- !u!114 &5030825266752475782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7490203102013693608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7555642444269835173
 GameObject:
   m_ObjectHideFlags: 0
@@ -32999,6 +33824,7 @@ GameObject:
   - component: {fileID: 2037786470447657490}
   - component: {fileID: 2561809602213618147}
   - component: {fileID: 4294737548429422024}
+  - component: {fileID: 4023382307092155040}
   m_Layer: 5
   m_Name: SatelliteAttackSpeedUpgrade1
   m_TagString: Untagged
@@ -33154,6 +33980,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8526096188191380420}
   <Cost>k__BackingField: {fileID: 288414609967160203}
+--- !u!114 &4023382307092155040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587174122972812187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7611108235363793023
 GameObject:
   m_ObjectHideFlags: 0
@@ -33168,6 +34008,7 @@ GameObject:
   - component: {fileID: 7418703036853176928}
   - component: {fileID: 1030000982674228625}
   - component: {fileID: 6560263292156206}
+  - component: {fileID: 5919260779224662270}
   m_Layer: 5
   m_Name: GoldUpgrade3
   m_TagString: Untagged
@@ -33323,6 +34164,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 4823232657945067326}
   <Cost>k__BackingField: {fileID: 8640971754782424492}
+--- !u!114 &5919260779224662270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611108235363793023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7654788792608376973
 GameObject:
   m_ObjectHideFlags: 0
@@ -33901,6 +34756,7 @@ GameObject:
   - component: {fileID: 7681965789639907235}
   - component: {fileID: 5877309517285831506}
   - component: {fileID: 7525094198185528940}
+  - component: {fileID: 8273531229335649761}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade1
   m_TagString: Untagged
@@ -34056,6 +34912,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7688746033789447233}
   <Cost>k__BackingField: {fileID: 8204042608462970872}
+--- !u!114 &8273531229335649761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702380833303686514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7719956112344123397
 GameObject:
   m_ObjectHideFlags: 0
@@ -34070,6 +34940,7 @@ GameObject:
   - component: {fileID: 8616737628367420392}
   - component: {fileID: 8988908080498972444}
   - component: {fileID: 8208763809581665631}
+  - component: {fileID: 3458925319531686764}
   m_Layer: 5
   m_Name: GoldUpgrade4
   m_TagString: Untagged
@@ -34225,6 +35096,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8440674218463718668}
   <Cost>k__BackingField: {fileID: 7355598353704823641}
+--- !u!114 &3458925319531686764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719956112344123397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7816365790938163542
 GameObject:
   m_ObjectHideFlags: 0
@@ -34239,6 +35124,7 @@ GameObject:
   - component: {fileID: 4250065868678958703}
   - component: {fileID: 1074189185664304426}
   - component: {fileID: 7002764506371475211}
+  - component: {fileID: 7130617611991235258}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade3
   m_TagString: Untagged
@@ -34394,6 +35280,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8102584181169087786}
   <Cost>k__BackingField: {fileID: 5412831708232708375}
+--- !u!114 &7130617611991235258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816365790938163542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7843031507840215381
 GameObject:
   m_ObjectHideFlags: 0
@@ -34761,6 +35661,7 @@ GameObject:
   - component: {fileID: 467908290944993790}
   - component: {fileID: 730329345672535674}
   - component: {fileID: 6165653174805515472}
+  - component: {fileID: 5091847067349762229}
   m_Layer: 5
   m_Name: HealthUpgrade1
   m_TagString: Untagged
@@ -34916,6 +35817,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 211140373508766991}
   <Cost>k__BackingField: {fileID: 8299266991383375847}
+--- !u!114 &5091847067349762229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913248385171199042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7937730608235699034
 GameObject:
   m_ObjectHideFlags: 0
@@ -34930,6 +35845,7 @@ GameObject:
   - component: {fileID: 7733039725325845723}
   - component: {fileID: 8487919307837124489}
   - component: {fileID: 6398166044057416448}
+  - component: {fileID: 7084751381985182228}
   m_Layer: 5
   m_Name: MFUpgrade1
   m_TagString: Untagged
@@ -35085,6 +36001,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7689195364894131565}
   <Cost>k__BackingField: {fileID: 1835560201833465333}
+--- !u!114 &7084751381985182228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937730608235699034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &7955624007790151040
 GameObject:
   m_ObjectHideFlags: 0
@@ -35668,6 +36598,7 @@ GameObject:
   - component: {fileID: 3837742024795036533}
   - component: {fileID: 7751328207539726113}
   - component: {fileID: 2092674630452623386}
+  - component: {fileID: 9171910882271030482}
   m_Layer: 5
   m_Name: ShieldRecoveryUpgrade1
   m_TagString: Untagged
@@ -35823,6 +36754,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7514924346979097407}
   <Cost>k__BackingField: {fileID: 5955050387589086579}
+--- !u!114 &9171910882271030482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064582022085419948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8076386058026962273
 GameObject:
   m_ObjectHideFlags: 0
@@ -36348,6 +37293,7 @@ GameObject:
   - component: {fileID: 2315374391774426144}
   - component: {fileID: 7999523498397651912}
   - component: {fileID: 2345006023418606472}
+  - component: {fileID: 4745052077409667521}
   m_Layer: 5
   m_Name: SatelliteAttackUpgrade2
   m_TagString: Untagged
@@ -36503,6 +37449,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 895307082734693849}
   <Cost>k__BackingField: {fileID: 6256870643951667553}
+--- !u!114 &4745052077409667521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182850474262678615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8198373433634649575
 GameObject:
   m_ObjectHideFlags: 0
@@ -36517,6 +37477,7 @@ GameObject:
   - component: {fileID: 7729004624329744949}
   - component: {fileID: 8390016107175895868}
   - component: {fileID: 8952679993056484797}
+  - component: {fileID: 3832964363518668697}
   m_Layer: 5
   m_Name: AttackUpgrade1
   m_TagString: Untagged
@@ -36672,6 +37633,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 8145659470273952622}
   <Cost>k__BackingField: {fileID: 1509691626122414650}
+--- !u!114 &3832964363518668697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198373433634649575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8198805390163401674
 GameObject:
   m_ObjectHideFlags: 0
@@ -37175,6 +38150,7 @@ GameObject:
   - component: {fileID: 7307040914322058522}
   - component: {fileID: 6494786864351631421}
   - component: {fileID: 6820282008164705578}
+  - component: {fileID: 5921068744005355912}
   m_Layer: 5
   m_Name: AttackUpgrade1
   m_TagString: Untagged
@@ -37330,6 +38306,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 6900013243888894216}
   <Cost>k__BackingField: {fileID: 7181024869130124024}
+--- !u!114 &5921068744005355912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8286483545940874748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8286810894966272690
 GameObject:
   m_ObjectHideFlags: 0
@@ -37483,6 +38473,7 @@ GameObject:
   - component: {fileID: 4045233352870551824}
   - component: {fileID: 4248845458086175492}
   - component: {fileID: 7941972561537663168}
+  - component: {fileID: 2752378189408652355}
   m_Layer: 5
   m_Name: GoldUpgrade2
   m_TagString: Untagged
@@ -37638,6 +38629,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 7482732053941912786}
   <Cost>k__BackingField: {fileID: 1598357924482914143}
+--- !u!114 &2752378189408652355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327869947578649193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8347871920607202669
 GameObject:
   m_ObjectHideFlags: 0
@@ -37652,6 +38657,7 @@ GameObject:
   - component: {fileID: 6500054261579483024}
   - component: {fileID: 6547545592195864879}
   - component: {fileID: 7632832716480333632}
+  - component: {fileID: 5706871255612092464}
   m_Layer: 5
   m_Name: HealthUpgrade1
   m_TagString: Untagged
@@ -37807,6 +38813,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 541990191136059119}
   <Cost>k__BackingField: {fileID: 4279224358738421692}
+--- !u!114 &5706871255612092464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347871920607202669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8403241437860677412
 GameObject:
   m_ObjectHideFlags: 0
@@ -38306,6 +39326,7 @@ GameObject:
   - component: {fileID: 6982934622974885794}
   - component: {fileID: 9199163848882732673}
   - component: {fileID: 2449721724718178271}
+  - component: {fileID: 2727611253964906522}
   m_Layer: 5
   m_Name: HealthUpgrade2
   m_TagString: Untagged
@@ -38461,6 +39482,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 1191644772312940418}
   <Cost>k__BackingField: {fileID: 8868217203223783133}
+--- !u!114 &2727611253964906522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540503930109108580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &8578019577030568870
 GameObject:
   m_ObjectHideFlags: 0
@@ -40573,6 +41608,7 @@ GameObject:
   - component: {fileID: 7944568338277030837}
   - component: {fileID: 3476252326093710738}
   - component: {fileID: 9146317356625612726}
+  - component: {fileID: 3334796463520222529}
   m_Layer: 5
   m_Name: GoldUpgrade3
   m_TagString: Untagged
@@ -40728,6 +41764,20 @@ MonoBehaviour:
   <DetectClick>k__BackingField: {fileID: 0}
   <Description>k__BackingField: {fileID: 4880956560262774495}
   <Cost>k__BackingField: {fileID: 8905591420215374215}
+--- !u!114 &3334796463520222529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156890154242166345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &9159535235397479232
 GameObject:
   m_ObjectHideFlags: 0
