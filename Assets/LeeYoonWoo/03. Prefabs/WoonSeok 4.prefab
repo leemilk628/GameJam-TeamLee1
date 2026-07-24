@@ -9758,7 +9758,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 1
   m_Sprite: {fileID: 6410621613208638646, guid: 82b105fe0b007fd4c9046a91228a1a4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9810,7 +9810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.Enemy.MeteoEnemy
   mvdir: {fileID: 0}
-  damage: 10
+  damage: 20
+  maxHealth: 100
 --- !u!114 &2901215556741425382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9824,7 +9825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.Enemy.EnemyMovement
   moveDir: {x: 0, y: 0}
-  speed: 3
+  speed: 2
   <rotSpeed>k__BackingField: 100
 --- !u!114 &3792623153735206006
 MonoBehaviour:

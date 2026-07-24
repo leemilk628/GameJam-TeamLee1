@@ -1,5 +1,6 @@
 ﻿using System;
 using Eric.ModuleSystem;
+using Eric.StageUpgrade;
 using UnityEngine;
 
 namespace Eric.Save
@@ -7,7 +8,8 @@ namespace Eric.Save
         public class SaveManager : MonoBehaviour, IModule
         {
                 private ModuleOwner Owner { get; set; }
-                
+                [SerializeField] private SaveSkillTree _saveSkillTree;
+                [SerializeField] private StageUpgradeModule _stageUpgradeModule;
                 private event Action HandleOnSave;
                 private event Action HandleOnLoad;
                 public void Init(ModuleOwner owner)
@@ -36,6 +38,16 @@ namespace Eric.Save
                 public void InvokeLoad()
                 {
                         HandleOnLoad?.Invoke();
+                }
+
+                public void ResetAll()
+                {
+                        _saveSkillTree.ResetSaveData();
+                }
+
+                public void ResetStageData()
+                {
+                        _stageUpgradeModule.ResetStageData();
                 }
 
                 private void OnDestroy()

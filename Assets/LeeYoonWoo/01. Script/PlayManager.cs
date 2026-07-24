@@ -10,7 +10,7 @@ public class PlayManager : MonoBehaviour
     
     public StageData[] stage = new StageData[4];
     
-    int T = 5;
+    int T = 30;
     
     void Start()
     {

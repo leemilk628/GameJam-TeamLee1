@@ -1,4 +1,5 @@
 ﻿using System;
+using Eric.GameOver;
 using Eric.Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,21 +11,18 @@ namespace Eric.Scenes
         {
                 MainMenu,
                 Game,
-                GameOver,
                 Ending,
         }
         public class SceneChanger : MonoBehaviour
         {
                 public static SceneChanger Instance{get; private set;}
-                
+                [SerializeField] private LightFading lightFading;
                 private SaveManager _saveManager;
 
                 private void OnEnable()
                 {
                         if (Instance == null)
                                 Instance = this;
-                        
-                        DontDestroyOnLoad(gameObject);
                 }
 
                 private void ChangeSceneState(SceneType sceneType)
@@ -33,7 +31,6 @@ namespace Eric.Scenes
                         {
                                 SceneType.MainMenu => "MainMenuScene",
                                 SceneType.Game => "EnemyScene",
-                                SceneType.GameOver => "GameOverScene",
                                 SceneType.Ending => "EndingCreditScene",
                                 _ => ""
                         };
@@ -51,9 +48,9 @@ namespace Eric.Scenes
                         ChangeSceneState(SceneType.Game);
                 }
 
-                public void GoToGameOver()
+                public void GameOver()
                 {
-                        ChangeSceneState(SceneType.GameOver);
+                        lightFading.State();
                 }
 
                 public void GoToEnding()
@@ -72,6 +69,16 @@ namespace Eric.Scenes
                 {
                         if (_saveManager == null) return;
                         _saveManager.InvokeSave();
+                }
+                
+                public void Pause()
+                {
+                        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+                }
+
+                public void RainbowMode()
+                {
+                        
                 }
 
                 public void EndGame()
