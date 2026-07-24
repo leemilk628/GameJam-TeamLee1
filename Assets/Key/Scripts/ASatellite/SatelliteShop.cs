@@ -27,6 +27,10 @@ namespace Key.Scripts.ASatellite {
         private SatelliteUnlockModule _satelliteUnlockModule;
         private SatelliteStageStatModule
             _subscribedSatelliteStatModule;
+        private SatelliteUnlockModule
+            _subscribedSatelliteUnlockModule;
+
+        private readonly List<Button> _productButtons = new();
 
         private int _currentProductIndex = -1;
 
@@ -44,6 +48,8 @@ namespace Key.Scripts.ASatellite {
 
         private void Start() {
             ConnectModules();
+            FindProductButtons();
+            RefreshProductButtons();
             SelectInitialMode();
             SynchronizeSatelliteCount();
         }
@@ -87,6 +93,7 @@ namespace Key.Scripts.ASatellite {
             }
 
             SubscribeToSatelliteStats();
+            SubscribeToSatelliteUnlock();
         }
 
         public void BuySatellite(int productIndex) {
@@ -224,12 +231,27 @@ namespace Key.Scripts.ASatellite {
                 return false;
             }
 
-            if (productIndex < _productTypes.Count) {
-                satelliteType =
-                    _productTypes[productIndex];
-            }
+            satelliteType = GetProductType(productIndex);
 
             return true;
+        }
+
+        private SatelliteType GetProductType(
+            int productIndex
+        ) {
+            if (productIndex >= 0 &&
+                productIndex < _productTypes.Count &&
+                _productTypes[productIndex] !=
+                SatelliteType.None) {
+                return _productTypes[productIndex];
+            }
+
+            return productIndex switch {
+                0 => SatelliteType.AutocannonSatellite,
+                1 => SatelliteType.MissileSatellite,
+                2 => SatelliteType.LaserSatellite,
+                _ => SatelliteType.None
+            };
         }
 
         private void SubscribeToSatelliteStats() {
@@ -256,6 +278,34 @@ namespace Key.Scripts.ASatellite {
             SynchronizeSatelliteCount();
         }
 
+        private void SubscribeToSatelliteUnlock() {
+            if (_subscribedSatelliteUnlockModule ==
+                _satelliteUnlockModule) {
+                return;
+            }
+
+            if (_subscribedSatelliteUnlockModule != null) {
+                _subscribedSatelliteUnlockModule
+                    .OnSatelliteUnlockChanged -=
+                    HandleSatelliteUnlockChanged;
+            }
+
+            _subscribedSatelliteUnlockModule =
+                _satelliteUnlockModule;
+
+            if (_subscribedSatelliteUnlockModule != null) {
+                _subscribedSatelliteUnlockModule
+                    .OnSatelliteUnlockChanged +=
+                    HandleSatelliteUnlockChanged;
+            }
+        }
+
+        private void HandleSatelliteUnlockChanged() {
+            RefreshProductButtons();
+            SelectInitialMode();
+            SynchronizeSatelliteCount();
+        }
+
         private void SelectInitialMode() {
             if (_currentProductIndex >= 0 &&
                 _currentProductIndex < _products.Count &&
@@ -272,9 +322,7 @@ namespace Key.Scripts.ASatellite {
                 }
 
                 SatelliteType satelliteType =
-                    i < _productTypes.Count
-                        ? _productTypes[i]
-                        : SatelliteType.None;
+                    GetProductType(i);
 
                 if (!IsUnlocked(satelliteType))
                     continue;
@@ -304,6 +352,9 @@ namespace Key.Scripts.ASatellite {
                 return;
 
             SelectInitialMode();
+
+            if (_currentProductIndex < 0)
+                return;
 
             if (!TryGetProduct(
                     _currentProductIndex,
@@ -458,23 +509,133 @@ namespace Key.Scripts.ASatellite {
             return _goldModule.HasGold(product.price);
         }
 
+        private void FindProductButtons() {
+            _productButtons.Clear();
+
+            Button[] buttons =
+                FindObjectsByType<Button>(
+                    FindObjectsInactive.Include,
+                    FindObjectsSortMode.None
+                );
+
+            foreach (Button button in buttons) {
+                if (!CallsBuySatellite(button))
+                    continue;
+
+                _productButtons.Add(button);
+            }
+
+            _productButtons.Sort(CompareHierarchyOrder);
+        }
+
+        private bool CallsBuySatellite(Button button) {
+            if (button == null)
+                return false;
+
+            int listenerCount =
+                button.onClick.GetPersistentEventCount();
+
+            for (int i = 0; i < listenerCount; i++) {
+                if (button.onClick.GetPersistentTarget(i) != this)
+                    continue;
+
+                if (button.onClick.GetPersistentMethodName(i) ==
+                    nameof(BuySatellite)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static int CompareHierarchyOrder(
+            Button left,
+            Button right
+        ) {
+            List<Transform> leftPath =
+                GetHierarchyPath(left.transform);
+
+            List<Transform> rightPath =
+                GetHierarchyPath(right.transform);
+
+            int sharedDepth =
+                Mathf.Min(leftPath.Count, rightPath.Count);
+
+            for (int i = 0; i < sharedDepth; i++) {
+                int comparison =
+                    leftPath[i]
+                        .GetSiblingIndex()
+                        .CompareTo(
+                            rightPath[i].GetSiblingIndex()
+                        );
+
+                if (comparison != 0)
+                    return comparison;
+            }
+
+            return leftPath.Count.CompareTo(rightPath.Count);
+        }
+
+        private static List<Transform> GetHierarchyPath(
+            Transform current
+        ) {
+            List<Transform> path = new();
+
+            while (current != null) {
+                path.Add(current);
+                current = current.parent;
+            }
+
+            path.Reverse();
+            return path;
+        }
+
+        private void RefreshProductButtons() {
+            if (_productButtons.Count == 0)
+                FindProductButtons();
+
+            int buttonCount =
+                Mathf.Min(
+                    _productButtons.Count,
+                    _products.Count
+                );
+
+            for (int i = 0; i < buttonCount; i++) {
+                Button button = _productButtons[i];
+
+                if (button == null)
+                    continue;
+
+                button.interactable =
+                    IsUnlocked(GetProductType(i));
+            }
+        }
+
         public void ButtonLock(Button button) {
             if (button == null)
                 return;
 
-            if (_satelliteStatModule == null)
+            if (_satelliteUnlockModule == null)
                 ConnectModules();
 
-            RemoveMissingSatellites();
+            if (!_productButtons.Contains(button)) {
+                _productButtons.Add(button);
+                _productButtons.Sort(CompareHierarchyOrder);
+            }
 
-            button.interactable =
-                _satelliteStatModule != null;
+            RefreshProductButtons();
         }
 
         private void OnDestroy() {
             if (_subscribedSatelliteStatModule != null) {
                 _subscribedSatelliteStatModule.OnStatsChanged -=
                     HandleSatelliteStatsChanged;
+            }
+
+            if (_subscribedSatelliteUnlockModule != null) {
+                _subscribedSatelliteUnlockModule
+                    .OnSatelliteUnlockChanged -=
+                    HandleSatelliteUnlockChanged;
             }
         }
     }
