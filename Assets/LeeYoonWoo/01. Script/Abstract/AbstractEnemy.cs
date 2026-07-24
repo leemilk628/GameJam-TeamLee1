@@ -31,8 +31,6 @@ namespace LeeYoonWoo._01._Script.Abstract
 
         public virtual void Death()
         {
-            // 죽을때 이벤트
-            Debug.Log("적 죽음!");
         }
     }
 }

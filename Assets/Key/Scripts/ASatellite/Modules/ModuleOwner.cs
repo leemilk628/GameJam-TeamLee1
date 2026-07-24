@@ -19,11 +19,6 @@ namespace Key.Scripts.ASatellite.Modules {
                 Type moduleType = module.GetType();
 
                 if (_modules.ContainsKey(moduleType)) {
-                    Debug.LogError(
-                        $"{name}에 {moduleType.Name} 모듈이 중복되어 있습니다.",
-                        this
-                    );
-
                     continue;
                 }
 

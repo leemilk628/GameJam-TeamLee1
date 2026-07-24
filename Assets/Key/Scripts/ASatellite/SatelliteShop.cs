@@ -40,7 +40,7 @@ namespace Key.Scripts.ASatellite {
                 _satelliteParent
             );
 
-            satellite.Deploy(_orbitCenter);
+            satellite.Deploy(_orbitCenter);     
 
             MovementModule movementModule = satellite.GetModule<MovementModule>();
 
