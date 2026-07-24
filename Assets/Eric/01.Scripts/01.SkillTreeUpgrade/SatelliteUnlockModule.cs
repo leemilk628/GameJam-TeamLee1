@@ -11,6 +11,7 @@ namespace Eric.Satellite
         {
                 private ModuleOwner Owner{get;set;}
                 private readonly HashSet<SatelliteType> _unlockedSatellites = new();
+                private SaveManager SaveManager { get; set; }
 
                 public event Action OnSatelliteUnlockChanged;
 
@@ -22,6 +23,9 @@ namespace Eric.Satellite
 
                 public void AfterInit()
                 {
+                        SaveManager =  Owner.GetModule<SaveManager>();
+                        SaveManager.RaiseSave(OnSave);
+                        SaveManager.RaiseLoad(OnLoad);
                 }
 
                 public bool Unlock(SatelliteType satelliteType)
