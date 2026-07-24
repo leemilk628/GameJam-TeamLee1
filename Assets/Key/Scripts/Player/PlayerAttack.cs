@@ -30,6 +30,9 @@ namespace Key.Scripts.Player {
         private CameraShake2D cameraShake;
 
         [SerializeField] private float shootShakePower = 0.2f;
+        
+        [Header("Gun Recoil")]
+        [SerializeField] private GunRecoil2D gunRecoil;
 
 
         private float _nextAttackTime;
@@ -65,6 +68,9 @@ namespace Key.Scripts.Player {
 
             if (cameraShake == null && mainCamera != null)
                 cameraShake = mainCamera.GetComponentInParent<CameraShake2D>();
+            
+            if (gunRecoil == null)
+                gunRecoil = GetComponentInChildren<GunRecoil2D>();
 
             bullet = bulletPrefab.GetComponent<Bullet>();
         }
@@ -119,6 +125,8 @@ namespace Key.Scripts.Player {
                 AttackPower,
                 _knockbackPower
             );
+            
+            gunRecoil?.PlayRecoil();
 
             if (_shootLightCoroutine != null)
                 StopCoroutine(_shootLightCoroutine);
