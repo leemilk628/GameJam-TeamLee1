@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e60c3e887d40909df9076781708f02, type: 3}
+  m_Name: TestStage
+  m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.StageData
+  Stage: 0
+  StageTime: 10
+  BreakTime:
+  - 5
+  - 5
+  BossSpawnTime:
+  - 1
+  - 1
+  Enemies:
+  - {fileID: 4055423906226795968, guid: 5f11dae2a4abb0344a16c8f992a7bf72, type: 3}
+  - {fileID: 4055423906226795968, guid: 5978d1aafe3f66c41a58ee12224c9d04, type: 3}
+  Boss1:
+  - {fileID: 4055423906226795968, guid: 3b880ca513a5bff42bff4bd20966c6c2, type: 3}
+  Boss2:
+  - {fileID: 4055423906226795968, guid: 94b3c4fb43306bf4686e7e3bc19ec431, type: 3}
+  SpawnTerm: 3
