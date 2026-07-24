@@ -90,7 +90,7 @@ namespace Eric.Currency
 
         public void ResetGold()
         {
-            _meteoriteFragmentModule.AddMeteoriteFragment(CurrentGold/10);
+            meteoriteFragmentModule.AddMeteoriteFragment(CurrentGold/10);
             CurrentGold = 0;
             NotifyChanged();
         }
