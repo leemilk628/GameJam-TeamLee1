@@ -9,7 +9,7 @@ namespace Eric.Currency
     public class GoldModule : MonoBehaviour, IModule
     {
         private ModuleOwner Owner { get; set; }
-        private MeteoriteFragmentModule _meteoriteFragmentModule;
+        [SerializeField]private MeteoriteFragmentModule meteoriteFragmentModule;
         private SkillTreeUpgradeModule _skillTreeUpgradeModule;
 
         public int CurrentGold { get; private set; }
