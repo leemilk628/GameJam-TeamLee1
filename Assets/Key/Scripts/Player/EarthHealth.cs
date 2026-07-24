@@ -1,92 +1,89 @@
-﻿using Key.Scripts.Projectile;
-using Key.Scripts.Singletone;
+﻿using Key.Scripts.Singletone;
 using UnityEngine;
 
 namespace Key.Scripts.Player {
     public class EarthHealth : MonoBehaviour, IDamageable {
-        [field: SerializeField] public int Health { get; private set; }
-        [field: SerializeField] public int Barrier { get; private set; }
+        [field: SerializeField]
+        public int Health { get; private set; }
 
-        private PlayerStat _stat;
+        [field: SerializeField]
+        public int Barrier { get; private set; }
+
+        [SerializeField] private PlayerStat stat;
+
         private bool _isDead;
 
         private void Awake() {
-            _stat = FindAnyObjectByType<PlayerStat>();
-
-            if (_stat == null)
-                return;
+            if (stat == null)
+                stat = FindAnyObjectByType<PlayerStat>();
         }
 
         private void OnEnable() {
-            InitializeHealth();
-        }
-
-        private void InitializeHealth() {
-            if (_stat == null)
-                return;
-
-            Health = _stat.MaxHealth;
-            Barrier = _stat.Barrier;
             _isDead = false;
+
+            if (stat == null)
+                return;
+
+            stat.OnHealthChanged += HandleHealthChanged;
+            stat.OnBarrierChanged += HandleBarrierChanged;
+
+            Health = stat.CurrentHealth;
+            Barrier = stat.CurrentBarrier;
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
-            if (_isDead)
+        private void OnDisable() {
+            if (stat == null)
                 return;
 
-            if (!other.CompareTag("Damaging"))
-                return;
-
-            Bullet bullet = other.GetComponentInParent<Bullet>();
-
-            if (bullet == null)
-                return;
-
-            GetDamage(bullet._damage);
+            stat.OnHealthChanged -= HandleHealthChanged;
+            stat.OnBarrierChanged -= HandleBarrierChanged;
         }
 
         public void GetDamage(int damage) {
-            if (_isDead || damage <= 0)
+            if (_isDead ||
+                damage <= 0 ||
+                stat == null) {
                 return;
-
-            int remainingDamage = damage;
-
-            if (Barrier > 0) {
-                int absorbedDamage = Mathf.Min(
-                    Barrier,
-                    remainingDamage
-                );
-
-                Barrier -= absorbedDamage;
-                remainingDamage -= absorbedDamage;
             }
 
-            if (remainingDamage > 0) {
-                Health = Mathf.Max(
-                    0,
-                    Health - remainingDamage
-                );
+            stat.TakeDamage(damage);
+        }
+
+        public void AddBarrier(int amount) {
+            if (_isDead ||
+                amount <= 0 ||
+                stat == null) {
+                return;
             }
+
+            stat.RestoreBarrier(amount);
+        }
+
+        public void Heal(int amount) {
+            if (_isDead ||
+                amount <= 0 ||
+                stat == null) {
+                return;
+            }
+
+            stat.Heal(amount);
+        }
+
+        private void HandleHealthChanged(
+            int currentHealth,
+            int maxHealth
+        ) {
+            Health = currentHealth;
 
             if (Health <= 0)
                 Death();
         }
 
-        public void AddBarrier(int amount) {
-            if (_isDead || amount <= 0)
-                return;
-
-            Barrier += amount;
-        }
-
-        public void Heal(int amount) {
-            if (_isDead || amount <= 0 || _stat == null)
-                return;
-
-            Health = Mathf.Min(
-                Health + amount,
-                _stat.MaxHealth
-            );
+        private void HandleBarrierChanged(
+            int currentBarrier,
+            int maxBarrier
+        ) {
+            Barrier = currentBarrier;
         }
 
         public void Death() {
