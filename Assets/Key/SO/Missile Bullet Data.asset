@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1413bab89a845c1a923c818a10c63af, type: 3}
   m_Name: Missile Bullet Data
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.BulletSc.BulletDataSO
-  <Sprite>k__BackingField: {fileID: 9082429109045791810, guid: 4e1251d2d533dfe49a0462f202f3c8ee, type: 3}
+  <Sprite>k__BackingField: {fileID: -4478703775913692564, guid: be7dd5840d738d9429627e9eb41102e2, type: 3}
   <RotationOffset>k__BackingField: 0
   <Damage>k__BackingField: 10
   <MoveSpeed>k__BackingField: 7
