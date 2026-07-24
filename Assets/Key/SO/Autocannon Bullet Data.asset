@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1413bab89a845c1a923c818a10c63af, type: 3}
-  m_Name: BulletData
+  m_Name: Autocannon Bullet Data
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.BulletSc.BulletDataSO
-  <Sprite>k__BackingField: {fileID: 2208703988740019828, guid: 52daabbeccd98da48affc971f116fae5, type: 3}
-  <RotationOffset>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: 1020965927172101592, guid: 3cd8cd772179ca8439b6f7dbf9ebaaec, type: 3}
+  <RotationOffset>k__BackingField: -90
   <Damage>k__BackingField: 10
   <MoveSpeed>k__BackingField: 10
   <LifeTime>k__BackingField: 3

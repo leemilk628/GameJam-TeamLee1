@@ -12,21 +12,16 @@ namespace Key.Scripts.ASatellite {
         public float AttackSpeed => attackSpeed;
         public float AttackInterval => attackInterval;
         public GameObject BulletPrefab => bullet;
-        public float BulletSpeed => bulletSpeed;
 
         protected int attackPower;
         protected float attackSpeed;
         protected float attackInterval;
         protected GameObject bullet;
-        protected float bulletSpeed;
+        
+        protected override void Awake() {
+            base.Awake();
 
-        protected virtual void Awake() {
             if (satelliteData == null) {
-                Debug.LogError(
-                    $"{name}: ASatelliteSO가 설정되지 않았습니다.",
-                    this
-                );
-
                 return;
             }
 
@@ -41,30 +36,19 @@ namespace Key.Scripts.ASatellite {
             attackPower = satelliteData.attackPower;
             attackSpeed = satelliteData.attackSpeed;
             bullet = satelliteData.bullet;
-            bulletSpeed = satelliteData.speed;
 
             RecalculateAttackInterval();
         }
 
         public virtual void Deploy(Transform orbitCenter) {
             if (orbitCenter == null) {
-                Debug.LogError(
-                    $"{name}: 회전 중심이 전달되지 않았습니다.",
-                    this
-                );
-
                 return;
             }
 
             MovementModule movementModule =
                 GetModule<MovementModule>();
 
-            if (movementModule == null) {
-                Debug.LogError(
-                    $"{name}: MovementModule이 없습니다.",
-                    this
-                );
-
+            if (movementModule == null) {   
                 return;
             }
 

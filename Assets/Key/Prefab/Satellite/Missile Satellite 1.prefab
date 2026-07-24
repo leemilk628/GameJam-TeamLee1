@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7744369063162367297}
   - component: {fileID: 6377302033814708138}
   m_Layer: 0
-  m_Name: ArtificialSatellite 1
+  m_Name: Missile Satellite 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1520474935652927843}
+  - {fileID: 8842703706493761637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7744369063162367297
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4575472, g: 0.5520219, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +106,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee3a11cddd94bd98c711cc2a0961b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatellite1
+  satelliteData: {fileID: 11400000, guid: bd16f95f43cd1284d98ef85efdbc11ca, type: 2}
   orbitCenter: {fileID: 0}
+--- !u!1 &5448044948169807631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8842703706493761637}
+  - component: {fileID: 8839510497732287877}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8842703706493761637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448044948169807631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6999244742651438685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8839510497732287877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448044948169807631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea305761b9149ccab8a4de455f2938b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.Modules.AttackModule
+  attackRange: 5
+  knockbackPower: 3
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  firePoint: {fileID: 6999244742651438685}
+  bulletPoolManager: {fileID: 0}
 --- !u!1 &7605757719401162604
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,3 +206,4 @@ MonoBehaviour:
   radius: 3
   angularSpeed: 90
   startAngle: 0
+  _center: {fileID: 0}
