@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.SkillTreeSO
   nodeId: 4be64876-6234-4a70-b4da-ef6744add195
   <SkillTreeType>k__BackingField: 1
-  <IncreaseValue>k__BackingField: 1
+  <IncreaseValue>k__BackingField: 10
   <SatelliteType>k__BackingField: 0
   <BeforeNode>k__BackingField: {fileID: 11400000, guid: 5c2970e4366775a419ec61e6ef3ddf50, type: 2}
   <IsUpgrade>k__BackingField: 0
-  <Description>k__BackingField: MaxShield +1
+  <Description>k__BackingField: MaxShield +10
   <NeedMeteoriteFragment>k__BackingField: 50
