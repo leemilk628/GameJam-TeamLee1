@@ -12,8 +12,11 @@ namespace Key.Scripts.Projectile {
 
         private BulletPoolManager _poolManager;
         private BulletDataSO _data;
+        
         private AreaDamageOnHit _areaDamageOnHit;
-
+        private DamageOverTimeOnHit _damageOverTimeOnHit;
+        
+        
         private Vector2 _moveDirection;
 
         public int _damage { get; private set; }
@@ -26,6 +29,7 @@ namespace Key.Scripts.Projectile {
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _areaDamageOnHit = GetComponent<AreaDamageOnHit>();
+            _damageOverTimeOnHit = GetComponent<DamageOverTimeOnHit>();
         }
 
         private void Update() {
@@ -43,11 +47,6 @@ namespace Key.Scripts.Projectile {
 
         public void Shoot(Vector2 targetPosition, BulletDataSO data, int bonusDamage = 0, float bonusKnockback = 0f) {
             if (data == null) {
-                Debug.LogError(
-                    $"{name}: BulletDataSO가 전달되지 않았습니다.",
-                    this
-                );
-
                 ReturnToPool();
                 return;
             }

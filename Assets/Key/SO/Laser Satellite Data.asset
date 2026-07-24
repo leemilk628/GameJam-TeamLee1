@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e27fd449a06450d814c53330df138d0, type: 3}
+  m_Name: Laser Satellite Data
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatelliteSO
+  prefab: {fileID: 6377302033814708138, guid: bd6cffe48251bf544acb6beaf501575f, type: 3}
+  attackPower: 10
+  attackSpeed: 1
+  bullet: {fileID: 2080838655854635164, guid: c0d2dd47500653d478181febb2dad98d, type: 3}
+  maxEnforce: 3
+  damageIncreaseAmount:
+  - 0.5
+  - 1
+  - 1.5
+  attackSpeedIncreaseAmount:
+  - 0.5
+  - 1
+  - 1.5
+  price: 1000
+  upgradePrice: dc0500008813000010270000
+  satelliteName: "\uB808\uC774\uC800 \uC704\uC131"
+  desc: "\uCCB4\uB825\uC774 \uB192\uC740 \uC801 \uD55C \uBA85\uC5D0\uAC8C \uC9C0\uC18D
+    \uD53C\uD574\uB97C \uC900\uB2E4.\r\n\uBCF4\uC2A4\uC804\uC5D0 \uC720\uB9AC\uD558\uB2E4."
