@@ -11,7 +11,7 @@ namespace Key.Scripts.Player {
         private bool _isDead;
 
         private void Awake() {
-            _stat = GetComponentInChildren<PlayerStat>();
+            _stat = FindAnyObjectByType<PlayerStat>();
 
             if (_stat == null)
                 return;
