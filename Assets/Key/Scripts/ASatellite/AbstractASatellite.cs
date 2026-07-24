@@ -1,6 +1,7 @@
 ﻿using System;
 using Eric.Satellite;
 using Key.Scripts.ASatellite.Modules;
+using Key.Scripts.Singletone;
 using UnityEngine;
 
 namespace Key.Scripts.ASatellite {
@@ -8,6 +9,11 @@ namespace Key.Scripts.ASatellite {
         public event Action<float> OnTick;
 
         [SerializeField] protected ASatelliteSO satelliteData;
+        
+        [Header("Sound")]
+        [SerializeField] private SoundType shootSoundType;
+
+        public SoundType ShootSoundType => shootSoundType;
 
         public int AttackPower {
             get {

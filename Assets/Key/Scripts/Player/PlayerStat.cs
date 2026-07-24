@@ -3,57 +3,86 @@ using System.Collections;
 using Eric.Player;
 using Eric.StageUpgrade;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Key.Scripts.Player {
     public class PlayerStat : MonoBehaviour {
         [Header("Fallback Stat")]
+        [FormerlySerializedAs("<AttackPower>k__BackingField")]
         [SerializeField] private int fallbackAttackPower = 10;
+        [FormerlySerializedAs("<MaxHealth>k__BackingField")]
         [SerializeField] private int fallbackMaxHealth = 10;
+        [FormerlySerializedAs("<Barrier>k__BackingField")]
         [SerializeField] private int fallbackMaxBarrier = 10;
+        [FormerlySerializedAs("<AttackSpeed>k__BackingField")]
         [SerializeField] private float fallbackAttackSpeed = 2f;
+        [SerializeField] private int fallbackBarrierRecoverySpeed = 1;
 
         [field: SerializeField]
         public float KnockbackPower { get; private set; } = 5f;
 
         private PlayerStageStatModule _playerStatModule;
+        private StageUpgradeModule _stageUpgradeModule;
 
         public int AttackPower =>
             _playerStatModule != null
                 ? _playerStatModule.Attack
-                : fallbackAttackPower;
+                : _stageUpgradeModule != null
+                    ? _stageUpgradeModule.GetPlayerAttack(
+                        fallbackAttackPower
+                    )
+                    : fallbackAttackPower;
 
         public int MaxHealth =>
             _playerStatModule != null
                 ? _playerStatModule.MaxHealth
-                : fallbackMaxHealth;
+                : _stageUpgradeModule != null
+                    ? _stageUpgradeModule.GetPlayerMaxHealth(
+                        fallbackMaxHealth
+                    )
+                    : fallbackMaxHealth;
 
         public int CurrentHealth =>
             _playerStatModule != null
                 ? _playerStatModule.CurrentHealth
-                : fallbackMaxHealth;
+                : MaxHealth;
 
         public int Barrier =>
             _playerStatModule != null
                 ? _playerStatModule.MaxBarrier
-                : fallbackMaxBarrier;
+                : _stageUpgradeModule != null
+                    ? _stageUpgradeModule.GetPlayerBarrier(
+                        fallbackMaxBarrier
+                    )
+                    : fallbackMaxBarrier;
 
         public int CurrentBarrier =>
             _playerStatModule != null
                 ? _playerStatModule.CurrentBarrier
-                : fallbackMaxBarrier;
+                : Barrier;
 
         public float AttackSpeed =>
             _playerStatModule != null
                 ? _playerStatModule.AttackSpeed
-                : fallbackAttackSpeed;
+                : _stageUpgradeModule != null
+                    ? _stageUpgradeModule.GetPlayerAttackSpeed(
+                        Mathf.RoundToInt(fallbackAttackSpeed)
+                    )
+                    : fallbackAttackSpeed;
 
         public int BarrierRecoverySpeed =>
             _playerStatModule != null
                 ? _playerStatModule.BarrierRecoverySpeed
-                : 0;
+                : _stageUpgradeModule != null
+                    ? _stageUpgradeModule
+                        .GetPlayerBarrierRecoverySpeed(
+                            fallbackBarrierRecoverySpeed
+                        )
+                    : fallbackBarrierRecoverySpeed;
 
         public bool IsConnected =>
-            _playerStatModule != null;
+            _playerStatModule != null ||
+            _stageUpgradeModule != null;
 
         public event Action OnStatsChanged;
         public event Action<int, int> OnHealthChanged;
@@ -63,29 +92,40 @@ namespace Key.Scripts.Player {
             while (StageModuleOwner.Instance == null)
                 yield return null;
 
-            while (_playerStatModule == null) {
-                _playerStatModule =
-                    StageModuleOwner.Instance
-                        .GetModule<PlayerStageStatModule>();
+            StageModuleOwner owner =
+                StageModuleOwner.Instance;
 
-                if (_playerStatModule == null)
-                    yield return null;
+            _playerStatModule =
+                owner.GetModule<PlayerStageStatModule>();
+
+            _stageUpgradeModule =
+                owner.GetModule<StageUpgradeModule>();
+
+            if (_playerStatModule != null) {
+                _playerStatModule.OnStatsChanged += HandleStatsChanged;
+                _playerStatModule.OnHealthChanged += HandleHealthChanged;
+                _playerStatModule.OnBarrierChanged += HandleBarrierChanged;
+            } else if (_stageUpgradeModule != null) {
+                _stageUpgradeModule.OnStageUpgradeDataChanged +=
+                    HandleStatsChanged;
+            } else {
+                Debug.LogWarning(
+                    $"{name}: 플레이어 스탯 모듈과 스테이지 " +
+                    "업그레이드 모듈을 찾을 수 없어 기본값을 사용합니다.",
+                    this
+                );
             }
-
-            _playerStatModule.OnStatsChanged += HandleStatsChanged;
-            _playerStatModule.OnHealthChanged += HandleHealthChanged;
-            _playerStatModule.OnBarrierChanged += HandleBarrierChanged;
 
             HandleStatsChanged();
 
             HandleHealthChanged(
-                _playerStatModule.CurrentHealth,
-                _playerStatModule.MaxHealth
+                CurrentHealth,
+                MaxHealth
             );
 
             HandleBarrierChanged(
-                _playerStatModule.CurrentBarrier,
-                _playerStatModule.MaxBarrier
+                CurrentBarrier,
+                Barrier
             );
         }
 
@@ -149,12 +189,16 @@ namespace Key.Scripts.Player {
         }
 
         private void OnDestroy() {
-            if (_playerStatModule == null)
-                return;
+            if (_playerStatModule != null) {
+                _playerStatModule.OnStatsChanged -= HandleStatsChanged;
+                _playerStatModule.OnHealthChanged -= HandleHealthChanged;
+                _playerStatModule.OnBarrierChanged -= HandleBarrierChanged;
+            }
 
-            _playerStatModule.OnStatsChanged -= HandleStatsChanged;
-            _playerStatModule.OnHealthChanged -= HandleHealthChanged;
-            _playerStatModule.OnBarrierChanged -= HandleBarrierChanged;
+            if (_stageUpgradeModule != null) {
+                _stageUpgradeModule.OnStageUpgradeDataChanged -=
+                    HandleStatsChanged;
+            }
         }
     }
 }
