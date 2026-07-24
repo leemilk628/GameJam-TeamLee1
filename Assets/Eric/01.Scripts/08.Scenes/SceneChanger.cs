@@ -23,8 +23,6 @@ namespace Eric.Scenes
                 {
                         if (Instance == null)
                                 Instance = this;
-                        
-                        DontDestroyOnLoad(gameObject);
                 }
 
                 private void ChangeSceneState(SceneType sceneType)
@@ -72,6 +70,11 @@ namespace Eric.Scenes
                 {
                         if (_saveManager == null) return;
                         _saveManager.InvokeSave();
+                }
+                
+                public void Pause()
+                {
+                        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
                 }
 
                 public void EndGame()
