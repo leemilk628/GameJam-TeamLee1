@@ -3,13 +3,13 @@ using Key.Scripts.BulletSc;
 using Key.Scripts.Projectile;
 using UnityEngine;
 
-namespace Key.Scripts.Pooling
-
-{
+namespace Key.Scripts.Pooling {
     public class BulletPoolManager : MonoBehaviour {
-        [Header("Pool")] [SerializeField] private Bullet bulletPrefab;
+        [Header("Pool")]
+        [SerializeField] private Bullet bulletPrefab;
 
-        [Min(1)] [SerializeField] private int initialPoolSize = 30;
+        [Min(1)]
+        [SerializeField] private int initialPoolSize = 30;
 
         [SerializeField] private bool canExpand = true;
 
@@ -22,7 +22,8 @@ namespace Key.Scripts.Pooling
         private void CreateInitialPool() {
             if (bulletPrefab == null) {
                 Debug.LogError(
-                    "BulletPoolManager에 Bullet Prefab이 설정되지 않았습니다."
+                    "BulletPoolManager에 Bullet Prefab이 설정되지 않았습니다.",
+                    this
                 );
 
                 return;
@@ -46,31 +47,36 @@ namespace Key.Scripts.Pooling
             return bullet;
         }
 
-        public Bullet SpawnBullet(Vector3 spawnPosition, Vector2 targetPosition,
-            BulletDataSO bulletData, int bonusDamage = 0, float bonusKnockback = 0f) {
+        public void SpawnBullet(
+            Vector2 spawnPosition,
+            Vector2 targetPosition,
+            BulletDataSO data,
+            int bonusDamage = 0,
+            float bonusKnockback = 0f
+        ) {
             Bullet bullet = GetAvailableBullet();
 
-            if (bullet == null)
-                return null;
+            if (bullet == null) {
+                Debug.LogWarning(
+                    "사용 가능한 총알이 없고 풀 확장이 비활성화되어 있습니다.",
+                    this
+                );
 
-            bullet.transform.SetParent(null);
+                return;
+            }
 
-            bullet.transform.SetPositionAndRotation(
-                spawnPosition,
-                Quaternion.identity
-            );
-
+            bullet.transform.SetParent(transform);
+            bullet.transform.position = spawnPosition;
             bullet.gameObject.SetActive(true);
+
             bullet.OnGetFromPool();
 
             bullet.Shoot(
                 targetPosition,
-                bulletData,
+                data,
                 bonusDamage,
                 bonusKnockback
             );
-
-            return bullet;
         }
 
         private Bullet GetAvailableBullet() {

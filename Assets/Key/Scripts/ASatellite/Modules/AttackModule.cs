@@ -1,25 +1,23 @@
-﻿using Key.Scripts.Pooling;
+﻿using Key.Scripts.BulletSc;
+using Key.Scripts.Pooling;
 using Key.Scripts.Projectile;
 using UnityEngine;
 
 namespace Key.Scripts.ASatellite.Modules {
     public class AttackModule : MonoBehaviour, IModule {
-        [Header("Attack")] 
-        [SerializeField] private int attackPower = 10;
-        [SerializeField] private float attackSpeed = 1f;
-        [SerializeField] private float attackRange = 5f;
-        [SerializeField] private float knockbackPower = 3f;
-        [SerializeField] private GameObject bulletPrefab;
+        [Header("Attack")]
+        [SerializeField, Min(0.1f)] private float attackRange = 5f;
+        [SerializeField, Min(0f)] private float knockbackPower = 3f;
 
-        [Header("Target")] [SerializeField] private LayerMask targetLayer;
+        [Header("Target")]
+        [SerializeField] private LayerMask targetLayer;
 
-        [Header("Bullet")] 
+        [Header("Bullet")]
         [SerializeField] private Transform firePoint;
         [SerializeField] private BulletPoolManager bulletPoolManager;
 
         private AbstractASatellite _owner;
         private Collider2D _ownerCollider;
-        private Transform _nearest;
 
         private float _attackTimer;
         private bool _isActive;
@@ -27,8 +25,15 @@ namespace Key.Scripts.ASatellite.Modules {
         public void Initialize(ModuleOwner owner) {
             _owner = owner as AbstractASatellite;
 
-            if (_owner == null) return;
-            
+            if (_owner == null) {
+                Debug.LogError(
+                    $"{name}: ModuleOwner가 AbstractASatellite이 아닙니다.",
+                    this
+                );
+
+                return;
+            }
+
             _ownerCollider =
                 _owner.GetComponentInChildren<Collider2D>();
 
@@ -41,14 +46,21 @@ namespace Key.Scripts.ASatellite.Modules {
                     FindFirstObjectByType<BulletPoolManager>();
             }
 
+            if (bulletPoolManager == null) {
+                Debug.LogError(
+                    $"{name}: BulletPoolManager를 찾을 수 없습니다.",
+                    this
+                );
+            }
+
             _owner.OnTick += Tick;
         }
 
         private void Tick(float deltaTime) {
-            if (!_isActive)
+            if (!_isActive || _owner == null)
                 return;
 
-            if (attackSpeed <= 0f)
+            if (_owner.AttackSpeed <= 0f)
                 return;
 
             _attackTimer -= deltaTime;
@@ -63,23 +75,66 @@ namespace Key.Scripts.ASatellite.Modules {
 
             Fire(target);
 
-            _attackTimer = 1f / attackSpeed;
+            _attackTimer = _owner.AttackInterval;
         }
 
         private void Fire(Collider2D target) {
-            if (bulletPoolManager == null || firePoint == null)
+            if (target == null ||
+                bulletPoolManager == null ||
+                firePoint == null ||
+                _owner == null) {
                 return;
+            }
 
-            Vector2 targetPosition = target.bounds.center;
+            GameObject bulletPrefab =
+                _owner.BulletPrefab;
+
+            if (bulletPrefab == null) {
+                Debug.LogError(
+                    $"{_owner.name}: ASatelliteSO에 총알 프리팹이 설정되지 않았습니다.",
+                    _owner
+                );
+
+                return;
+            }
+
+            Bullet bullet =
+                bulletPrefab.GetComponent<Bullet>();
+
+            if (bullet == null) {
+                Debug.LogError(
+                    $"{bulletPrefab.name}: Bullet 컴포넌트가 없습니다.",
+                    bulletPrefab
+                );
+
+                return;
+            }
+
+            BulletDataSO bulletData =
+                bullet.data;
+
+            if (bulletData == null) {
+                Debug.LogError(
+                    $"{bulletPrefab.name}: BulletDataSO가 설정되지 않았습니다.",
+                    bulletPrefab
+                );
+
+                return;
+            }
 
             bulletPoolManager.SpawnBullet(
                 firePoint.position,
-                _nearest.position,
-                bulletPrefab.GetComponent<Bullet>().data
+                target.bounds.center,
+                bulletData,
+                _owner.AttackPower,
+                knockbackPower
             );
         }
 
         private Collider2D FindClosestTarget() {
+            if (_owner == null)
+                return null;
+
             Collider2D[] targets =
                 Physics2D.OverlapCircleAll(
                     _owner.transform.position,
@@ -92,6 +147,12 @@ namespace Key.Scripts.ASatellite.Modules {
 
             foreach (Collider2D target in targets) {
                 if (target == null)
+                    continue;
+
+                if (target == _ownerCollider)
+                    continue;
+
+                if (target.transform.IsChildOf(_owner.transform))
                     continue;
 
                 float distance =
@@ -116,6 +177,7 @@ namespace Key.Scripts.ASatellite.Modules {
 
         public void Deactivate() {
             _isActive = false;
+            _attackTimer = 0f;
         }
 
         private void OnDestroy() {
@@ -123,7 +185,7 @@ namespace Key.Scripts.ASatellite.Modules {
                 _owner.OnTick -= Tick;
             }
         }
-        
+
         private void OnDrawGizmosSelected() {
             Gizmos.DrawWireSphere(
                 transform.position,

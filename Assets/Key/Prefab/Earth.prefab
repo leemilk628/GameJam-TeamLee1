@@ -492,10 +492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae548e145134bd8afada835f3df32c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Player.PlayerAttack
-  <AttackSpeed>k__BackingField: 50
+  <AttackSpeed>k__BackingField: 6
   bulletPoolManager: {fileID: 0}
   baseAttackPower: 10
-  baseAttackSpeed: 50
+  baseAttackSpeed: 5
   mainCamera: {fileID: 0}
   bulletPrefab: {fileID: 2080838655854635164, guid: 6378cb2145766a146b36afee9aecca9d, type: 3}
   firePoint: {fileID: 4922982228314524126}
