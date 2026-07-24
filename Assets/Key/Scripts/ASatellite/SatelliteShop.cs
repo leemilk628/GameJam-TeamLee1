@@ -25,6 +25,10 @@ namespace Key.Scripts.ASatellite {
         private GoldModule _goldModule;
         private SatelliteStageStatModule _satelliteStatModule;
         private SatelliteUnlockModule _satelliteUnlockModule;
+        private SatelliteStageStatModule
+            _subscribedSatelliteStatModule;
+
+        private int _currentProductIndex = -1;
 
         public int Money =>
             _goldModule != null
@@ -40,6 +44,8 @@ namespace Key.Scripts.ASatellite {
 
         private void Start() {
             ConnectModules();
+            SelectInitialMode();
+            SynchronizeSatelliteCount();
         }
 
         private void ConnectModules() {
@@ -79,6 +85,8 @@ namespace Key.Scripts.ASatellite {
                     this
                 );
             }
+
+            SubscribeToSatelliteStats();
         }
 
         public void BuySatellite(int productIndex) {
@@ -120,14 +128,8 @@ namespace Key.Scripts.ASatellite {
                 return;
             }
 
-            RemoveMissingSatellites();
-
-            if (!_satelliteStatModule.CanSpawnSatellite(
-                    _satellites.Count
-                )) {
-                // 최대 위성 개수 초과 팝업
+            if (_currentProductIndex == productIndex)
                 return;
-            }
 
             if (satelliteType != SatelliteType.None) {
                 if (_satelliteUnlockModule == null)
@@ -146,6 +148,23 @@ namespace Key.Scripts.ASatellite {
                 return;
             }
 
+            _currentProductIndex = productIndex;
+
+            ReplaceSatelliteMode(product);
+            SynchronizeSatelliteCount();
+        }
+
+        private bool SpawnSatellite(
+            ASatelliteSO product,
+            float? angle = null
+        ) {
+            if (product == null ||
+                product.prefab == null ||
+                _orbitCenter == null ||
+                _satelliteParent == null) {
+                return false;
+            }
+
             AbstractASatellite satellite = Instantiate(
                 product.prefab,
                 _orbitCenter.position,
@@ -162,15 +181,17 @@ namespace Key.Scripts.ASatellite {
                     satellite
                 );
 
-                RefundGold(product.price);
                 Destroy(satellite.gameObject);
-                return;
+                return false;
             }
 
             satellite.Deploy(_orbitCenter);
 
+            if (angle.HasValue)
+                movementModule.SetAngle(angle.Value);
+
             _satellites.Add(movementModule);
-            RearrangeSatellites();
+            return true;
         }
 
         private bool TryGetProduct(
@@ -211,6 +232,158 @@ namespace Key.Scripts.ASatellite {
             return true;
         }
 
+        private void SubscribeToSatelliteStats() {
+            if (_subscribedSatelliteStatModule ==
+                _satelliteStatModule) {
+                return;
+            }
+
+            if (_subscribedSatelliteStatModule != null) {
+                _subscribedSatelliteStatModule.OnStatsChanged -=
+                    HandleSatelliteStatsChanged;
+            }
+
+            _subscribedSatelliteStatModule =
+                _satelliteStatModule;
+
+            if (_subscribedSatelliteStatModule != null) {
+                _subscribedSatelliteStatModule.OnStatsChanged +=
+                    HandleSatelliteStatsChanged;
+            }
+        }
+
+        private void HandleSatelliteStatsChanged() {
+            SynchronizeSatelliteCount();
+        }
+
+        private void SelectInitialMode() {
+            if (_currentProductIndex >= 0 &&
+                _currentProductIndex < _products.Count &&
+                _products[_currentProductIndex] != null) {
+                return;
+            }
+
+            for (int i = 0; i < _products.Count; i++) {
+                ASatelliteSO product = _products[i];
+
+                if (product == null ||
+                    product.prefab == null) {
+                    continue;
+                }
+
+                SatelliteType satelliteType =
+                    i < _productTypes.Count
+                        ? _productTypes[i]
+                        : SatelliteType.None;
+
+                if (!IsUnlocked(satelliteType))
+                    continue;
+
+                _currentProductIndex = i;
+                return;
+            }
+        }
+
+        private bool IsUnlocked(
+            SatelliteType satelliteType
+        ) {
+            if (satelliteType == SatelliteType.None)
+                return true;
+
+            return _satelliteUnlockModule != null &&
+                   _satelliteUnlockModule.IsUnlocked(
+                       satelliteType
+                   );
+        }
+
+        private void SynchronizeSatelliteCount() {
+            if (_satelliteStatModule == null)
+                ConnectModules();
+
+            if (_satelliteStatModule == null)
+                return;
+
+            SelectInitialMode();
+
+            if (!TryGetProduct(
+                    _currentProductIndex,
+                    out ASatelliteSO product,
+                    out _
+                )) {
+                return;
+            }
+
+            if (_orbitCenter == null ||
+                _satelliteParent == null ||
+                product.prefab == null) {
+                return;
+            }
+
+            RemoveMissingSatellites();
+
+            int targetCount =
+                _satelliteStatModule.MaxSatelliteCount;
+
+            while (_satellites.Count < targetCount) {
+                if (!SpawnSatellite(product))
+                    break;
+            }
+
+            while (_satellites.Count > targetCount) {
+                int lastIndex =
+                    _satellites.Count - 1;
+
+                MovementModule movementModule =
+                    _satellites[lastIndex];
+
+                _satellites.RemoveAt(lastIndex);
+                DestroySatellite(movementModule);
+            }
+
+            RearrangeSatellites();
+        }
+
+        private void ReplaceSatelliteMode(
+            ASatelliteSO product
+        ) {
+            RemoveMissingSatellites();
+
+            List<float> angles = new(
+                _satellites.Count
+            );
+
+            foreach (MovementModule satellite in _satellites)
+                angles.Add(satellite.CurrentAngle);
+
+            foreach (MovementModule satellite in _satellites)
+                DestroySatellite(satellite);
+
+            _satellites.Clear();
+
+            foreach (float angle in angles) {
+                if (!SpawnSatellite(product, angle))
+                    break;
+            }
+
+            RearrangeSatellites();
+        }
+
+        private void DestroySatellite(
+            MovementModule movementModule
+        ) {
+            if (movementModule == null)
+                return;
+
+            AbstractASatellite satellite =
+                movementModule
+                    .GetComponentInParent<AbstractASatellite>();
+
+            if (satellite != null)
+                Destroy(satellite.gameObject);
+            else
+                Destroy(movementModule.gameObject);
+        }
+
         private void RearrangeSatellites() {
             RemoveMissingSatellites();
 
@@ -237,17 +410,6 @@ namespace Key.Scripts.ASatellite {
         private void RemoveMissingSatellites() {
             _satellites.RemoveAll(
                 satellite => satellite == null
-            );
-        }
-
-        private void RefundGold(int amount) {
-            if (_goldModule == null ||
-                amount <= 0) {
-                return;
-            }
-
-            _goldModule.SetGold(
-                _goldModule.CurrentGold + amount
             );
         }
 
@@ -281,13 +443,8 @@ namespace Key.Scripts.ASatellite {
                 return false;
             }
 
-            RemoveMissingSatellites();
-
-            if (!_satelliteStatModule.CanSpawnSatellite(
-                    _satellites.Count
-                )) {
+            if (_currentProductIndex == productIndex)
                 return false;
-            }
 
             if (satelliteType != SatelliteType.None) {
                 if (_satelliteUnlockModule == null ||
@@ -311,10 +468,14 @@ namespace Key.Scripts.ASatellite {
             RemoveMissingSatellites();
 
             button.interactable =
-                _satelliteStatModule != null &&
-                _satelliteStatModule.CanSpawnSatellite(
-                    _satellites.Count
-                );
+                _satelliteStatModule != null;
+        }
+
+        private void OnDestroy() {
+            if (_subscribedSatelliteStatModule != null) {
+                _subscribedSatelliteStatModule.OnStatsChanged -=
+                    HandleSatelliteStatsChanged;
+            }
         }
     }
 }

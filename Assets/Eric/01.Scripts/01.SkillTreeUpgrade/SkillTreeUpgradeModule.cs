@@ -37,13 +37,13 @@ namespace Eric.Upgrade
                 {
                         if (!CanUpgrade(skillTree))
                         {
-                                SoundManager.Instance.PlaySFX(SoundType.NotEnoughMoney);
+                               // SoundManager.Instance.PlaySFX(SoundType.NotEnoughMoney);
                                 return false;
                         }
 
                         if (!_meteoriteFragmentModule.TrySpendMeteoriteFragment(skillTree.NeedMeteoriteFragment))
                         {
-                                SoundManager.Instance.PlaySFX(SoundType.NotEnoughMoney);
+                              //  SoundManager.Instance.PlaySFX(SoundType.NotEnoughMoney);
                                 return false;
                         }
 
@@ -56,7 +56,7 @@ namespace Eric.Upgrade
 
                         OnMultiplyChanged?.Invoke();
                         _saveSkillTree.OnSave();
-                        SoundManager.Instance.PlaySFX(SoundType.Upgrade);
+                        //SoundManager.Instance.PlaySFX(SoundType.Upgrade);
                         return true;
                 }
 

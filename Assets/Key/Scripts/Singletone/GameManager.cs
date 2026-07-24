@@ -30,6 +30,10 @@ namespace Key.Scripts.Singletone {
                 gameOverUI.SetActive(false);
         }
 
+        private void Start() {
+            SoundManager.Instance?.PlayBGM(SoundType.GameBGM);
+        }
+
         public void GameOver() {
             if (_isGameOver)
                 return;
@@ -38,6 +42,8 @@ namespace Key.Scripts.Singletone {
 
             if (gameOverUI != null)
                 gameOverUI.SetActive(true);
+            
+            SoundManager.Instance.PlaySFX(SoundType.GameOver);
 
             Time.timeScale = 0f;
         }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Key.Scripts.Player {
     public class EarthHealth : MonoBehaviour, IDamageable {
+        private const float AutoRecoveryInterval = 5f;
+        private const int AutoRecoveryAmount = 1;
+
         [field: SerializeField]
         public int Health { get; private set; }
 
@@ -26,6 +29,7 @@ namespace Key.Scripts.Player {
         [SerializeField] private PlayerStat stat;
 
         private PlayerStat _stat;
+        private float _healthRecoveryTimer;
         private float _barrierRecoveryTimer;
         private bool _isDead;
 
@@ -54,6 +58,7 @@ namespace Key.Scripts.Player {
         }
 
         private void Update() {
+            AutoRecovery();
             RecoverBarrier();
         }
 
@@ -64,6 +69,7 @@ namespace Key.Scripts.Player {
             Health = _stat.MaxHealth;
             Barrier = _stat.Barrier;
 
+            _healthRecoveryTimer = 0f;
             _barrierRecoveryTimer = 0f;
             _isDead = false;
 
@@ -127,6 +133,32 @@ namespace Key.Scripts.Player {
 
             if (Health != previousHealth)
                 NotifyHealthChanged();
+        }
+
+        private void AutoRecovery() {
+            if (_isDead ||
+                _stat == null ||
+                Health <= 0 ||
+                Health >= _stat.MaxHealth) {
+                _healthRecoveryTimer = 0f;
+                return;
+            }
+
+            _healthRecoveryTimer += Time.deltaTime;
+
+            if (_healthRecoveryTimer < AutoRecoveryInterval)
+                return;
+
+            int recoveryCount = Mathf.FloorToInt(
+                _healthRecoveryTimer /
+                AutoRecoveryInterval
+            );
+
+            _healthRecoveryTimer -=
+                recoveryCount *
+                AutoRecoveryInterval;
+
+            Heal(AutoRecoveryAmount * recoveryCount);
         }
 
         public void AddBarrier(int amount) {

@@ -6,22 +6,22 @@ using UnityEngine.Audio;
 namespace Key.Scripts.Singletone {
     public enum SoundType {
         MainBGM,
-        GameBGM,
+        GameBGM,//
 
         ButtonClick, //
         PlayerShoot, //
-        AutoCannonSatelliteShoot,
-        MissileSatelliteShoot,
+        AutoCannonSatelliteShoot,//
+        MissileSatelliteShoot,//
         LaserSatelliteShoot, //
         BasicSatelliteShoot,
         PlayerHit, //
         EnemyHit,
         Explosion,
-        Upgrade,
+        Upgrade, //
         NotEnoughMoney,//
-        SkillTreeUnlock,
+        SkillTreeUnlock,//
         Conversion, 
-        GameOver
+        GameOver//
     }
 
     [Serializable]
@@ -78,6 +78,7 @@ namespace Key.Scripts.Singletone {
 
         private void Initialize() {
             _soundDictionary.Clear();
+            EnsureRuntimeAudioSources();
 
             if (soundDataList != null) {
                 foreach (SoundData soundData in soundDataList) {
@@ -106,6 +107,53 @@ namespace Key.Scripts.Singletone {
                 sfxSource.loop = false;
                 sfxSource.playOnAwake = false;
             }
+        }
+
+        private void EnsureRuntimeAudioSources() {
+            bgmSource = EnsureRuntimeAudioSource(
+                bgmSource,
+                "BGMSource"
+            );
+
+            sfxSource = EnsureRuntimeAudioSource(
+                sfxSource,
+                "SFXSource"
+            );
+        }
+
+        private AudioSource EnsureRuntimeAudioSource(
+            AudioSource configuredSource,
+            string sourceName
+        ) {
+            if (configuredSource != null &&
+                configuredSource.gameObject.scene.IsValid() &&
+                configuredSource.transform.IsChildOf(transform)) {
+                return configuredSource;
+            }
+
+            AudioMixerGroup outputMixerGroup =
+                configuredSource != null
+                    ? configuredSource.outputAudioMixerGroup
+                    : null;
+
+            GameObject sourceObject =
+                new GameObject(sourceName);
+
+            sourceObject.transform.SetParent(
+                transform,
+                false
+            );
+
+            AudioSource runtimeSource =
+                sourceObject.AddComponent<AudioSource>();
+
+            runtimeSource.outputAudioMixerGroup =
+                outputMixerGroup;
+
+            runtimeSource.playOnAwake = false;
+            runtimeSource.spatialBlend = 0f;
+
+            return runtimeSource;
         }
 
         public void PlayBGM(SoundType soundType) {
@@ -153,19 +201,11 @@ namespace Key.Scripts.Singletone {
             if (!_soundDictionary.TryGetValue(
                     soundType,
                     out SoundData soundData
-                )) {
-                Debug.LogWarning(
-                    $"{name}: {soundType} 사운드를 찾을 수 없음",
-                    this
-                );
-
+                )) 
                 return;
-            }
 
-            sfxSource.PlayOneShot(
-                soundData.audioClip,
-                soundData.volume
-            );
+            sfxSource.PlayOneShot(soundData.audioClip, soundData.volume);
+            Debug.Log($"{soundType} 재생");
         }
 
         public void SetBGMVolume(float volume) {
@@ -201,14 +241,6 @@ namespace Key.Scripts.Singletone {
                 parameterName,
                 decibel
             );
-
-            if (!result) {
-                Debug.LogWarning(
-                    $"{name}: AudioMixer 파라미터 " +
-                    $"{parameterName}을 찾을 수 없습니다.",
-                    this
-                );
-            }
         }
 
         private void LoadVolume() {

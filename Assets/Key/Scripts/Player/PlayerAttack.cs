@@ -2,6 +2,7 @@
 using Key.Scripts.Feedback;
 using Key.Scripts.Pooling;
 using Key.Scripts.Projectile;
+using Key.Scripts.Singletone;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
@@ -195,6 +196,10 @@ namespace Key.Scripts.Player {
                 _bullet.data,
                 bonusDamage,
                 knockbackPower
+            );
+
+            SoundManager.Instance?.PlaySFX(
+                SoundType.PlayerShoot
             );
 
             gunRecoil?.PlayRecoil();
