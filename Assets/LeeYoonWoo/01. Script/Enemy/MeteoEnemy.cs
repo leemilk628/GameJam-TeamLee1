@@ -11,11 +11,12 @@ namespace LeeYoonWoo._01._Script.Enemy
     {
         [SerializeField] private GameObject mvdir;
         [SerializeField] private int damage;
+        [SerializeField] private int maxHealth = 100;
         
         
         void Start()
         {
-            Health = 100;
+            Health = maxHealth;
             mvdir = GameObject.FindGameObjectWithTag("Player");
             _mvm.Move(mvdir.transform.position);
         }

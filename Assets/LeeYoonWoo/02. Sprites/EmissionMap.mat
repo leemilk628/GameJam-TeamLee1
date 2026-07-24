@@ -71,7 +71,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _EmissionPower: 4.64
+    - _EmissionPower: 23.86
     - _EnableExternalAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -79,7 +79,7 @@ Material:
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0.15850878, b: 1, a: 1}
+    - _EmissionColor: {r: 0.103773475, g: 0.24435802, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
