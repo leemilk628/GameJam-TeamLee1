@@ -85,16 +85,9 @@ namespace Key.Scripts.Singletone {
                         continue;
                     }
 
-                    if (_soundDictionary.ContainsKey(
-                            soundData.soundType
-                        )) {
-                        Debug.LogWarning(
-                            $"{name}: {soundData.soundType} 사운드 중복 등록",
-                            this
-                        );
-
+                    if (_soundDictionary.ContainsKey(soundData.soundType)) {
                         continue;
-                    }
+                    } //중복일때 스킵
 
                     _soundDictionary.Add(
                         soundData.soundType,

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Eric.DropItems;
 using Key.Scripts;
 using LeeYoonWoo._01._Script.Abstract;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace LeeYoonWoo._01._Script.Enemy
     public class MeteoEnemy : AbstractEnemy
     {
         [SerializeField] private GameObject mvdir;
+        [SerializeField] private int damage;
         
         
         void Start()
@@ -25,7 +27,7 @@ namespace LeeYoonWoo._01._Script.Enemy
             
             if (other.TryGetComponent(out IDamageable player))
             {
-                _atk.Attack(player, 10);
+                _atk.Attack(player, damage);
             }
             
         }
@@ -37,6 +39,9 @@ namespace LeeYoonWoo._01._Script.Enemy
 
         IEnumerator DeathRoutine()
         {
+            
+            CreateObjects.Instance.CreateEvent(5, 13, transform.position);
+            
             gameObject.layer = LayerMask.NameToLayer("DieObj");
             var sr = GetComponent<SpriteRenderer>();
             sr.DOColor(new Color(1, 1, 1, 0), 0.4f);

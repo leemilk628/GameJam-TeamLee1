@@ -9759,7 +9759,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_Sprite: {fileID: -1118559873943791318, guid: 2cc36a55480a4e24da3a3c5c4c4a720b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9810,6 +9810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.Enemy.MeteoEnemy
   mvdir: {fileID: 0}
+  damage: 10
 --- !u!114 &2901215556741425382
 MonoBehaviour:
   m_ObjectHideFlags: 0
