@@ -77,6 +77,11 @@ namespace Eric.Scenes
                         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
                 }
 
+                public void RainbowMode()
+                {
+                        
+                }
+
                 public void EndGame()
                 {
                         if (_saveManager != null)
