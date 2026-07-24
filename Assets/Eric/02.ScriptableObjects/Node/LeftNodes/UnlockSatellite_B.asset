@@ -17,6 +17,6 @@ MonoBehaviour:
   <IncreaseValue>k__BackingField: 0
   <SatelliteType>k__BackingField: 2
   <BeforeNode>k__BackingField: {fileID: 11400000, guid: efd092998f140704291014b73387257f, type: 2}
-  <IsUpgrade>k__BackingField: 1
-  <Description>k__BackingField: Unlock New Satellite
+  <IsUpgrade>k__BackingField: 0
+  <Description>k__BackingField: New Satellite
   <NeedMeteoriteFragment>k__BackingField: 50

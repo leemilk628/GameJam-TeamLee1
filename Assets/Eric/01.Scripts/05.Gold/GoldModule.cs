@@ -9,6 +9,7 @@ namespace Eric.Currency
     public class GoldModule : MonoBehaviour, IModule
     {
         private ModuleOwner Owner { get; set; }
+        private MeteoriteFragmentModule _meteoriteFragmentModule;
         private SkillTreeUpgradeModule _skillTreeUpgradeModule;
 
         public int CurrentGold { get; private set; }
@@ -83,14 +84,13 @@ namespace Eric.Currency
 
         public void SetGold(int amount)
         {
-            CurrentGold =
-                Mathf.Max(0, amount);
-
+            CurrentGold = Mathf.Max(0, amount);
             NotifyChanged();
         }
 
         public void ResetGold()
         {
+            _meteoriteFragmentModule.AddMeteoriteFragment(CurrentGold/10);
             CurrentGold = 0;
             NotifyChanged();
         }
