@@ -8664,6 +8664,7 @@ GameObject:
   - component: {fileID: 4185898409392874325}
   - component: {fileID: 1302188453291071712}
   - component: {fileID: 7541021833259337215}
+  - component: {fileID: 2059268308297124849}
   m_Layer: 0
   m_Name: UpgradeGameModuleOwner
   m_TagString: Untagged
@@ -8747,6 +8748,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b84c151b85418ebe752517efc3e0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eric.Currency.GoldModule
+--- !u!114 &2059268308297124849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613209545471360649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb314cd70004f6e861673e4e2acf482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.Satellite.SatelliteStageStatModule
+  <BaseAttack>k__BackingField: 10
+  <BaseAttackSpeed>k__BackingField: 1
+  <BaseMaxSatelliteCount>k__BackingField: 1
 --- !u!1 &7893174417688093500
 GameObject:
   m_ObjectHideFlags: 0

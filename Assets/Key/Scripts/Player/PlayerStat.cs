@@ -1,47 +1,160 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using Eric.Player;
+using Eric.StageUpgrade;
+using UnityEngine;
 
 namespace Key.Scripts.Player {
     public class PlayerStat : MonoBehaviour {
-        [field: SerializeField] public int AttackPower { get; private set; } = 10;
-        [field: SerializeField] public int MaxHealth { get; private set; } = 10;
-        [field: SerializeField] public int Barrier { get; private set; } = 10;
+        [Header("Fallback Stat")]
+        [SerializeField] private int fallbackAttackPower = 10;
+        [SerializeField] private int fallbackMaxHealth = 10;
+        [SerializeField] private int fallbackMaxBarrier = 10;
+        [SerializeField] private float fallbackAttackSpeed = 2f;
 
-        [field: SerializeField] public float AttackSpeed { get; private set; } = 2f;
+        [field: SerializeField]
+        public float KnockbackPower { get; private set; } = 5f;
 
-        [field: SerializeField] public float KnockbackPower { get; private set; } = 5f;
+        private PlayerStageStatModule _playerStatModule;
 
-        public void AddAttackPower(int amount) {
-            AttackPower = Mathf.Max(0, AttackPower + amount);
+        public int AttackPower =>
+            _playerStatModule != null
+                ? _playerStatModule.Attack
+                : fallbackAttackPower;
+
+        public int MaxHealth =>
+            _playerStatModule != null
+                ? _playerStatModule.MaxHealth
+                : fallbackMaxHealth;
+
+        public int CurrentHealth =>
+            _playerStatModule != null
+                ? _playerStatModule.CurrentHealth
+                : fallbackMaxHealth;
+
+        public int Barrier =>
+            _playerStatModule != null
+                ? _playerStatModule.MaxBarrier
+                : fallbackMaxBarrier;
+
+        public int CurrentBarrier =>
+            _playerStatModule != null
+                ? _playerStatModule.CurrentBarrier
+                : fallbackMaxBarrier;
+
+        public float AttackSpeed =>
+            _playerStatModule != null
+                ? _playerStatModule.AttackSpeed
+                : fallbackAttackSpeed;
+
+        public int BarrierRecoverySpeed =>
+            _playerStatModule != null
+                ? _playerStatModule.BarrierRecoverySpeed
+                : 0;
+
+        public bool IsConnected =>
+            _playerStatModule != null;
+
+        public event Action OnStatsChanged;
+        public event Action<int, int> OnHealthChanged;
+        public event Action<int, int> OnBarrierChanged;
+
+        private IEnumerator Start() {
+            while (StageModuleOwner.Instance == null)
+                yield return null;
+
+            while (_playerStatModule == null) {
+                _playerStatModule =
+                    StageModuleOwner.Instance
+                        .GetModule<PlayerStageStatModule>();
+
+                if (_playerStatModule == null)
+                    yield return null;
+            }
+
+            _playerStatModule.OnStatsChanged += HandleStatsChanged;
+            _playerStatModule.OnHealthChanged += HandleHealthChanged;
+            _playerStatModule.OnBarrierChanged += HandleBarrierChanged;
+
+            HandleStatsChanged();
+
+            HandleHealthChanged(
+                _playerStatModule.CurrentHealth,
+                _playerStatModule.MaxHealth
+            );
+
+            HandleBarrierChanged(
+                _playerStatModule.CurrentBarrier,
+                _playerStatModule.MaxBarrier
+            );
         }
-        
-        public void AddMaxHealth(int amount) {
-            MaxHealth = Mathf.Max(0, MaxHealth + amount);
-        }
-        
-        public void AddBarrier(int amount) {
-            Barrier = Mathf.Max(0, Barrier + amount);
+
+        public void TakeDamage(int damage) {
+            if (_playerStatModule == null)
+                return;
+
+            _playerStatModule.TakeDamage(damage);
         }
 
-        public void AddAttackSpeed(float amount) {
-            AttackSpeed = Mathf.Max(0.01f, AttackSpeed + amount);
+        public void Heal(int amount) {
+            if (_playerStatModule == null)
+                return;
+
+            _playerStatModule.Heal(amount);
+        }
+
+        public void RestoreBarrier(int amount) {
+            if (_playerStatModule == null)
+                return;
+
+            _playerStatModule.RestoreBarrier(amount);
+        }
+
+        public void ResetCurrentStats() {
+            if (_playerStatModule == null)
+                return;
+
+            _playerStatModule.ResetCurrentStats();
         }
 
         public void AddKnockbackPower(float amount) {
-            KnockbackPower = Mathf.Max(0f, KnockbackPower + amount);
-        }
-
-        public void MultiplyAttackPower(float multiplier) {
-            AttackPower = Mathf.Max(
-                0,
-                Mathf.RoundToInt(AttackPower * multiplier)
+            KnockbackPower = Mathf.Max(
+                0f,
+                KnockbackPower + amount
             );
         }
 
-        public void MultiplyAttackSpeed(float multiplier) {
-            AttackSpeed = Mathf.Max(
-                0.01f,
-                AttackSpeed * multiplier
+        private void HandleStatsChanged() {
+            OnStatsChanged?.Invoke();
+        }
+
+        private void HandleHealthChanged(
+            int currentHealth,
+            int maxHealth
+        ) {
+            OnHealthChanged?.Invoke(
+                currentHealth,
+                maxHealth
             );
+        }
+
+        private void HandleBarrierChanged(
+            int currentBarrier,
+            int maxBarrier
+        ) {
+            OnBarrierChanged?.Invoke(
+                currentBarrier,
+                maxBarrier
+            );
+        }
+
+        private void OnDestroy() {
+            if (_playerStatModule == null)
+                return;
+
+            _playerStatModule.OnStatsChanged -= HandleStatsChanged;
+            _playerStatModule.OnHealthChanged -= HandleHealthChanged;
+            _playerStatModule.OnBarrierChanged -= HandleBarrierChanged;
         }
     }
 }
