@@ -23,8 +23,6 @@ namespace Eric.Scenes
                 {
                         if (Instance == null)
                                 Instance = this;
-                        
-                        DontDestroyOnLoad(gameObject);
                 }
 
                 private void ChangeSceneState(SceneType sceneType)
@@ -34,7 +32,7 @@ namespace Eric.Scenes
                                 SceneType.MainMenu => "MainMenuScene",
                                 SceneType.Game => "EnemyScene",
                                 SceneType.GameOver => "GameOverScene",
-                                SceneType.Ending => "EndingScene",
+                                SceneType.Ending => "EndingCreditScene",
                                 _ => ""
                         };
                         if (sceneName == "") return;
@@ -59,6 +57,24 @@ namespace Eric.Scenes
                 public void GoToEnding()
                 {
                         ChangeSceneState(SceneType.Ending);
+                }
+
+                public void Quit()
+                {
+                        if (_saveManager != null)
+                                _saveManager.InvokeSave();
+                        ChangeSceneState(SceneType.MainMenu);
+                }
+
+                public void Save()
+                {
+                        if (_saveManager == null) return;
+                        _saveManager.InvokeSave();
+                }
+                
+                public void Pause()
+                {
+                        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
                 }
 
                 public void EndGame()

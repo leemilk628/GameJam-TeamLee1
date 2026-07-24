@@ -83,11 +83,7 @@ namespace Eric.DropItems
             if (meteoriteBase > 0 && meteoriteFragmentModule == null) return;
             if (goldBase > 0 && goldModule == null) return;
 
-            int visualCount = (int)Math.Min(
-                (long)meteoriteBase + goldBase,
-                maxObjectsPerRequest
-            );
-
+            int visualCount = (int)Math.Min((long)meteoriteBase + goldBase, maxObjectsPerRequest);
             (int meteoriteCount, int goldCount) = GetVisualCounts(
                 meteoriteBase,
                 goldBase,

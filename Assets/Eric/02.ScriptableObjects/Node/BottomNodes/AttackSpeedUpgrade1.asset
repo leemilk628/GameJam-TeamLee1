@@ -17,6 +17,6 @@ MonoBehaviour:
   <IncreaseValue>k__BackingField: 1
   <SatelliteType>k__BackingField: 0
   <BeforeNode>k__BackingField: {fileID: 11400000, guid: e99b1d9974ca2694a80effe5c976a38a, type: 2}
-  <IsUpgrade>k__BackingField: 1
-  <Description>k__BackingField: AttSpeed +1
+  <IsUpgrade>k__BackingField: 0
+  <Description>k__BackingField: AtkSpeed +1
   <NeedMeteoriteFragment>k__BackingField: 50
