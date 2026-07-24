@@ -8,7 +8,7 @@ namespace LeeYoonWoo._01._Script.Abstract
     {
         protected EnemyMovement _mvm;
         protected EnemyAttacker _atk;
-        protected bool isDead;
+        protected bool isDead = false;
         protected float Health;
 
         protected virtual void Awake()

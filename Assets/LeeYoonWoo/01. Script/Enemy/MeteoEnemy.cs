@@ -27,7 +27,8 @@ namespace LeeYoonWoo._01._Script.Enemy
             
             if (other.TryGetComponent(out IDamageable player))
             {
-                _atk.Attack(player, damage);
+                Debug.Log(other.name);
+                player.GetDamage(damage);
             }
             
         }
