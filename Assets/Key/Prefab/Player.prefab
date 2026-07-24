@@ -59,6 +59,7 @@ MonoBehaviour:
   light: {fileID: 7300530995307646032}
   cameraShake: {fileID: 0}
   shootShakePower: 0.2
+  gunRecoil: {fileID: 1329740604073526267}
 --- !u!114 &9088525925035120806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6505131135114329174}
   - component: {fileID: 8238360974509148191}
+  - component: {fileID: 1329740604073526267}
   m_Layer: 0
   m_Name: FirePos
   m_TagString: Untagged
@@ -244,6 +246,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1329740604073526267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426981861011029906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f043368ca17443a8bc58371b6460c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Feedback.GunRecoil2D
+  recoilTarget: {fileID: 6505131135114329174}
+  recoilDirection: {x: 0, y: -1}
+  recoilDistance: 0.15
+  recoilDuration: 0.04
+  recoveryDuration: 0.05
 --- !u!1 &7438455386858338834
 GameObject:
   m_ObjectHideFlags: 0
