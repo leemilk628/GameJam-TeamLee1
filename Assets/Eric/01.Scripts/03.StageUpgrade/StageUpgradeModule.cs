@@ -4,6 +4,7 @@ using Eric.Currency;
 using Eric.ModuleSystem;
 using Eric.ScriptableScripts;
 using Eric.Upgrade;
+using Key.Scripts.Singletone;
 using UnityEngine;
 
 namespace Eric.StageUpgrade
@@ -52,12 +53,18 @@ namespace Eric.StageUpgrade
                 public bool TryUpgrade(StageUpgradeSO stageUpgrade)
                 {
                         if (!CanUpgrade(stageUpgrade))
+                        {
+                                SoundManager.Instance.PlaySFX(SoundType.NotEnoughMoney);
                                 return false;
+                        }
 
                         int needGold = GetNeedGold(stageUpgrade);
 
                         if (!_goldModule.TrySpendGold(needGold))
+                        {
+                                SoundManager.Instance.PlaySFX(SoundType.NotEnoughMoney);
                                 return false;
+                        }
 
                         StageUpgradeType stageUpgradeType = stageUpgrade.StageUpgradeType;
                         _upgradeLevels[stageUpgradeType] = GetLevel(stageUpgradeType) + 1;
@@ -66,7 +73,7 @@ namespace Eric.StageUpgrade
                                 OnPlayerHealthRecoveryRequested?.Invoke(GetCurrentStat(stageUpgrade));
 
                         OnStageUpgradeDataChanged?.Invoke();
-
+                        SoundManager.Instance.PlaySFX(SoundType.Upgrade);
                         return true;
                 }
 
