@@ -8,18 +8,19 @@ namespace Key.Scripts.Singletone {
         MainBGM,
         GameBGM,
 
-        ButtonClick,
-        PlayerShoot,
+        ButtonClick, //
+        PlayerShoot, //
         AutoCannonSatelliteShoot,
         MissileSatelliteShoot,
-        LaserSatelliteShoot,
-        PlayerHit,
+        LaserSatelliteShoot, //
+        BasicSatelliteShoot,
+        PlayerHit, //
         EnemyHit,
         Explosion,
         Upgrade,
-        NotEnoughMoney,
+        NotEnoughMoney,//
         SkillTreeUnlock,
-        Conversion,
+        Conversion, 
         GameOver
     }
 

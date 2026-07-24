@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Key.Scripts.Singletone;
 using UnityEngine;
 
 namespace Key.Scripts.Projectile {
@@ -15,6 +16,8 @@ namespace Key.Scripts.Projectile {
             int damage,
             float knockbackPower
         ) {
+            SoundManager.Instance?.PlaySFX(SoundType.Explosion);
+            
             PlayHitParticle(explosionPosition);
 
             Collider2D[] targets =
@@ -81,13 +84,6 @@ namespace Key.Scripts.Projectile {
             Destroy(
                 particle.gameObject,
                 destroyTime
-            );
-        }
-
-        private void OnDrawGizmosSelected() {
-            Gizmos.DrawWireSphere(
-                transform.position,
-                damageRadius
             );
         }
     }

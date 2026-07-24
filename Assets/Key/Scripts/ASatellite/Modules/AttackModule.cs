@@ -1,6 +1,7 @@
 ﻿using Key.Scripts.BulletSc;
 using Key.Scripts.Pooling;
 using Key.Scripts.Projectile;
+using Key.Scripts.Singletone;
 using UnityEngine;
 
 namespace Key.Scripts.ASatellite.Modules {
@@ -108,6 +109,8 @@ namespace Key.Scripts.ASatellite.Modules {
                 _owner.AttackPower,
                 knockbackPower
             );
+
+            SoundManager.Instance?.PlaySFX(_owner.ShootSoundType);
         }
 
         private Collider2D FindClosestTarget() {
