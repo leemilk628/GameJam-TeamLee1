@@ -9823,7 +9823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.Enemy.EnemyMovement
   moveDir: {x: 0, y: 0}
-  speed: 5
+  speed: 3
   <rotSpeed>k__BackingField: 100
 --- !u!114 &3792623153735206006
 MonoBehaviour:
