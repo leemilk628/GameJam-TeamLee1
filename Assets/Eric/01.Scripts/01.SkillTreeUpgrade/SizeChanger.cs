@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Eric.ModuleSystem;
@@ -7,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace Eric.SkillTreeUpgrade
 {
-        public class SizeChanger:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler, IModule
+        public class SizeChanger:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         {
                 private ModuleOwner Owner{get;set;}
                 private Vector3 MyScale{get;set;}
@@ -23,14 +24,9 @@ namespace Eric.SkillTreeUpgrade
                         transform.DOScale(MyScale, Speed);
                 }
 
-                public void Init(ModuleOwner owner)
+                private void OnEnable()
                 {
-                        Owner = owner;
                         MyScale = transform.localScale;
-                }
-
-                public void AfterInit()
-                {
                 }
         }
 }

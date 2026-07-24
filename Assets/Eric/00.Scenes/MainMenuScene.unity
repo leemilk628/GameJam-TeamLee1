@@ -119,6 +119,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &325831926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2324894239243977328, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
+  m_PrefabInstance: {fileID: 843725308497949955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &325831928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325831926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.1
+  <Speed>k__BackingField: 0.5
 --- !u!1 &430186265
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +426,7 @@ GameObject:
   - component: {fileID: 906446188}
   - component: {fileID: 906446187}
   - component: {fileID: 906446186}
+  - component: {fileID: 906446189}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -516,6 +536,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906446184}
   m_CullTransparentMesh: 1
+--- !u!114 &906446189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906446184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.1
+  <Speed>k__BackingField: 0.5
 --- !u!1 &912663025
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +562,7 @@ GameObject:
   - component: {fileID: 912663029}
   - component: {fileID: 912663028}
   - component: {fileID: 912663027}
+  - component: {fileID: 912663030}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -649,6 +684,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912663025}
   m_CullTransparentMesh: 1
+--- !u!114 &912663030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912663025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.1
+  <Speed>k__BackingField: 0.5
 --- !u!1 &1096002449
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +710,7 @@ GameObject:
   - component: {fileID: 1096002453}
   - component: {fileID: 1096002452}
   - component: {fileID: 1096002451}
+  - component: {fileID: 1096002454}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -782,6 +832,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096002449}
   m_CullTransparentMesh: 1
+--- !u!114 &1096002454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096002449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.1
+  <Speed>k__BackingField: 0.5
 --- !u!1 &1186816798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,6 +1542,7 @@ GameObject:
   - component: {fileID: 1956598283}
   - component: {fileID: 1956598285}
   - component: {fileID: 1956598284}
+  - component: {fileID: 1956598286}
   m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
@@ -1542,6 +1607,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956598282}
   m_CullTransparentMesh: 1
+--- !u!114 &1956598286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956598282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.15
+  <Speed>k__BackingField: 0.7
 --- !u!1 &2136536891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1633,7 @@ GameObject:
   - component: {fileID: 2136536895}
   - component: {fileID: 2136536894}
   - component: {fileID: 2136536893}
+  - component: {fileID: 2136536896}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1675,6 +1755,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136536891}
   m_CullTransparentMesh: 1
+--- !u!114 &2136536896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136536891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44430c0c980742d0b44c25b921bbb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.SkillTreeUpgrade.SizeChanger
+  <MaxSize>k__BackingField: 1.1
+  <Speed>k__BackingField: 0.5
 --- !u!1001 &843725308497949955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1685,27 +1779,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 990736172434277328, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2763300670286479128, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2797328011278240131, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3491066143712509513, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4057099199459852506, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5875271368940089140, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_Name
       value: MainMenuSettingCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875271368940089140, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6898911561189000090, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_Pivot.x
@@ -1789,12 +1887,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611229123879042492, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2324894239243977328, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 325831928}
   m_SourcePrefab: {fileID: 100100000, guid: a9b9fb5c3880b5a46896649d134eb521, type: 3}
 --- !u!1 &4611936596512397147 stripped
 GameObject:

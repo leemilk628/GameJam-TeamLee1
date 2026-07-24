@@ -31,8 +31,8 @@ namespace Eric.Scenes
                 {
                         string sceneName = sceneType switch
                         {
-                                SceneType.MainMenu => "EnemyScene",
-                                SceneType.Game => "GameScene",
+                                SceneType.MainMenu => "MainMenuScene",
+                                SceneType.Game => "EnemyScene",
                                 SceneType.GameOver => "GameOverScene",
                                 SceneType.Ending => "EndingScene",
                                 _ => ""

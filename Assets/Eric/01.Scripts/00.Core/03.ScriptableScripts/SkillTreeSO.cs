@@ -23,7 +23,9 @@ namespace Eric.ScriptableScripts
         public enum SatelliteType
         {
                 None,
-                Moon
+                AutocannonSatellite,
+                MissileSatellite,
+                LaserSatellite
         }
 
         [CreateAssetMenu(fileName = "New SkillTreeSO", menuName = "Eric/SkillTreeSO")]
