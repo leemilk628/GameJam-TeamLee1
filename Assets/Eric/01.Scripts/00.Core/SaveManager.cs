@@ -28,12 +28,12 @@ namespace Eric.Save
                         HandleOnLoad += T;
                 }
 
-                public void InvokeSave(Action T)
+                public void InvokeSave()
                 {
                         HandleOnSave?.Invoke();
                 }
 
-                public void InvokeLoad(Action T)
+                public void InvokeLoad()
                 {
                         HandleOnLoad?.Invoke();
                 }
