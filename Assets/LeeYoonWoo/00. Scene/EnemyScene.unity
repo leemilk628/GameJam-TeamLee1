@@ -6491,6 +6491,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1387733080}
   m_SourcePrefab: {fileID: 100100000, guid: d24a4406d716ca748b4401edff585db2, type: 3}
+--- !u!114 &1184211509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4185898409392874325, guid: d24a4406d716ca748b4401edff585db2, type: 3}
+  m_PrefabInstance: {fileID: 1184211508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfe9559e511454f841f14694940448a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.StageUpgrade.StageUpgradeModule
 --- !u!1 &1186325857
 GameObject:
   m_ObjectHideFlags: 0
@@ -10590,6 +10601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91289ca2a79438a91db3bd34f6f7925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eric.Scenes.SceneChanger
+  lightFading: {fileID: 0}
 --- !u!4 &1922756430
 Transform:
   m_ObjectHideFlags: 0
@@ -10661,11 +10673,30 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 15627810}
+    - target: {fileID: 7028195023965046452, guid: 8134c1d496cc8fb44b814409f941fc18, type: 3}
+      propertyPath: _saveSkillTree
+      value: 
+      objectReference: {fileID: 1924690116}
+    - target: {fileID: 7028195023965046452, guid: 8134c1d496cc8fb44b814409f941fc18, type: 3}
+      propertyPath: _stageUpgradeModule
+      value: 
+      objectReference: {fileID: 1184211509}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8134c1d496cc8fb44b814409f941fc18, type: 3}
+--- !u!114 &1924690116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8608101476148712303, guid: 8134c1d496cc8fb44b814409f941fc18, type: 3}
+  m_PrefabInstance: {fileID: 1924690115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390fe4383c894bcba5bed56c5264e5a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.Save.SaveSkillTree
 --- !u!1 &1930026266
 GameObject:
   m_ObjectHideFlags: 0

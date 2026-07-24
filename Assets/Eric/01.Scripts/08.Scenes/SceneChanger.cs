@@ -1,4 +1,5 @@
 ﻿using System;
+using Eric.GameOver;
 using Eric.Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,13 +11,12 @@ namespace Eric.Scenes
         {
                 MainMenu,
                 Game,
-                GameOver,
                 Ending,
         }
         public class SceneChanger : MonoBehaviour
         {
                 public static SceneChanger Instance{get; private set;}
-                
+                [SerializeField] private LightFading lightFading;
                 private SaveManager _saveManager;
 
                 private void OnEnable()
@@ -31,7 +31,6 @@ namespace Eric.Scenes
                         {
                                 SceneType.MainMenu => "MainMenuScene",
                                 SceneType.Game => "EnemyScene",
-                                SceneType.GameOver => "GameOverScene",
                                 SceneType.Ending => "EndingCreditScene",
                                 _ => ""
                         };
@@ -49,9 +48,9 @@ namespace Eric.Scenes
                         ChangeSceneState(SceneType.Game);
                 }
 
-                public void GoToGameOver()
+                public void GameOver()
                 {
-                        ChangeSceneState(SceneType.GameOver);
+                        lightFading.State();
                 }
 
                 public void GoToEnding()
