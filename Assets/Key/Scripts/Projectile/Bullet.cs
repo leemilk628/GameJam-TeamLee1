@@ -139,6 +139,7 @@ namespace Key.Scripts.Projectile {
             _damage = 0;
             _knockbackPower = 0f;
             _moveDirection = Vector2.zero;
+            _returnTime = float.PositiveInfinity;
 
             _rigidbody.linearVelocity = Vector2.zero;
             _rigidbody.angularVelocity = 0f;

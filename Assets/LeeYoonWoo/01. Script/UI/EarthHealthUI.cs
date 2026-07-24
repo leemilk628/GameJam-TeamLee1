@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EarthHealthUI : MonoBehaviour
 {
-    [SerializeField] private Earth player;
+    [SerializeField] private EarthHealth player;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthPer;
 

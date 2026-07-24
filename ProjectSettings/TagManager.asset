@@ -47,5 +47,8 @@ TagManager:
   - name: Player
     uniqueID: 654720611
     locked: 0
+  - name: SkillTree
+    uniqueID: 243137529
+    locked: 0
   m_RenderingLayers:
   - Default

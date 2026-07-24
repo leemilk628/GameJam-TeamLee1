@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2d8fea83dda54244286d2f74fa9b0691
+guid: 44f7e8aebe3ddda498e7dca8a678abb2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5230440244511977658
-    second: AppRound_0
+      213: -5003544933914918858
+    second: ChangeButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 192
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AppRound_0
+      name: ChangeButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 108
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 67, y: 36, z: 68, w: 36}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 64fc4f64f4eb967b0800000000000000
-      internalID: -5230440244511977658
+      spriteID: 630cb4c7466df8ab0800000000000000
+      internalID: -5003544933914918858
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a1e826b59bc5db14184f37a424a54d37
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AppRound_0: -5230440244511977658
+      ChangeButton_0: -5003544933914918858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
