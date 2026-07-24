@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80e60c3e887d40909df9076781708f02, type: 3}
-  m_Name: Stage1
+  m_Name: Stage4
   m_EditorClassIdentifier: Assembly-CSharp::LeeYoonWoo._01._Script.StageData
   Stage: 1
-  StageTime: 180
+  StageTime: 300
   BreakTime:
-  - 40
-  - 140
-  BossSpawnTime:
   - 60
-  - 155
+  - 200
+  BossSpawnTime:
+  - 30
+  - 220
   Enemies:
   - {fileID: 4055423906226795968, guid: 8caf2088522188b47a3bf70d841cecee, type: 3}
   - {fileID: 4055423906226795968, guid: 5978d1aafe3f66c41a58ee12224c9d04, type: 3}
@@ -28,4 +28,4 @@ MonoBehaviour:
   - {fileID: 4055423906226795968, guid: 94b3c4fb43306bf4686e7e3bc19ec431, type: 3}
   Boss2:
   - {fileID: 4055423906226795968, guid: 94b3c4fb43306bf4686e7e3bc19ec431, type: 3}
-  SpawnTerm: 6
+  SpawnTerm: 1
