@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatellite1
   satelliteData: {fileID: 11400000, guid: 3636f92f28b2887448a377b15d086834, type: 2}
+  shootSoundType: 6
   orbitCenter: {fileID: 0}
 --- !u!1 &5448044948169807631
 GameObject:
