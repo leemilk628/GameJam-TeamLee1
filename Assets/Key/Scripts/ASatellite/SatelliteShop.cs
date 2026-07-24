@@ -18,6 +18,8 @@ namespace Key.Scripts.ASatellite {
         
         private readonly List<MovementModule> _satellites = new();
 
+
+        private bool _isBought = false;
         public int Money => _money;
 
         public void BuySatellite(int productIndex) {
@@ -32,6 +34,7 @@ namespace Key.Scripts.ASatellite {
             }
 
             _money -= price;
+            _isBought = true;
 
             AbstractASatellite satellite = Instantiate(
                 product.prefab,
@@ -77,6 +80,7 @@ namespace Key.Scripts.ASatellite {
         }
 
         public void ButtonLock(Button btn) {
+            if (!_isBought) return;
             btn.interactable = false;
         }
     }

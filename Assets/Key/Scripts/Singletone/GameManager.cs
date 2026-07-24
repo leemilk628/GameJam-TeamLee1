@@ -50,15 +50,6 @@ namespace Key.Scripts.Singletone {
             SceneChanger.Instance.GoToMainMenu();
         }
 
-        /*public void ChangeScene(SceneType sceneType) {
-            if (SceneChanger.Instance == null) {
-                return;
-            }
-
-            Time.timeScale = 1f;
-            SceneChanger.Instance.ChangeSceneState(sceneType);
-        }*/
-
         private void OnDestroy() {
             if (Instance == this)
                 Instance = null;
