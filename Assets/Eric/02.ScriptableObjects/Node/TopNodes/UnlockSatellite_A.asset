@@ -15,7 +15,7 @@ MonoBehaviour:
   nodeId: dbdcaaec-6b8c-4b24-ac49-c6835d8f2645
   <SkillTreeType>k__BackingField: 6
   <IncreaseValue>k__BackingField: 0
-  <SatelliteType>k__BackingField: 0
+  <SatelliteType>k__BackingField: 1
   <BeforeNode>k__BackingField: {fileID: 11400000, guid: 0cc1d228691e8e64da1f4ed3e9fa4ecd, type: 2}
   <IsUpgrade>k__BackingField: 0
   <Description>k__BackingField: Unlock New Satellite

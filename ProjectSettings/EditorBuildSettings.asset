@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Eric/00.Scenes/MainMenuScene.unity
+    guid: aeb1e2d98e12c5e4e9312b5fd7dedc60
+  - enabled: 1
     path: Assets/LeeYoonWoo/00. Scene/EnemyScene.unity
     guid: 6ed4362f7d7f6c6489799c042b4adeb2
   m_configObjects:
