@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.StageUpgradeSO
   <UpgradeName>k__BackingField: SatelliteAttack
   <Icon>k__BackingField: {fileID: 0}
-  <StageUpgradeType>k__BackingField: 7
+  <StageUpgradeType>k__BackingField: 6
   <BaseStat>k__BackingField: 1
-  <IsIntStat>k__BackingField: 1
-  <MaxLevel>k__BackingField: 100
-  <MultiplyPerLevel>k__BackingField: 1.2
   <AddValuePerLevel>k__BackingField: 1
-  <BaseNeedMF>k__BackingField: 100
-  <NeedMFMultiply>k__BackingField: 1.5
+  <MaxLevel>k__BackingField: 100
+  <BaseNeedGold>k__BackingField: 100
+  <NeedGoldMultiply>k__BackingField: 1.5
