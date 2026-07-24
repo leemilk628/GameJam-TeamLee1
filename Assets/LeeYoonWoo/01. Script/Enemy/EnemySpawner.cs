@@ -4,37 +4,18 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private float timer;
-    private bool isSpawn = false;
-    [SerializeField] private Slider progressBar;
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private GameObject enemyPrefab;
-
-    void Awake()
-    {
-        progressBar.maxValue = 120;
-    }
     
-    void Update()
+    public void Spawn(GameObject[] entities)
     {
-        timer += Time.deltaTime;
-        progressBar.value = timer;
-
-        if ((int)timer % 3 == 0)
+        if (entities.Length == 1)
         {
-            if (isSpawn) return;
-            
-            Spawn();
-            isSpawn = true;
+            Instantiate(entities[0], spawnPoints[6].position,  Quaternion.identity);
         }
         else
         {
-            isSpawn = false;
+            Instantiate(entities[Random.Range(0, entities.Length)], spawnPoints[Random.Range(0, spawnPoints.Count)].position,  Quaternion.identity);
         }
-    }
-
-    void Spawn()
-    {
-        Instantiate(enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)].position,  Quaternion.identity);
     }
 }
