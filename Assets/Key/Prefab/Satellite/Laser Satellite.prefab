@@ -84,8 +84,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.4669811, g: 1, b: 0.7148642, a: 1}
+  m_Sprite: {fileID: 5831539434097497562, guid: 42fcf2882f4ce794b9087411eda85593, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
     m_Bits: 64
   firePoint: {fileID: 6999244742651438685}
   bulletPoolManager: {fileID: 0}
+  bulletRotationOffset: 0
 --- !u!1 &7605757719401162604
 GameObject:
   m_ObjectHideFlags: 0
