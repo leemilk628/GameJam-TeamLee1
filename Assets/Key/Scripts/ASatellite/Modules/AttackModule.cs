@@ -170,11 +170,5 @@ namespace Key.Scripts.ASatellite.Modules {
             }
         }
 
-        private void OnDrawGizmosSelected() {
-            Gizmos.DrawWireSphere(
-                transform.position,
-                attackRange
-            );
-        }
     }
 }

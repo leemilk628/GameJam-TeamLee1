@@ -17,6 +17,7 @@ public class PlayManager : MonoBehaviour
     void Start()
     {
         Debug.Log("처음 스테이지 시작됨.");
+        StageUIManager.Instance.NextStageText($"WAVE {curStage+1}");
         stageManager.stageData = stage[curStage];
         stageManager.Init();
         stageManager.isStage = true;
@@ -41,6 +42,7 @@ public class PlayManager : MonoBehaviour
             SceneChanger.Instance.GoToEnding();
         }
         Debug.Log($"{curStage+1}스테이지 시작됨.");
+        StageUIManager.Instance.NextStageText($"WAVE {curStage+1}");
         stageManager.stageData = stage[curStage];
         stageManager.Init();
         stageManager.isStage = true;
