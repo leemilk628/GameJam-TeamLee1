@@ -166,11 +166,6 @@ namespace Key.Scripts.Singletone {
                     soundType,
                     out SoundData soundData
                 )) {
-                Debug.LogWarning(
-                    $"{name}: {soundType} 사운드를 찾을 수 없음",
-                    this
-                );
-
                 return;
             }
 
@@ -207,7 +202,6 @@ namespace Key.Scripts.Singletone {
                 return;
 
             sfxSource.PlayOneShot(soundData.audioClip, soundData.volume);
-            Debug.Log($"{soundType} 재생");
         }
 
         public void SetBGMVolume(float volume) {

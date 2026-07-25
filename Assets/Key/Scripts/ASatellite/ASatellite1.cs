@@ -16,7 +16,9 @@ namespace Key.Scripts.ASatellite {
             _attackModule = GetModule<AttackModule>();
         }
 
-        private void Start() {
+        protected override void Start() {
+            base.Start();
+
             if (orbitCenter != null) {
                 Deploy(orbitCenter);
             }

@@ -108,12 +108,6 @@ namespace Key.Scripts.Player {
             } else if (_stageUpgradeModule != null) {
                 _stageUpgradeModule.OnStageUpgradeDataChanged +=
                     HandleStatsChanged;
-            } else {
-                Debug.LogWarning(
-                    $"{name}: 플레이어 스탯 모듈과 스테이지 " +
-                    "업그레이드 모듈을 찾을 수 없어 기본값을 사용합니다.",
-                    this
-                );
             }
 
             HandleStatsChanged();

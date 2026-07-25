@@ -6,6 +6,7 @@ using Key.Scripts.Singletone;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Key.Scripts.Player {
     public class PlayerAttack : MonoBehaviour {
@@ -53,7 +54,8 @@ namespace Key.Scripts.Player {
         [SerializeField, Min(0f)] private float bulletSpread = 3f;
 
         [Header("Light")]
-        [SerializeField] private Light2D light;
+        [FormerlySerializedAs("light")]
+        [SerializeField] private Light2D shootLight;
         [SerializeField, Min(0f)] private float shootLightDuration = 0.2f;
 
         [Header("Camera Shake")]
@@ -97,11 +99,11 @@ namespace Key.Scripts.Player {
                     FindFirstObjectByType<BulletPoolManager>();
             }
 
-            if (light == null)
-                light = GetComponentInChildren<Light2D>(true);
+            if (shootLight == null)
+                shootLight = GetComponentInChildren<Light2D>(true);
 
-            if (light != null)
-                light.enabled = false;
+            if (shootLight != null)
+                shootLight.enabled = false;
 
             if (cameraShake == null &&
                 mainCamera != null) {
@@ -217,14 +219,14 @@ namespace Key.Scripts.Player {
         }
 
         private IEnumerator ShootLight() {
-            if (light == null)
+            if (shootLight == null)
                 yield break;
 
-            light.enabled = true;
+            shootLight.enabled = true;
 
             yield return _shootLightWait;
 
-            light.enabled = false;
+            shootLight.enabled = false;
             _shootLightCoroutine = null;
         }
 
@@ -249,8 +251,8 @@ namespace Key.Scripts.Player {
                 _shootLightCoroutine = null;
             }
 
-            if (light != null)
-                light.enabled = false;
+            if (shootLight != null)
+                shootLight.enabled = false;
         }
     }
 }
