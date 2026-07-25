@@ -49,7 +49,7 @@ MonoBehaviour:
   sfxSource: {fileID: 7459696541881362522, guid: 9205be2cd1e3a2948a5b3731d66df9c9, type: 3}
   soundDataList:
   - soundType: 0
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 6725771aa3b1be0499f6cb907d127525, type: 3}
     volume: 1
   - soundType: 1
     audioClip: {fileID: 8300000, guid: aee8af8c26f51bf40b2cb170a081f06e, type: 3}
