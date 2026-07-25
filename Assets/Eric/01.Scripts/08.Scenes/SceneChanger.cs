@@ -56,6 +56,7 @@ namespace Eric.Scenes
 
                 public void GoToEnding()
                 {
+                        _saveManager.ResetAll();
                         ChangeSceneState(SceneType.Ending);
                 }
 

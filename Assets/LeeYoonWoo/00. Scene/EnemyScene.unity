@@ -1944,6 +1944,25 @@ MonoBehaviour:
   hueOffset: 0
   saturation: 1
   brightness: 1
+--- !u!1 &465635033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1350324225782531635, guid: 41db5dd7d4423964e9e68faab0b00460, type: 3}
+  m_PrefabInstance: {fileID: 1504888641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &465635035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465635033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4075cd67ce6047db8825274862468fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.Sound.SoundSettingUI
+  bgmSlider: {fileID: 2067193477}
+  sfxSlider: {fileID: 1772609575}
 --- !u!1 &473374444
 GameObject:
   m_ObjectHideFlags: 0
@@ -8096,6 +8115,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2578284443077974211, guid: 41db5dd7d4423964e9e68faab0b00460, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1467100495}
+    - targetCorrespondingSourceObject: {fileID: 1350324225782531635, guid: 41db5dd7d4423964e9e68faab0b00460, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 465635035}
     - targetCorrespondingSourceObject: {fileID: 3032543085337325113, guid: 41db5dd7d4423964e9e68faab0b00460, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1673603031}
@@ -9351,6 +9373,17 @@ MonoBehaviour:
   hueOffset: 0
   saturation: 1
   brightness: 1
+--- !u!114 &1772609575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8464100081875604263, guid: 41db5dd7d4423964e9e68faab0b00460, type: 3}
+  m_PrefabInstance: {fileID: 1504888641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1772810695
 GameObject:
   m_ObjectHideFlags: 0
@@ -11309,6 +11342,17 @@ MonoBehaviour:
   hueOffset: 0
   saturation: 1
   brightness: 1
+--- !u!114 &2067193477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1665158774923699778, guid: 41db5dd7d4423964e9e68faab0b00460, type: 3}
+  m_PrefabInstance: {fileID: 1504888641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &2082500980 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1542726591635982104, guid: 8134c1d496cc8fb44b814409f941fc18, type: 3}
