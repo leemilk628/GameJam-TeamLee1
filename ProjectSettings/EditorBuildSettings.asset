@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LeeYoonWoo/00. Scene/EnemyScene.unity
     guid: 6ed4362f7d7f6c6489799c042b4adeb2
+  - enabled: 1
+    path: Assets/Eric/00.Scenes/EndingCreditScene.unity
+    guid: 072aa3fc90ca85240bfece78d68edc0e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
