@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6999244742651438685}
   - component: {fileID: 7744369063162367297}
   - component: {fileID: 6377302033814708138}
+  - component: {fileID: 6972040323660720325}
   m_Layer: 0
   m_Name: Basic Satellite
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1520474935652927843}
   - {fileID: 4093228052640363790}
@@ -61,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 168999d1b35a3264fb96c9ae1c3db8bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -4294281933613106851, guid: e37c165d6c52dbd408910d46a5a260cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,6 +110,19 @@ MonoBehaviour:
   satelliteData: {fileID: 11400000, guid: 2e857dd8447c189488caa7c7302db1c3, type: 2}
   shootSoundType: 7
   orbitCenter: {fileID: 0}
+--- !u!114 &6972040323660720325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287315557698582065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79c574d3eb54d2383e2b4fdab15881a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.EarthRotation
+  rotationSpeed: 80
 --- !u!1 &6116963921822884723
 GameObject:
   m_ObjectHideFlags: 0

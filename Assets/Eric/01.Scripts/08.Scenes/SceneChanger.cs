@@ -17,7 +17,7 @@ namespace Eric.Scenes
         {
                 public static SceneChanger Instance{get; private set;}
                 [SerializeField] private LightFading lightFading;
-                private SaveManager _saveManager;
+                [SerializeField]private SaveManager _saveManager;
 
                 private void OnEnable()
                 {
@@ -50,6 +50,7 @@ namespace Eric.Scenes
 
                 public void GameOver()
                 {
+                        _saveManager.ResetStageData();
                         if (lightFading != null)
                                 lightFading.State();
                 }
