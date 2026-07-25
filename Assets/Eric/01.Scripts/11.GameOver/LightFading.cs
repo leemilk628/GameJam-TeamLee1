@@ -3,6 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace Eric.GameOver
 {
@@ -14,6 +15,8 @@ namespace Eric.GameOver
         [SerializeField] private float fadeSpeed;
         [SerializeField] private float intensitySize;
         [SerializeField] private float duration;
+        private bool isLoaded = false;
+        
         private void OnEnable()
         {
             _light2D = GetComponent<Light2D>();
@@ -31,7 +34,7 @@ namespace Eric.GameOver
                 case true:
                     FadeOut();
                     break;
-                case false when _light2D.intensity >= 0:
+                case false when _light2D.intensity > 0:
                     Fadein();
                     break;
             }
@@ -47,7 +50,12 @@ namespace Eric.GameOver
         private void Fadein()
         {
             _light2D.intensity -= Time.deltaTime * fadeSpeed;
-            text.DOFade(0, duration);
+            text.DOFade(0, duration).OnComplete(() =>
+            {
+                if (isLoaded) return;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                isLoaded = true;
+            });
         }
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections;
+using Eric.Scenes;
 using LeeYoonWoo._01._Script;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class PlayManager : MonoBehaviour
     
     public StageData[] stage = new StageData[4];
     
-    int T = 30;
+    int T = 1;
     
     void Start()
     {
@@ -34,6 +36,10 @@ public class PlayManager : MonoBehaviour
     void MoveToNextStage()
     {
         curStage++;
+        if (curStage+1 == 5)
+        {
+            SceneChanger.Instance.GoToEnding();
+        }
         Debug.Log($"{curStage+1}스테이지 시작됨.");
         stageManager.stageData = stage[curStage];
         stageManager.Init();

@@ -30,6 +30,7 @@ namespace LeeYoonWoo._01._Script.Enemy
             {
                 Debug.Log(other.name);
                 player.GetDamage(damage);
+                Death();
             }
             
         }

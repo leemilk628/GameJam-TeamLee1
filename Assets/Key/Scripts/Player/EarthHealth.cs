@@ -1,4 +1,5 @@
 ﻿using System;
+using Eric.Scenes;
 using Key.Scripts.Singletone;
 using UnityEngine;
 
@@ -245,7 +246,8 @@ namespace Key.Scripts.Player {
 
             _isDead = true;
 
-            GameManager.Instance?.GameOver();
+            SceneChanger.Instance.GameOver();
+            //GameManager.Instance?.GameOver();
         }
 
         private void OnDestroy() {
