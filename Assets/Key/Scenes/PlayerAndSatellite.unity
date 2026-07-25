@@ -620,7 +620,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 462171981}
         m_TargetAssemblyTypeName: Key.Scripts.ASatellite.SatelliteShop, Assembly-CSharp
-        m_MethodName: BuySatellite
+        m_MethodName: ChangeSatellite
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2609,7 +2609,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 462171981}
         m_TargetAssemblyTypeName: Key.Scripts.ASatellite.SatelliteShop, Assembly-CSharp
-        m_MethodName: BuySatellite
+        m_MethodName: ChangeSatellite
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2754,7 +2754,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 462171981}
         m_TargetAssemblyTypeName: Key.Scripts.ASatellite.SatelliteShop, Assembly-CSharp
-        m_MethodName: BuySatellite
+        m_MethodName: ChangeSatellite
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

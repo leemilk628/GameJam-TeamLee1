@@ -70,16 +70,16 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: e0fd0a637690f874e831bda9c6326e13, type: 3}
     volume: 1
   - soundType: 7
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 259678934b9486044b5e92652fa60465, type: 3}
     volume: 1
   - soundType: 8
     audioClip: {fileID: 8300000, guid: c0bc10c3ebc70dd458329b9c51e57040, type: 3}
     volume: 1
   - soundType: 9
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: b15f4e1f1e6b7c540a77a0ad0566cb25, type: 3}
     volume: 1
   - soundType: 10
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 3c2f0af4d44771a409904f25bc674e90, type: 3}
     volume: 1
   - soundType: 11
     audioClip: {fileID: 8300000, guid: 37d830ff75e93c144be58d8cde4af664, type: 3}
