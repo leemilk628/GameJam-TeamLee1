@@ -16,7 +16,7 @@ namespace Eric.EndingCredit
 
         public void FadeOut()
         {
-            fadeImage.DOFade(1, fadeSpeed);
+            fadeImage.DOFade(1, fadeSpeed).OnComplete(()=>Application.Quit());
         }
     }
 }

@@ -50,7 +50,8 @@ namespace Eric.Scenes
 
                 public void GameOver()
                 {
-                        lightFading.State();
+                        if (lightFading != null)
+                                lightFading.State();
                 }
 
                 public void GoToEnding()

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3448b69c4c8440d498fe2e0e81077f94, type: 3}
+  m_Name: FirstDialogueTextSO
+  m_EditorClassIdentifier: Assembly-CSharp::Eric.ScriptableScripts.DialogueTextSO
+  texts:
+  - "\uC9C0\uAE08 \uC9C0\uAD6C\uAC00 \uC704\uD5D8\uC5D0 \uCC98\uD588\uC5B4!"
+  - "\uC6B4\uC11D\uB4E4\uC774 \uC5C4\uCCAD\uB098\uAC8C \uB9CE\uC774 \uB5A8\uC5B4\uC9C0\uACE0
+    \uC788\uC5B4!"
+  - "\uC5B4\uC11C \uC774 \uC571\uC744 \uC5F4\uC5B4\uC11C \uC9C0\uAD6C\uB97C \uC9C0\uCF1C\uC918"
