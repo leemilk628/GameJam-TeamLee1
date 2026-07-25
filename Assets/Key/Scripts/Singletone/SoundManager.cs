@@ -36,6 +36,7 @@ namespace Key.Scripts.Singletone {
     public class SoundManager : MonoBehaviour {
         public static SoundManager Instance { get; private set; }
 
+        public float MasterVolume { get; private set; } = 1f;
         public float BGMVolume { get; private set; } = 1f;
         public float SFXVolume { get; private set; } = 1f;
 
@@ -52,6 +53,7 @@ namespace Key.Scripts.Singletone {
         private const string BGMVolumeParameter = "BGMVolume";
         private const string SFXVolumeParameter = "SFXVolume";
 
+        private const string MasterVolumeSaveKey = "MASTER_VOLUME";
         private const string BGMVolumeSaveKey = "BGM_VOLUME";
         private const string SFXVolumeSaveKey = "SFX_VOLUME";
 
@@ -217,6 +219,11 @@ namespace Key.Scripts.Singletone {
             );
         }
 
+        public void SetMasterVolume(float volume) {
+            MasterVolume = Mathf.Clamp01(volume);
+            AudioListener.volume = MasterVolume;
+        }
+
         public void SetSFXVolume(float volume) {
             SFXVolume = Mathf.Clamp01(volume);
 
@@ -244,6 +251,11 @@ namespace Key.Scripts.Singletone {
         }
 
         private void LoadVolume() {
+            MasterVolume = PlayerPrefs.GetFloat(
+                MasterVolumeSaveKey,
+                1f
+            );
+
             BGMVolume = PlayerPrefs.GetFloat(
                 BGMVolumeSaveKey,
                 1f
@@ -254,11 +266,17 @@ namespace Key.Scripts.Singletone {
                 1f
             );
 
+            SetMasterVolume(MasterVolume);
             SetBGMVolume(BGMVolume);
             SetSFXVolume(SFXVolume);
         }
 
         public void SaveVolume() {
+            PlayerPrefs.SetFloat(
+                MasterVolumeSaveKey,
+                MasterVolume
+            );
+
             PlayerPrefs.SetFloat(
                 BGMVolumeSaveKey,
                 BGMVolume

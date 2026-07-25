@@ -5,6 +5,7 @@ using UnityEngine.UI;
 namespace Key.Scripts.Sound {
     public class SoundSettingUI : MonoBehaviour {
         [Header("Volume Slider")]
+        [SerializeField] private Slider masterSlider;
         [SerializeField] private Slider bgmSlider;
         [SerializeField] private Slider sfxSlider;
 
@@ -23,6 +24,16 @@ namespace Key.Scripts.Sound {
         }
 
         private void InitializeSlider() {
+            if (masterSlider != null) {
+                masterSlider.minValue = 0f;
+                masterSlider.maxValue = 1f;
+                masterSlider.wholeNumbers = false;
+
+                masterSlider.SetValueWithoutNotify(
+                    SoundManager.Instance.MasterVolume
+                );
+            }
+
             if (bgmSlider != null) {
                 bgmSlider.minValue = 0f;
                 bgmSlider.maxValue = 1f;
@@ -45,6 +56,11 @@ namespace Key.Scripts.Sound {
         }
 
         private void RegisterSliderEvent() {
+            if (masterSlider != null)
+                masterSlider.onValueChanged.AddListener(
+                    OnMasterVolumeChanged
+                );
+
             if (bgmSlider != null)
                 bgmSlider.onValueChanged.AddListener(
                     OnBGMVolumeChanged
@@ -54,6 +70,10 @@ namespace Key.Scripts.Sound {
                 sfxSlider.onValueChanged.AddListener(
                     OnSFXVolumeChanged
                 );
+        }
+
+        private void OnMasterVolumeChanged(float volume) {
+            SoundManager.Instance?.SetMasterVolume(volume);
         }
 
         private void OnBGMVolumeChanged(float volume) {
@@ -69,6 +89,11 @@ namespace Key.Scripts.Sound {
         }
 
         private void OnDestroy() {
+            if (masterSlider != null)
+                masterSlider.onValueChanged.RemoveListener(
+                    OnMasterVolumeChanged
+                );
+
             if (bgmSlider != null)
                 bgmSlider.onValueChanged.RemoveListener(
                     OnBGMVolumeChanged
