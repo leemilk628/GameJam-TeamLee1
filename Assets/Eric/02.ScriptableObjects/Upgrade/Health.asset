@@ -16,9 +16,7 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <StageUpgradeType>k__BackingField: 0
   <BaseStat>k__BackingField: 100
-  <IsIntStat>k__BackingField: 1
-  <MaxLevel>k__BackingField: 100
-  <MultiplyPerLevel>k__BackingField: 1.2
   <AddValuePerLevel>k__BackingField: 1
-  <BaseNeedMF>k__BackingField: 100
-  <NeedMFMultiply>k__BackingField: 1.5
+  <MaxLevel>k__BackingField: 40
+  <BaseNeedGold>k__BackingField: 50
+  <NeedGoldMultiply>k__BackingField: 1.3

@@ -24427,6 +24427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27bcdbfcf6f446db9ec9db9f2a7050b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eric.Save.SaveManager
+  _saveSkillTree: {fileID: 8608101476148712303}
+  _stageUpgradeModule: {fileID: 0}
 --- !u!1 &5518459513334235917
 GameObject:
   m_ObjectHideFlags: 0
