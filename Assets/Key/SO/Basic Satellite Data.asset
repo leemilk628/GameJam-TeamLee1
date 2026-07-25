@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e27fd449a06450d814c53330df138d0, type: 3}
   m_Name: Basic Satellite Data
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatelliteSO
-  prefab: {fileID: 6377302033814708138, guid: 7d7d7b34171e62d42a395442f6aa6b21, type: 3}
+  prefab: {fileID: 6377302033814708138, guid: 203ffc09a0b6121429b1cf49a7f8907d, type: 3}
   attackPower: 3
   attackSpeed: 5
   bullet: {fileID: 2080838655854635164, guid: 786a82db968530941a4da4a4d9e00ca4, type: 3}

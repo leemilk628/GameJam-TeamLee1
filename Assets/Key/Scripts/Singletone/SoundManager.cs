@@ -13,7 +13,7 @@ namespace Key.Scripts.Singletone {
         AutoCannonSatelliteShoot,//
         MissileSatelliteShoot,//
         LaserSatelliteShoot, //
-        BasicSatelliteShoot,
+        BasicSatelliteShoot, //
         PlayerHit, //
         EnemyHit,
         Explosion,

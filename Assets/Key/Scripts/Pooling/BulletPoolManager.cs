@@ -20,7 +20,8 @@ namespace Key.Scripts.Pooling {
             Vector2 targetPosition,
             BulletDataSO data,
             int bonusDamage = 0,
-            float bonusKnockback = 0f
+            float bonusKnockback = 0f,
+            float? rotationOffsetOverride = null
         ) {
             if (bulletPrefab == null) {
                 return;
@@ -45,7 +46,8 @@ namespace Key.Scripts.Pooling {
                 targetPosition,
                 data,
                 bonusDamage,
-                bonusKnockback
+                bonusKnockback,
+                rotationOffsetOverride
             );
         }
 
