@@ -15,8 +15,8 @@ MonoBehaviour:
   <UpgradeName>k__BackingField: Attack
   <Icon>k__BackingField: {fileID: 0}
   <StageUpgradeType>k__BackingField: 2
-  <BaseStat>k__BackingField: 5
-  <AddValuePerLevel>k__BackingField: 1
-  <MaxLevel>k__BackingField: 100
-  <BaseNeedGold>k__BackingField: 100
-  <NeedGoldMultiply>k__BackingField: 1.5
+  <BaseStat>k__BackingField: 20
+  <AddValuePerLevel>k__BackingField: 3
+  <MaxLevel>k__BackingField: 25
+  <BaseNeedGold>k__BackingField: 50
+  <NeedGoldMultiply>k__BackingField: 1.3

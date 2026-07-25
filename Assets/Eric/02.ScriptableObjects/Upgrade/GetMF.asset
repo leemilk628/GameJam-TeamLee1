@@ -18,5 +18,5 @@ MonoBehaviour:
   <BaseStat>k__BackingField: 1
   <AddValuePerLevel>k__BackingField: 1
   <MaxLevel>k__BackingField: 100
-  <BaseNeedGold>k__BackingField: 100
-  <NeedGoldMultiply>k__BackingField: 1.5
+  <BaseNeedGold>k__BackingField: 50
+  <NeedGoldMultiply>k__BackingField: 1.3
