@@ -482,6 +482,7 @@ namespace Key.Scripts.ASatellite {
             if (_satelliteStatModule == null)
                 return;
 
+            RegisterExistingSatellites();
             SelectInitialMode();
 
             AbstractASatellite satellitePrefab =
