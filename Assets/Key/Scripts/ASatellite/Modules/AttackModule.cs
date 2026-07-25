@@ -16,6 +16,7 @@ namespace Key.Scripts.ASatellite.Modules {
         [Header("Bullet")]
         [SerializeField] private Transform firePoint;
         [SerializeField] private BulletPoolManager bulletPoolManager;
+        [SerializeField] private float bulletRotationOffset;
 
         private AbstractASatellite _owner;
         private Collider2D _ownerCollider;
@@ -107,7 +108,8 @@ namespace Key.Scripts.ASatellite.Modules {
                 target.bounds.center,
                 bulletData,
                 _owner.AttackPower,
-                knockbackPower
+                knockbackPower,
+                bulletRotationOffset
             );
 
             SoundManager.Instance?.PlaySFX(_owner.ShootSoundType);

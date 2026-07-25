@@ -5,6 +5,7 @@ using Eric.Satellite;
 using Eric.ScriptableScripts;
 using Eric.StageUpgrade;
 using Key.Scripts.ASatellite.Modules;
+using Key.Scripts.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,7 @@ namespace Key.Scripts.ASatellite {
 
         private int _currentProductIndex = -1;
         private AbstractASatellite _activeSatelliteTemplate;
+        private AbstractASatellite _basicSatelliteTemplate;
 
         public int Money =>
             _goldModule != null
@@ -48,6 +50,7 @@ namespace Key.Scripts.ASatellite {
         }
 
         private void Start() {
+            ResolveSpawnSettings();
             ConnectModules();
             RegisterExistingSatellites();
             FindProductButtons();
@@ -98,6 +101,41 @@ namespace Key.Scripts.ASatellite {
             SubscribeToSatelliteUnlock();
         }
 
+        private void ResolveSpawnSettings() {
+            if (_orbitCenter == null) {
+                EarthHealth earthHealth =
+                    FindFirstObjectByType<EarthHealth>();
+
+                if (earthHealth != null) {
+                    _orbitCenter =
+                        earthHealth.transform;
+                }
+                else {
+                    PlayerStat playerStat =
+                        FindFirstObjectByType<PlayerStat>();
+
+                    if (playerStat != null) {
+                        _orbitCenter =
+                            playerStat.transform.root;
+                    }
+                }
+            }
+
+            if (_satelliteParent != null)
+                return;
+
+            GameObject satelliteParent =
+                GameObject.Find("Satellites");
+
+            if (satelliteParent == null) {
+                satelliteParent =
+                    new GameObject("Satellites");
+            }
+
+            _satelliteParent =
+                satelliteParent.transform;
+        }
+
         public void ChangeSatellite(int productIndex) {
             if (!TryGetProduct(
                     productIndex,
@@ -118,7 +156,12 @@ namespace Key.Scripts.ASatellite {
 
             if (_orbitCenter == null ||
                 _satelliteParent == null) {
-                Debug.LogError(
+                ResolveSpawnSettings();
+            }
+
+            if (_orbitCenter == null ||
+                _satelliteParent == null) {
+                    Debug.LogError(
                     $"{name}: 위성 생성 위치가 설정되지 않았습니다.",
                     this
                 );
@@ -126,7 +169,14 @@ namespace Key.Scripts.ASatellite {
                 return;
             }
 
-            if (product.prefab == null) {
+            AbstractASatellite satellitePrefab =
+                GetProductPrefab(
+                    productIndex,
+                    product,
+                    satelliteType
+                );
+
+            if (satellitePrefab == null) {
                 Debug.LogError(
                     $"{product.name}: 위성 프리팹이 없습니다.",
                     product
@@ -134,9 +184,6 @@ namespace Key.Scripts.ASatellite {
 
                 return;
             }
-
-            if (_currentProductIndex == productIndex)
-                return;
 
             if (satelliteType != SatelliteType.None) {
                 if (_satelliteUnlockModule == null)
@@ -152,7 +199,7 @@ namespace Key.Scripts.ASatellite {
 
             _currentProductIndex = productIndex;
 
-            ReplaceSatelliteMode(product);
+            ReplaceSatelliteMode(satellitePrefab);
             SynchronizeSatelliteCount();
         }
 
@@ -182,6 +229,9 @@ namespace Key.Scripts.ASatellite {
                 Quaternion.identity,
                 _satelliteParent
             );
+
+            if (!satellite.gameObject.activeSelf)
+                satellite.gameObject.SetActive(true);
 
             MovementModule movementModule =
                 satellite.GetModule<MovementModule>();
@@ -258,6 +308,25 @@ namespace Key.Scripts.ASatellite {
             };
         }
 
+        private AbstractASatellite GetProductPrefab(
+            int productIndex,
+            ASatelliteSO product,
+            SatelliteType satelliteType
+        ) {
+            if (satelliteType == SatelliteType.None &&
+                _basicSatelliteTemplate != null) {
+                return _basicSatelliteTemplate;
+            }
+
+            if (productIndex < 0 ||
+                productIndex >= _products.Count ||
+                product == null) {
+                return null;
+            }
+
+            return product.prefab;
+        }
+
         private void RegisterExistingSatellites() {
             AbstractASatellite[] existingSatellites =
                 FindObjectsByType<AbstractASatellite>(
@@ -267,9 +336,7 @@ namespace Key.Scripts.ASatellite {
 
             foreach (AbstractASatellite satellite in
                      existingSatellites) {
-                if (satellite == null ||
-                    satellite.gameObject.scene !=
-                    gameObject.scene) {
+                if (satellite == null) {
                     continue;
                 }
 
@@ -279,6 +346,21 @@ namespace Key.Scripts.ASatellite {
                 if (movementModule == null ||
                     _satellites.Contains(movementModule)) {
                     continue;
+                }
+
+                if (_basicSatelliteTemplate == null) {
+                    _basicSatelliteTemplate =
+                        Instantiate(
+                            satellite,
+                            transform
+                        );
+
+                    _basicSatelliteTemplate.name =
+                        $"{satellite.name} Template";
+
+                    _basicSatelliteTemplate
+                        .gameObject
+                        .SetActive(false);
                 }
 
                 satellite.Deploy(_orbitCenter);
@@ -389,12 +471,18 @@ namespace Key.Scripts.ASatellite {
         }
 
         private void SynchronizeSatelliteCount() {
+            if (_orbitCenter == null ||
+                _satelliteParent == null) {
+                ResolveSpawnSettings();
+            }
+
             if (_satelliteStatModule == null)
                 ConnectModules();
 
             if (_satelliteStatModule == null)
                 return;
 
+            RegisterExistingSatellites();
             SelectInitialMode();
 
             AbstractASatellite satellitePrefab =
@@ -436,12 +524,21 @@ namespace Key.Scripts.ASatellite {
                 ASatelliteSO product =
                     _products[_currentProductIndex];
 
-                if (product != null &&
-                    product.prefab != null) {
-                    _activeSatelliteTemplate =
-                        product.prefab;
+                SatelliteType satelliteType =
+                    GetProductType(_currentProductIndex);
 
-                    return product.prefab;
+                AbstractASatellite productPrefab =
+                    GetProductPrefab(
+                        _currentProductIndex,
+                        product,
+                        satelliteType
+                    );
+
+                if (productPrefab != null) {
+                    _activeSatelliteTemplate =
+                        productPrefab;
+
+                    return productPrefab;
                 }
             }
 
@@ -461,35 +558,69 @@ namespace Key.Scripts.ASatellite {
         }
 
         private void ReplaceSatelliteMode(
-            ASatelliteSO product
+            AbstractASatellite satellitePrefab
         ) {
-            if (product == null ||
-                product.prefab == null) {
+            if (satellitePrefab == null) {
                 return;
             }
 
-            _activeSatelliteTemplate = product.prefab;
+            _activeSatelliteTemplate = satellitePrefab;
 
-            RemoveMissingSatellites();
+            List<AbstractASatellite> activeSatellites =
+                FindActiveSceneSatellites();
 
             List<float> angles = new(
-                _satellites.Count
+                activeSatellites.Count
             );
 
-            foreach (MovementModule satellite in _satellites)
-                angles.Add(satellite.CurrentAngle);
+            foreach (AbstractASatellite satellite in
+                     activeSatellites) {
+                MovementModule movementModule =
+                    satellite.GetModule<MovementModule>();
 
-            foreach (MovementModule satellite in _satellites)
-                DestroySatellite(satellite);
+                if (movementModule != null)
+                    angles.Add(movementModule.CurrentAngle);
+
+                satellite.gameObject.SetActive(false);
+                Destroy(satellite.gameObject);
+            }
 
             _satellites.Clear();
 
             foreach (float angle in angles) {
-                if (!SpawnSatellite(product, angle))
+                if (!SpawnSatellite(
+                        satellitePrefab,
+                        angle
+                    )) {
                     break;
+                }
             }
 
             RearrangeSatellites();
+        }
+
+        private List<AbstractASatellite>
+            FindActiveSceneSatellites() {
+            AbstractASatellite[] foundSatellites =
+                FindObjectsByType<AbstractASatellite>(
+                    FindObjectsInactive.Exclude,
+                    FindObjectsSortMode.None
+                );
+
+            List<AbstractASatellite> sceneSatellites =
+                new(foundSatellites.Length);
+
+            foreach (AbstractASatellite satellite in
+                     foundSatellites) {
+                if (satellite == null ||
+                    satellite == _basicSatelliteTemplate) {
+                    continue;
+                }
+
+                sceneSatellites.Add(satellite);
+            }
+
+            return sceneSatellites;
         }
 
         private void DestroySatellite(
@@ -502,10 +633,14 @@ namespace Key.Scripts.ASatellite {
                 movementModule
                     .GetComponentInParent<AbstractASatellite>();
 
-            if (satellite != null)
+            if (satellite != null) {
+                satellite.gameObject.SetActive(false);
                 Destroy(satellite.gameObject);
-            else
+            }
+            else {
+                movementModule.gameObject.SetActive(false);
                 Destroy(movementModule.gameObject);
+            }
         }
 
         private void RearrangeSatellites() {

@@ -13,7 +13,6 @@ namespace Eric.Dialogue
                 [field:SerializeField] private Dialogue Dialogue{get;set;}
                 private void Update()
                 {
-                        if (Keyboard.current.eKey.wasPressedThisFrame) _timer = time;
                         _timer += Time.deltaTime;
                         if (_timer > time)
                         {

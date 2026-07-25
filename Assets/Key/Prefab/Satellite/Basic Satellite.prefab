@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee3a11cddd94bd98c711cc2a0961b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key.Scripts.ASatellite.ASatellite1
-  satelliteData: {fileID: 11400000, guid: 85e3b598d4a258642aba8aa66eba015e, type: 2}
+  satelliteData: {fileID: 11400000, guid: 2e857dd8447c189488caa7c7302db1c3, type: 2}
   shootSoundType: 7
   orbitCenter: {fileID: 0}
 --- !u!1 &6116963921822884723
@@ -160,6 +160,7 @@ MonoBehaviour:
     m_Bits: 64
   firePoint: {fileID: 6999244742651438685}
   bulletPoolManager: {fileID: 0}
+  bulletRotationOffset: 0
 --- !u!1 &7605757719401162604
 GameObject:
   m_ObjectHideFlags: 0

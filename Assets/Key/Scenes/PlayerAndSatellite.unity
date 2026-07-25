@@ -630,18 +630,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 462171981}
-        m_TargetAssemblyTypeName: Key.Scripts.ASatellite.SatelliteShop, Assembly-CSharp
-        m_MethodName: ButtonLock
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 213718729}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &213718730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587514387332923724, guid: d24a4406d716ca748b4401edff585db2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 559669.3
+      value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 7184242598241273732, guid: d24a4406d716ca748b4401edff585db2, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2619,18 +2607,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 462171981}
-        m_TargetAssemblyTypeName: Key.Scripts.ASatellite.SatelliteShop, Assembly-CSharp
-        m_MethodName: ButtonLock
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1079640764}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1079640765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2760,18 +2736,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 462171981}
-        m_TargetAssemblyTypeName: Key.Scripts.ASatellite.SatelliteShop, Assembly-CSharp
-        m_MethodName: ButtonLock
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1277596817}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4482,6 +4446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91289ca2a79438a91db3bd34f6f7925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eric.Scenes.SceneChanger
+  lightFading: {fileID: 0}
 --- !u!114 &1977948427
 MonoBehaviour:
   m_ObjectHideFlags: 0
