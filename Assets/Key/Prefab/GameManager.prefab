@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd16f95f43cd1284d98ef85efdbc11ca, type: 2}
   - {fileID: 11400000, guid: 3636f92f28b2887448a377b15d086834, type: 2}
   - {fileID: 11400000, guid: 2e857dd8447c189488caa7c7302db1c3, type: 2}
-  _productTypes: 
+  _productTypes: 01000000020000000300000000000000
   _orbitCenter: {fileID: 0}
   _satelliteParent: {fileID: 0}
 --- !u!114 &3988882706107789604

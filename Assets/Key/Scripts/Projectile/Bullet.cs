@@ -45,7 +45,13 @@ namespace Key.Scripts.Projectile {
             _poolManager = poolManager;
         }
 
-        public void Shoot(Vector2 targetPosition, BulletDataSO data, int bonusDamage = 0, float bonusKnockback = 0f) {
+        public void Shoot(
+            Vector2 targetPosition,
+            BulletDataSO data,
+            int bonusDamage = 0,
+            float bonusKnockback = 0f,
+            float? rotationOffsetOverride = null
+        ) {
             if (data == null) {
                 ReturnToPool();
                 return;
@@ -80,7 +86,9 @@ namespace Key.Scripts.Projectile {
             transform.rotation = Quaternion.Euler(
                 0f,
                 0f,
-                angle + data.RotationOffset
+                angle +
+                (rotationOffsetOverride ??
+                 data.RotationOffset)
             );
 
             _rigidbody.linearVelocity =
