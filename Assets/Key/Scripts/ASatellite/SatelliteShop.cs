@@ -49,6 +49,11 @@ namespace Key.Scripts.ASatellite {
             }
         }
 
+        private void Awake() {
+            if (FindPrimarySatelliteShop() != this)
+                enabled = false;
+        }
+
         private void Start() {
             ResolveSpawnSettings();
             ConnectModules();
@@ -57,6 +62,92 @@ namespace Key.Scripts.ASatellite {
             RefreshProductButtons();
             SelectInitialMode();
             SynchronizeSatelliteCount();
+        }
+
+        private static SatelliteShop FindPrimarySatelliteShop() {
+            SatelliteShop[] satelliteShops =
+                FindObjectsByType<SatelliteShop>(
+                    FindObjectsInactive.Include,
+                    FindObjectsSortMode.None
+                );
+
+            SatelliteShop primaryShop = null;
+            int highestPriority = int.MinValue;
+
+            foreach (SatelliteShop satelliteShop in
+                     satelliteShops) {
+                if (satelliteShop == null)
+                    continue;
+
+                int priority =
+                    GetSatelliteShopPriority(satelliteShop);
+
+                if (primaryShop != null &&
+                    priority < highestPriority) {
+                    continue;
+                }
+
+                if (primaryShop != null &&
+                    priority == highestPriority &&
+                    satelliteShop.GetInstanceID() >
+                    primaryShop.GetInstanceID()) {
+                    continue;
+                }
+
+                primaryShop = satelliteShop;
+                highestPriority = priority;
+            }
+
+            return primaryShop;
+        }
+
+        private static int GetSatelliteShopPriority(
+            SatelliteShop satelliteShop
+        ) {
+            int priority = 0;
+
+            if (IsCalledBySatelliteButton(satelliteShop))
+                priority += 4;
+
+            if (satelliteShop._orbitCenter != null)
+                priority += 2;
+
+            if (satelliteShop._satelliteParent != null)
+                priority += 1;
+
+            return priority;
+        }
+
+        private static bool IsCalledBySatelliteButton(
+            SatelliteShop satelliteShop
+        ) {
+            Button[] buttons =
+                FindObjectsByType<Button>(
+                    FindObjectsInactive.Include,
+                    FindObjectsSortMode.None
+                );
+
+            foreach (Button button in buttons) {
+                if (button == null)
+                    continue;
+
+                int listenerCount =
+                    button.onClick.GetPersistentEventCount();
+
+                for (int i = 0; i < listenerCount; i++) {
+                    if (button.onClick.GetPersistentTarget(i) !=
+                        satelliteShop) {
+                        continue;
+                    }
+
+                    if (button.onClick.GetPersistentMethodName(i) ==
+                        nameof(ChangeSatellite)) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void ConnectModules() {
