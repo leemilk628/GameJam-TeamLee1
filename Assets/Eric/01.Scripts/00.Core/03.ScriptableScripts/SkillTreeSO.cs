@@ -25,7 +25,8 @@ namespace Eric.ScriptableScripts
                 None,
                 AutocannonSatellite,
                 MissileSatellite,
-                LaserSatellite
+                LaserSatellite,
+                BasicSatellite
         }
 
         [CreateAssetMenu(fileName = "New SkillTreeSO", menuName = "Eric/SkillTreeSO")]
